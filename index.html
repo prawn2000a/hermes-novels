@@ -3,120 +3,401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BENQ亭 小說館</title>
+    <title>BENQ亭 · 小說舘</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
+        :root {
+            --bg: #faf8f5;
+            --bg-warm: #f5f0ea;
+            --ink: #1a1a18;
+            --ink-light: #6b6560;
+            --accent: #8b6b4a;
+            --accent-light: #c4a882;
+            --line: #e0d8cc;
+            --card-bg: #ffffff;
+        }
+
         body {
-            font-family: "Noto Serif TC", "Source Han Serif TC", "思源宋體", serif;
-            line-height: 1.9;
-            font-size: 18px;
-            color: #3a3a3a;
-            background: linear-gradient(135deg, #fdf6f0 0%, #f5efe9 50%, #fdf9f3 100%);
+            font-family: "Noto Sans TC", "Helvetica Neue", sans-serif;
+            font-weight: 300;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.8;
+            font-size: 16px;
+            letter-spacing: 0.02em;
+        }
+
+        /* ─── Hero ─── */
+        .hero {
             min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+        }
+
+        .hero-text {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 80px 72px 80px 12vw;
+            position: relative;
+            z-index: 2;
         }
-        .container {
-            max-width: 600px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 8px;
-            padding: 50px 40px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(200, 180, 160, 0.2);
+
+        .hero-label {
+            font-size: 11px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 28px;
+            font-weight: 400;
         }
-        h1 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #2c2c2c;
-            margin-bottom: 10px;
-            letter-spacing: 4px;
+
+        .hero-title {
+            font-family: "Cormorant Garamond", "Noto Serif TC", serif;
+            font-size: clamp(56px, 6vw, 88px);
+            font-weight: 500;
+            line-height: 1.05;
+            color: var(--ink);
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
         }
-        .subtitle {
-            font-size: 14px;
-            color: #999;
-            margin-bottom: 40px;
-            font-style: italic;
-        }
-        .divider {
-            color: #ccc;
-            letter-spacing: 8px;
-            margin: 30px 0;
-        }
-        .link-card {
+
+        .hero-title span {
             display: block;
-            background: linear-gradient(135deg, #f8f4f0, #fdf9f6);
-            border: 1px solid #e8ddd4;
-            border-radius: 6px;
-            padding: 25px 30px;
-            margin: 20px 0;
+            font-style: italic;
+            font-weight: 400;
+            font-size: 0.55em;
+            color: var(--ink-light);
+            letter-spacing: 0.02em;
+            margin-top: 8px;
+        }
+
+        .hero-desc {
+            margin-top: 36px;
+            font-size: 15px;
+            color: var(--ink-light);
+            line-height: 1.9;
+            max-width: 340px;
+            font-weight: 300;
+        }
+
+        .hero-rule {
+            width: 48px;
+            height: 1px;
+            background: var(--accent-light);
+            margin: 40px 0;
+        }
+
+        .hero-scroll {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .hero-image {
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-warm);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg,
+                rgba(139, 107, 74, 0.12) 0%,
+                rgba(200, 168, 130, 0.08) 100%);
+            z-index: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.85) contrast(1.05);
+        }
+
+        /* ─── Works ─── */
+        .works {
+            padding: 120px 10vw;
+            background: var(--card-bg);
+        }
+
+        .section-label {
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .section-heading {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(32px, 3.5vw, 48px);
+            font-weight: 500;
+            color: var(--ink);
+            line-height: 1.2;
+            margin-bottom: 64px;
+        }
+
+        .work-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .work-item {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: baseline;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--line);
             text-decoration: none;
-            color: #3a3a3a;
+            color: inherit;
             transition: all 0.3s ease;
+            gap: 40px;
         }
-        .link-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            border-color: #d4756a;
+
+        .work-item:first-child {
+            border-top: 1px solid var(--line);
         }
-        .link-card h2 {
-            font-size: 20px;
+
+        .work-item:hover .work-title {
+            color: var(--accent);
+        }
+
+        .work-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .work-title {
+            font-family: "Noto Serif TC", serif;
+            font-size: 24px;
             font-weight: 600;
-            color: #4a4a4a;
-            margin-bottom: 8px;
+            color: var(--ink);
+            transition: color 0.3s;
+            letter-spacing: 0.04em;
         }
-        .link-card p {
-            font-size: 14px;
-            color: #888;
+
+        .work-meta {
+            font-size: 13px;
+            color: var(--ink-light);
+            display: flex;
+            gap: 20px;
+            align-items: center;
         }
-        .tag {
+
+        .work-tag {
             display: inline-block;
-            background: #d4756a;
-            color: white;
-            font-size: 12px;
-            padding: 2px 10px;
+            background: var(--bg-warm);
+            border: 1px solid var(--line);
+            color: var(--ink-light);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            padding: 3px 10px;
             border-radius: 20px;
-            margin-top: 10px;
         }
+
+        .work-arrow {
+            font-size: 20px;
+            color: var(--accent-light);
+            transition: transform 0.3s, color 0.3s;
+            align-self: center;
+        }
+
+        .work-item:hover .work-arrow {
+            transform: translateX(6px);
+            color: var(--accent);
+        }
+
+        /* ─── About ─── */
+        .about {
+            padding: 120px 10vw;
+            background: var(--bg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-family: "Noto Serif TC", serif;
+            font-size: 20px;
+            line-height: 2;
+            color: var(--ink-light);
+            font-weight: 400;
+        }
+
+        .about-text strong {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        .about-detail {
+            font-size: 14px;
+            line-height: 2;
+            color: var(--ink-light);
+            margin-top: 32px;
+            font-family: "Noto Sans TC", sans-serif;
+            font-weight: 300;
+        }
+
+        /* ─── Footer ─── */
         .footer {
-            margin-top: 40px;
+            padding: 60px 10vw 40px;
+            background: var(--bg-warm);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .footer-name {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--ink);
+            letter-spacing: 0.05em;
+        }
+
+        .footer-sub {
             font-size: 12px;
-            color: #bbb;
+            color: var(--ink-light);
+            margin-top: 6px;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-copy {
+            font-size: 11px;
+            color: var(--ink-light);
+            letter-spacing: 0.08em;
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .hero-image {
+                height: 50vw;
+                order: -1;
+            }
+
+            .hero-text {
+                padding: 60px 32px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .work-item {
+                grid-template-columns: 1fr auto;
+                gap: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>✨ BENQ亭 小說館 ✨</h1>
-        <p class="subtitle">魔法商店出品</p>
-        
-        <div class="divider">◆</div>
 
-        <a class="link-card" href="./novels/BENQ/short-stories/tottori-blue.html">
-            <h2>《鳥取藍》</h2>
-            <p>BL · 日本 · 留學 · 暗戀成真</p>
-            <span class="tag">短篇</span>
-        </a>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-text">
+            <p class="hero-label">Magic Shop · Fiction</p>
+            <h1 class="hero-title">
+                BENQ亭
+                <span>小說舘</span>
+            </h1>
+            <div class="hero-rule"></div>
+            <p class="hero-desc">
+                在偏遠的小縣城，每一個遇見都是命運的缺口。
+                這裡存放著還未說出口的喜歡，與來不及重來的青春。
+            </p>
+            <p class="hero-scroll">Scroll to explore</p>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=1200&q=80"
+                 alt="Abstract gradient"
+                 onerror="this.style.display='none'">
+        </div>
+    </section>
 
-        <a class="link-card" href="./novels/BENQ/short-stories/returning-youth.html">
-            <h2>《回歸少年》</h2>
-            <p>BL · 重生 · 暗戀成真</p>
-            <span class="tag">短篇</span>
-        </a>
+    <!-- Works -->
+    <section class="works">
+        <p class="section-label">Collection</p>
+        <h2 class="section-heading">精選作品</h2>
 
-        <div class="divider">◇</div>
+        <div class="work-list">
+            <a href="./novels/BENQ/short-stories/tottori-blue.html" class="work-item">
+                <div class="work-left">
+                    <h3 class="work-title">鳥取藍</h3>
+                    <div class="work-meta">
+                        <span class="work-tag">BL</span>
+                        <span class="work-tag">日本</span>
+                        <span class="work-tag">留學</span>
+                        <span>暗戀成真</span>
+                    </div>
+                </div>
+                <span class="work-arrow">→</span>
+            </a>
 
-        <p class="footer">
-            BENQ亭 · 繁體中文創作<br>
-            持續更新中 ✨
-        </p>
-    </div>
+            <a href="./novels/BENQ/short-stories/returning-youth.html" class="work-item">
+                <div class="work-left">
+                    <h3 class="work-title">回歸少年</h3>
+                    <div class="work-meta">
+                        <span class="work-tag">BL</span>
+                        <span class="work-tag">重生</span>
+                        <span class="work-tag">校園</span>
+                        <span>暗戀成真</span>
+                    </div>
+                </div>
+                <span class="work-arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+        <div>
+            <p class="section-label">About</p>
+            <h2 class="section-heading">關於這裡</h2>
+        </div>
+        <div>
+            <p class="about-text">
+                <strong>BENQ亭</strong>是一間魔法商店的小說舖，
+                收藏各類型原創故事——有暗戀成真、有重生覺醒、
+                也有錯過與重逢。這裡的每一個故事，
+                都想在平淡日常裡，找到一點讓人停留的光。
+            </p>
+            <p class="about-detail">
+                全部作品為繁體中文原創。持續寫作中。
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div>
+            <p class="footer-name">BENQ亭</p>
+            <p class="footer-sub">Magic Shop · Fiction</p>
+        </div>
+        <p class="footer-copy">© 2026 BENQ亭 · 繁體中文創作</p>
+    </footer>
+
 </body>
 </html>

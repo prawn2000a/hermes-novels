@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鳥取藍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Noto Serif TC", "Source Han Serif TC", "思源宋體", serif;
+            line-height: 1.9;
+            font-size: 18px;
+            color: #3a3a3a;
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4e8ed 50%, #f0f6f9 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-radius: 4px;
+            padding: 60px 50px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(180, 210, 220, 0.3);
+        }
+        .copy-btn {
+            background: #5a9aaf;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            font-family: "Noto Sans TC", sans-serif;
+            transition: all 0.2s;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        .copy-btn:hover {
+            background: #4a8a9f;
+        }
+        .copy-btn.copied {
+            background: #6a9a7a;
+        }
+        .title-block {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2c5f7a;
+            display: inline;
+            letter-spacing: 4px;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #7a9aaa;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        .chapter-header {
+            display: flex;
+            align-items: baseline;
+            margin: 45px 0 20px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #c4dde4;
+        }
+        .chapter-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #3a7a9a;
+            margin: 0;
+            border: none;
+            padding: 0;
+            flex-grow: 1;
+            letter-spacing: 1px;
+        }
+        p {
+            text-indent: 2em;
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+        .emphasis {
+            font-style: italic;
+            color: #5a8aaa;
+        }
+        .highlight {
+            background: linear-gradient(transparent 60%, rgba(90, 154, 175, 0.2) 60%);
+            font-weight: 600;
+        }
+        .separator {
+            text-align: center;
+            color: #b4c8d4;
+            margin: 30px 0;
+            font-size: 20px;
+            letter-spacing: 8px;
+        }
+        .tags-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #d4e4ea;
+        }
+        .tags-label, .synopsis-label {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tag {
+            background: #e8f4f8;
+            border: 1px solid #c4dde4;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #5a7a8a;
+        }
+        .synopsis-section {
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(232, 244, 248, 0.7);
+            border-radius: 6px;
+            border: 1px solid #c4dde4;
+        }
+        .synopsis-text {
+            text-indent: 0;
+            font-size: 16px;
+            color: #555;
+            line-height: 1.8;
+        }
+        .author-note {
+            text-align: center;
+            font-size: 13px;
+            color: #aaa;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .hidden-textarea {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            .copy-btn {
+                display: block;
+                margin: 8px 0 0 0;
+            }
+            .chapter-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 標題 -->
+        <div class="title-block">
+            <span class="title" id="main-title">鳥取藍</span>
+            <button class="copy-btn" onclick="copyText('main-title', this)">複製</button>
+        </div>
+        <p class="subtitle">如果可以在你身邊多留一個夏天</p>
+
+        <div class="separator">◆</div>
+
+        <!-- 序章 -->
+        <div class="chapter-header">
+            <span class="chapter-title">序章：抵達</span>
+            <button class="copy-btn" onclick="copyChapter('prologue', this)">複製</button>
+        </div>
+        <div id="prologue">
+            <p>八月的太陽狠毒，空氣裡有海的鹹味和松樹的清香。</p>
+            <p>林澈拖著行李箱走出小小的JR車站，眼前是一條筆直的商店街，稀疏的人影懶洋洋地在陰涼處走動。沒有人注意到他。沒有台北的囂雜、沒有擁擠的捷運、沒有任何他熟悉的東西。</p>
+            <p>只有遠處若隱若現的鳥取沙丘的輪廓，和一片藍得不像話的天空。</p>
+            <p>他深吸一口氣。空氣很乾淨，乾淨得有一點寂寞。</p>
+            <p>作為為期一年的交換學生，他將在鳥取大學度過接下來的三百六十五天。選這個地方的原因很簡單——獎學金。鳥取是日本偏遠的縣，國際學生少，獎學金容易申請。他想著，反正只是讀書，去哪裡都一樣。</p>
+            <p>那時候的林澈還不知道，這個決定會讓他在一年後，拖著行李箱離開的時候，眼眶會有多紅。</p>
+        </div>
+
+        <!-- 第一章 -->
+        <div class="chapter-header">
+            <span class="chapter-title">第一章：遇見</span>
+            <button class="copy-btn" onclick="copyChapter('ch1', this)">複製</button>
+        </div>
+        <div id="ch1">
+            <p>開學第一天，林澈遲到了。</p>
+            <p>不是因為迷路——他提前四十分鐘就出了門，而是宿舍房間的門鎖出了問題，他在走廊站了半小時，等管理員來開門。</p>
+            <p>他跑到教室的時候，課已經開始了。</p>
+            <p>他站在門口，處刑台一般的目光從四面八方投來。教授皺眉看了他一眼，擺擺手讓他進去。他低著頭往最後排的空位走，心裏想著為什麼日本的大學教室也要設計得這麼大，大到走道像伸展台。</p>
+            <p>就在那時候，他看見了藤間蒼。</p>
+            <p>坐在窗邊的男孩，陽光把他的側臉勾出一層淡淡的金色輪廓。他正低頭在紙上寫字，筆尖接觸紙面的聲音幾乎聽不見，但林澈覺得自己聽見了。</p>
+            <p>那一秒，心臟像是被什麼輕輕地握了一下。</p>
+            <p>不是所謂的一見鍾情。林澈後來對自己說。只是那天的陽光太好，而他的側臉剛好符合某種想像——安靜的、溫柔的、像鳥取的天空一樣乾淨的想像。</p>
+            <p>他找到自己的座位，坐下來，翻開課本。</p>
+            <p>但視線偶爾會不由自主地往窗邊飄。</p>
+        </div>
+
+        <!-- 第二章 -->
+        <div class="chapter-header">
+            <span class="chapter-title">第二章：靠近</span>
+            <button class="copy-btn" onclick="copyChapter('ch2', this)">複製</button>
+        </div>
+        <div id="ch2">
+            <p>第一次說上話是一週後的事。</p>
+            <p>地點是學校的711。時間是晚上九點。林澈去買飯糰，發現自己想吃的口味只剩最後一個。</p>
+            <p>而伸手去拿的人，是藤間蒼。</p>
+            <p>兩人的手幾乎同時碰到了同一個飯糰。</p>
+            <p>林澈的心跳漏了一拍。手指接觸的那一小片皮膚，像是著火了一樣。他快速地收回手，說了聲「抱歉」，聲音有一點啞。</p>
+            <p>藤間蒼抬起頭，看見了他。那雙眼睛是很淡的褐色，像秋天的落葉，又像鳥取的沙丘被夕陽染過後的顏色。</p>
+            <p>「啊，你是那個交換學生？」他說。聲音比他想象中要低沉一些，帶著鳥取口音特有的軟糯尾音。「台灣來的對吧？」</p>
+            <p>林澈有點意外。「你知道？」</p>
+            <p>「學校國際學生不多，稍微打聽一下就知道了。」藤間蒼笑了一下。「我叫藤間蒼。你呢？」</p>
+            <p>「林澈。」</p>
+            <p>「林澈。」藤間蒼重複了一遍他的名字，像是在確認發音。「請多指教。那個飯糰——」他看了看架子，「只剩一個了，你要嗎？」</p>
+            <p>「可是——」</p>
+            <p>「我吃別的就好。」藤間蒼把飯糰推向他的方向。「異鄉人要吃好一點。」</p>
+            <p>那一句「異鄉人」讓林澈的心溫熱了一下。</p>
+            <p>他拿走了飯糰，想著要怎麼還這個人情。</p>
+            <p>卻沒有想到，這個人情最後會變成那個樣子。</p>
+        </div>
+
+        <!-- 第三章 -->
+        <div class="chapter-header">
+            <span class="chapter-title">第三章：熟悉</span>
+            <button class="copy-btn" onclick="copyChapter('ch3', this)">複製</button>
+        </div>
+        <div id="ch3">
+            <p>後來他們怎麼熟起來的呢。</p>
+            <p>說起來也沒有什麼戲劇性的轉折。只是藤間蒼的英文不太好，而林澈的日文需要有人幫忙糾正，於是他們開始了某種交換——語言交換。</p>
+            <p>每週二和週四的晚上，他們會在學校圖書館的自習室見面。先用一小時練習對方的語言，然後剩下的時間就閒聊。</p>
+            <p>聊家鄉、聊食物、聊為什麼會來鳥取、聊未來想做什麼。</p>
+            <p>林澈知道了藤間蒼是鳥取本地人，家在沙丘附近開民宿，爸媽都是普通人，沒有什麼曲折的故事。他有個小兩歲的妹妹，正在大阪讀書。他從小就在沙丘邊長大，喜歡看海，喜歡聽浪聲。</p>
+            <p>「為什麼選鳥取？」有一次他問。「日本其他地方機會更多吧。」</p>
+            <p>「因為想離家近一點。」藤間蒼笑著說。「而且鳥取很好。天空很藍，沙丘很美，雖然偏僻了點，但該有的都有。」</p>
+            <p>林澈看著他說「天空很藍」時的表情，心裏想：他是認真的。他真的覺得這裡很好。</p>
+            <p>而自己呢？鳥取很好，但他想家。想台北的雨天、想便利商店的關東煮、想不用解釋自己是哪裡人的地方。</p>
+            <p>可是，每次看見藤間蒼的笑，他又有點不想回去。</p>
+            <p>這讓他感到困惑。</p>
+        </div>
+
+        <!-- 第四章 -->
+        <div class="chapter-header">
+            <span class="chapter-title">第四章：秋天</span>
+            <button class="copy-btn" onclick="copyChapter('ch4', this)">複製</button>
+        </div>
+        <div id="ch4">
+            <p>秋天來了的時候，關係發生了微妙的變化。</p>
+            <p>也許是因為天氣涼了，人會變得比較渴望溫暖。也許只是因為相處的時間久了，有些東西自然會生長。</p>
+            <p>總之，林澈開始會在不自覺的情況下找藤間蒼。</p>
+            <p>比如他發現了一家好吃的拉麵店，會第一個想帶他去。比如他看見了漂亮的銀杏樹，會想拍給他看。比如他在圖書館自習到很晚，會繞遠路經過藤間蒼的宿舍，看看他房間的燈有沒有亮。</p>
+            <p>有一次他們一起走去車站，路上經過一片波斯菊花田。藤間蒼突然停下腳步。</p>
+            <p>「等一下。」</p>
+            <p>他走進花田裏，摘了一小把波斯菊。回來的時候，他把花遞到林澈面前。</p>
+            <p>「給你。」</p>
+            <p>林澈愣住了。花很小，白色的花瓣，黃色的花心，普通得不能再普通。但藤間蒼遞花的手很穩，眼神很真誠，像是做了一件很平常的事。</p>
+            <p>他的心跳卻快得像要爆炸。</p>
+            <p>「……謝謝。」他接過花，聲音有一點發緊。</p>
+            <p>那天晚上，他對著那把波斯菊發了很久的呆。</p>
+            <p>他想，他完蛋了。</p>
+        </div>
+
+        <!-- 第五章 -->
+        <div class="chapter-header">
+            <span class="chapter-title">第五章：確認</span>
+            <button class="copy-btn" onclick="copyChapter('ch5', this)">複製</button>
+        </div>
+        <div id="ch5">
+            <p>學期中的某一天，林澈收到了一封郵件。</p>
+            <p>是台灣的家裏發來的。媽媽說，親戚幫他介紹了一份在台北的實習，是明年四月開始的。如果確定的話，他要提前回去準備。</p>
+            <p>也就意味著，他可能無法在鳥取待滿一年。</p>
+            <p>他盯著手機螢幕，心裏有一種被抽空的感覺。</p>
+            <p>明明是自己的人生規劃，明明是早就想好的退路，為什麼看到這封郵件的時候，會覺得難過？</p>
+            <p>是因為那份實習很好嗎？還是因為要離開鳥取？</p>
+            <p>他想了很久，最後發現，讓他真正不願意離開的——是藤間蒼。</p>
+            <p>這個認知讓他感到恐懼。</p>
+            <p>他想，算了。不過是個交換學生，不過是認識了幾個月的人，不過是個會在秋天摘花送給他的人——</p>
+            <p>可是他知道，如果現在離開，他會後悔一輩子。</p>
+            <p>那天晚上，他沒有告訴藤間蒼郵件的事。</p>
+            <p>他只是想著，再等等吧。等他確定要不要回去。等他想清楚自己的心。等他——</p>
+            <p>等他能承受得住答案的時候。</p>
+        </div>
+
+        <!-- 第六章 -->
+        <div class="chapter-header">
+            <span class="chapter-title">第六章：坦承</span>
+            <button class="copy-btn" onclick="copyChapter('ch6', this)">複製</button>
+        </div>
+        <div id="ch6">
+            <p>聖誕節前的一個晚上，藤間蒼向他告白了。</p>
+            <p>沒有預兆。沒有準備。他們只是在便利店門口站著，討論著明天考試的內容，然後藤間蒼突然安靜了下來。</p>
+            <p>「林澈。」</p>
+            <p>「嗯？」</p>
+            <p>「你……四月會回去嗎？」</p>
+            <p>林澈的心沈了一下。他還沒有告訴任何人關於那封郵件的事。</p>
+            <p>「不確定。」他說。聲音有一點苦。</p>
+            <p>「如果可以選擇呢？」藤間蒼看著他，眼睛裏有一種很认真的光。「你想回去嗎？」</p>
+            <p>林澈沒有回答。</p>
+            <p>沉默在兩人之間隔著冷空氣流動。</p>
+            <p>「其實我——」藤間蒼張了張嘴，又停了下來。他的耳根在路燈下有一點泛紅。「算了。當我沒說。」</p>
+            <p>「等一下。」林澈拉住他的袖子。手指碰到他手腕的時候，他的心跳又漏了一拍。「你想說什麼？」</p>
+            <p>藤間蒼看著他拉住自己袖子的手，輕輕地笑了一下。那笑容有點苦，有點遲疑，又有點讓人心疼。</p>
+            <p>「我想說——」他深吸了一口氣，「我希望你留下來。」</p>
+            <p>「……」</p>
+            <p>「我知道這很自私。你有你的未來，你的家人，你的規劃。可是——」他的聲音有一點發抖，「我在想，如果我現在不說，以後會不會來不及。」</p>
+            <p>林澈的視線有一點模糊了。</p>
+            <p>「你——」</p>
+            <p>「我喜歡你。」藤間蒼說。聲音很輕，輕得像雪落下來的聲音。「從第一天看見你在教室門口遲到、滿頭大汗的樣子的時候，就喜歡了。」</p>
+            <p>林澈覺得自己的心臟停了一拍。</p>
+            <p>那時候？第一天？那個那麼糟糕的遲到的樣子？</p>
+            <p>「你在說什麼……」他的聲音有一點發顫。「那個樣子——」</p>
+            <p>「很可愛。」藤間蒼笑著說。眼裏閃著什麼光，像是真的覺得那天很值得紀念一樣。「而且我後來在想，如果你沒有遲到，我們會不會就這樣錯過。」</p>
+            <p>林澈的眼淚突然就掉下來了。</p>
+            <p>他也不知道為什麼。只是聽到這句話的時候，那種為什麼想留下、為什麼不想離開、為什麼在這個人身邊會覺得安心的困惑，全部都解開了。</p>
+            <p>「笨蛋……」他說。聲音被眼淚堵得含糊不清。「你也遲到過啊……」</p>
+            <p>「嗯？」</p>
+            <p>「我第一天在圖書館自習，你進來的時候已經晚了十五分鐘。」</p>
+            <p>藤間蒼的眼睛慢慢地睜大了一點。</p>
+            <p>「所以我們都遲到了。」林澈用手背胡亂地擦著眼淚，聲音又哭又笑。「而且我都想了很久為什麼你第一天就注意到我——」</p>
+            <p>「所以你的意思是？」藤間蒼的聲音有一點緊。</p>
+            <p>林澈深吸了一口氣。</p>
+            <p>他是台灣來的交換學生。他會在鳥取待一年，或者不到一年。他的家在台北，他的未來在那裡——可是現在，他在鳥取，在沙丘旁邊，在一個喜歡他的男生面前。</p>
+            <p>他可以說不。他可以拒絕。他可以說「謝謝你但是」。</p>
+            <p>可是他不想。</p>
+            <p>「我也喜歡你。」他說。</p>
+            <p>空氣凝固了一秒。然後藤間蒼伸手把他拉進了懷裏。</p>
+            <p>那是他第一次感受到那麼真實的體溫。隔著羽絨服的布料，他能感覺到藤間蒼的心跳——很快，和自己的一樣快。</p>
+            <p>他在心裏想：完了。真的完了。這輩子都離不開這個人了。</p>
+            <p>可是他一點都不害怕。</p>
+        </div>
+
+        <!-- 第七章 -->
+        <div class="chapter-header">
+            <span class="chapter-title">第七章：春天</span>
+            <button class="copy-btn" onclick="copyChapter('ch7', this)">複製</button>
+        </div>
+        <div id="ch7">
+            <p>春天來的時候，林澈做出了決定。</p>
+            <p>他告訴台北的家裏，那份實習他不去。他申請了延期畢業，在鳥取再待一年。媽媽在電話裏沉默了很久，最後只是說：「你自己的人生，你自己決定。」</p>
+            <p>他知道媽媽在生氣。但他更知道，如果這次離開了，他會後悔。</p>
+            <p>四月的一個晴朗的下午，藤間蒼帶他去了沙丘。</p>
+            <p>是旅遊淡季，沙丘上幾乎沒有別人。兩個人並肩坐在沙丘頂上，看著日本海的水天一色。</p>
+            <p>「藍得有一點過分。」林澈說。</p>
+            <p>「我跟你說過了，」藤間蒼笑著，「鳥取的天空很藍。」</p>
+            <p>林澈側頭看他。陽光把他的側臉照得有一點透明，輪廓柔和得像一幅畫。</p>
+            <p>他在想，如果沒有來鳥取，他會不會永遠不知道世界上有這樣的人。不知道有人可以這麼單純地喜歡一個地方，不知道有人可以對著一個並不熟悉的外國人笑得像春天一樣溫暖。</p>
+            <p>「藤間蒼。」他叫他的名字。</p>
+            <p>「嗯？」</p>
+            <p>「謝謝你。」</p>
+            <p>「謝什麼？」</p>
+            <p>「謝謝你那天在便利店讓了飯糰給我。」</p>
+            <p>藤間蒼笑了。那笑容在沙子裏顯得特別的乾淨，特別的讓人心動。</p>
+            <p>「那個飯糰，」他說，「我可以讓給你一輩子。」</p>
+            <p>林澈的心跳漏了一拍。</p>
+            <p>他側過身體，在藤間蒼的臉頰上輕輕地親了一下。</p>
+            <p>嘴唇接觸到皮膚的時候，他感覺到藤間蒼的身體輕輕地僵了一下。但只是一瞬間。然後那雙温熱的手就托住了他的臉，把那個輕輕的接觸變成了一個真正的吻。</p>
+            <p>沙丘的另一邊，海浪溫柔地拍打著沙灘。</p>
+            <p>天空很藍。水天一色。</p>
+            <p>就像那一刻的心。</p>
+        </div>
+
+        <!-- 尾聲 -->
+        <div class="chapter-header">
+            <span class="chapter-title">尾聲：一年後</span>
+            <button class="copy-btn" onclick="copyChapter('epilogue', this)">複製</button>
+        </div>
+        <div id="epilogue">
+            <p>一年後，林澈畢業了。</p>
+            <p>他在鳥取找到了工作。不是什麼了不起的職位，只是在一家小小的旅行社做外語導遊。薪水不高，辦公室很小，但他每天都很開心。</p>
+            <p>因為可以留在鳥取了。</p>
+            <p>因為可以留在藤間蒼身邊了。</p>
+            <p>他們在校外租了一間小小的公寓。離車站很近，窗外可以看見山。房間不大，但足夠兩個人住。陽台上種著幾盆薄荷，是林澈來鳥取後養成的習慣。</p>
+            <p>每個早晨，他睜開眼睛的時候，都會看見藤間蒼的睡臉。那種感覺很奇妙，像是確定自己不是做夢。</p>
+            <p>有時候藤間蒼比他早醒，會先起床去煮咖啡。每當這時候，林澈就會躺在床上，聽著廚房傳來的聲音，聞著咖啡的香氣飄進來。</p>
+            <p>然後藤間蒼會端著兩杯咖啡走進來，坐在床邊，輕輕地叫他起床。</p>
+            <p>那種場景，林澈覺得可以重複一萬次都不會厭倦。</p>
+            <p>這就是他留下的理由。</p>
+            <p>不是因為鳥取很好，不是因為獎學金，不是因為規劃。</p>
+            <p>只是因為，有個人在等他。</p>
+            <p>而他，也想在那個人身邊多留一個夏天。</p>
+            <p>再多留一個。</p>
+            <p>再一個。</p>
+        </div>
+
+        <div class="separator">◇</div>
+
+        <!-- Tags -->
+        <div class="tags-section">
+            <button class="copy-btn" onclick="copyText('tags-list', this)" style="margin-bottom: 12px;">複製</button>
+            <span class="tags-label">標籤</span>
+            <div class="tags-list" id="tags-list">
+                <span class="tag">BL</span>
+                <span class="tag">日本</span>
+                <span class="tag">鳥取</span>
+                <span class="tag">留學</span>
+                <span class="tag">暗戀成真</span>
+                <span class="tag">溫馨</span>
+                <span class="tag">初戀</span>
+                <span class="tag">HE</span>
+            </div>
+        </div>
+
+        <!-- 簡介 -->
+        <div class="synopsis-section">
+            <button class="copy-btn" onclick="copyText('synopsis', this)">複製</button>
+            <span class="synopsis-label">簡介</span>
+            <p class="synopsis-text" id="synopsis">台灣青年林澈以交換學生身份來到日本鳥取——這個偏遠、寂寞、卻有著湛藍天空的小縣城。他在便利店與當地少年藤間蒼相遇，一個飯糰、一把波斯菊、一次次的語言交換，讓他在這個陌生的地方找到了留下的理由。然而家鄉的工作機會、語言不通的障礙、文化差異的孤單，讓這段感情充滿了不安。當藤間蒼終於坦白心意的時候，林澈才發現——他早已決定要留下來。一個關於留下與離開、曖昧與確認的青春戀愛故事。</p>
+        </div>
+
+        <p class="author-note">
+            《鳥取藍》| 全文完<br>
+            創作於 2026年 BENQ亭
+        </p>
+    </div>
+
+    <textarea class="hidden-textarea" id="copy-buffer"></textarea>
+
+    <script>
+        function copyText(elementId, btn) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent || element.innerText;
+            copyToClipboard(text, btn);
+        }
+
+        function copyChapter(chapterId, btn) {
+            const element = document.getElementById(chapterId);
+            const text = element.innerText;
+            copyToClipboard(text, btn);
+        }
+
+        function copyToClipboard(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = '已複製 ✓';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+    </script>
+</body>
+</html>

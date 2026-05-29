@@ -473,7 +473,7 @@
         }
         
         function copyProse(btn, chapterClass) {
-            const elems = document.querySelectorAll('.' + chapterClass + ' .prose');
+            const elems = document.querySelectorAll('#' + chapterClass + ' .prose');
             let text = '';
             elems.forEach(el => text += el.innerText + '\n\n');
             navigator.clipboard.writeText(text).then(() => {

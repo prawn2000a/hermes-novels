@@ -136,26 +136,45 @@
             footer { flex-direction: column; gap: 16px; }
             .footer-nav a { margin-left: 0; margin-right: 16px; }
         }
+        
+        /* Copy Button */
+        .copy-btn {
+            background: transparent;
+            border: 1px solid var(--line);
+            color: var(--ink-light);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            margin-left: 10px;
+            vertical-align: middle;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .copy-btn.copied { background: var(--accent); border-color: var(--accent); color: white; }
+        
+        .header-copy { display: inline-block; }
     </style>
 </head>
 <body>
     <div class="wrap">
         <header>
             <a href="../index.html" class="back-link">← BENQ亭</a>
-            <h1>鳥取藍</h1>
-            <p class="subtitle">如果可以在你身邊多留一個夏天</p>
+            <h1>鳥取藍 <button class="copy-btn" onclick="copyText(this, 'main-title')">複製</button></h1>
+            <p id="main-title" class="subtitle">如果可以在你身邊多留一個夏天</p>
         </header>
 
         <div class="synopsis-box">
-            <span class="synopsis-label">Synopsis</span>
-            <p class="synopsis-text">
+            <span class="synopsis-label">Synopsis <button class="copy-btn" onclick="copyText(this, 'synopsis')">複製</button></span>
+            <p id="synopsis" class="synopsis-text">
                 台灣青年林澈以交換學生身份來到日本鳥取，這個偏遠、寂寞卻擁有湛藍天空的小縣城。他在便利店與當地少年藤間蒼相遇，一個飯糰、一把波斯菊、一次語言交換，讓他在陌生的土地上找到留下的理由。然而家鄉的工作機會、語言不通的障礙、文化差異的孤單，讓這段感情充滿不安。當藤間蒼終於坦白心意的時候，林澈才發現自己早已決定留下來。這是一個關於留下與離開、曖昧與確認的青春戀愛故事。
             </p>
         </div>
 
         <div class="tags">
-            <span class="tags-label">Tags</span>
-            <div class="tag-list">
+            <span class="tags-label">Tags <button class="copy-btn" onclick="copyText(this, 'tag-list')">複製</button></span>
+            <div id="tag-list" class="tag-list">
                 <span class="tag">BL</span>
                 <span class="tag">日本</span>
                 <span class="tag">鳥取</span>
@@ -168,9 +187,9 @@
         </div>
 
         <!-- 序章 -->
-        <div class="chapter">
+        <div class="chapter" id="prologue">
             <p class="chapter-num">Prologue</p>
-            <h2 class="chapter-title">抵達</h2>
+            <h2 class="chapter-title">抵達 <button class="copy-btn" onclick="copyProse(this, 'prologue')">複製</button></h2>
             <div class="prose">
                 <p>八月的太陽狠毒，空氣裡摻著海的鹹味和松針的清香。林澈拖著行李箱走出小小的JR車站，眼前是一條筆直的商店街，午后陽光懶洋洋地鋪在路面，稀疏的行人躲在騎樓下走動。沒有人注意他。沒有台北的喧雜、沒有捷運你的人擠人、沒有任何他熟悉的場景。只有遠處若隱若現的鳥取沙丘的輪廓，和一片藍得不大真實的天空。</p>
                 <p>他深吸一口氣。空氣很乾淨，乾淨得有點兒寂寞。作為為期一年的交換學生，他會在鳥取大學度過三百六十五天。選這個地方的原因很實際：獎學金。鳥取是日本偏遠的縣，國際學生少，補助卻比大城市豐厚。那時候的他還不知道，這個決定會讓一年後拖著行李箱離開的自己，眼眶紅成什麼樣子。</p>
@@ -178,9 +197,9 @@
         </div>
 
         <!-- 第一章 -->
-        <div class="chapter">
+        <div class="chapter" id="ch1">
             <p class="chapter-num">Chapter 1</p>
-            <h2 class="chapter-title">遇見</h2>
+            <h2 class="chapter-title">遇見 <button class="copy-btn" onclick="copyProse(this, 'ch1')">複製</button></h2>
             <div class="prose">
                 <p>開學第一天，林澈遲到了。並非因為迷路，而是宿舍的門鎖臨時故障，他在走廊站了半小時，等管理員來開門。跑到教室時，課已經開始十分鐘。</p>
                 <p>他站在門口那道目光像受審。教授皺眉看他一眼，擺擺手示意進去。的低著頭往最後排的空位走，心裡嘀咕：日本的大學教室幹什麼要設計這麼大，走道長得像伸展台。</p>
@@ -190,9 +209,9 @@
         </div>
 
         <!-- 第二章 -->
-        <div class="chapter">
+        <div class="chapter" id="ch2">
             <p class="chapter-num">Chapter 2</p>
-            <h2 class="chapter-title">靠近</h2>
+            <h2 class="chapter-title">靠近 <button class="copy-btn" onclick="copyProse(this, 'ch2')">複製</button></h2>
             <div class="prose">
                 <p>第一次說上話是一個禮拜後的事。地點是校內的、超商，晚上九點。林澈去買飯糰，發現自己想吃的口味只剩最後一個。</p>
                 <p>伸手去拿的人是藤間蒼。兩人的手指同時碰到同一包飯糰。林澈的心跳慢了半拍，指尖接觸的那小片皮膚像被火舌舔過。他倏地收回手，說了聲抱歉，聲音有點啞。</p>
@@ -206,9 +225,9 @@
         </div>
 
         <!-- 第三章 -->
-        <div class="chapter">
+        <div class="chapter" id="ch3">
             <p class="chapter-num">Chapter 3</p>
-            <h2 class="chapter-title">熟悉</h2>
+            <h2 class="chapter-title">熟悉 <button class="copy-btn" onclick="copyProse(this, 'ch3')">複製</button></h2>
             <div class="prose">
                 <p>他們怎麼熟起來的，說起來沒有什麼戲劇性的轉折。藤間蒼的英文不太好，林澈的日文需要人幫忙糾正，於是有了某種默契的交換，每週二和週四的晚上在圖書館自習室見面。</p>
                 <p>先用一小時練習對方的語言，剩下的時間就閒聊。聊家鄉、聊食物、聊為什麼來鳥取、聊未來想做什麼。林澈知道了藤間蒼是鳥取本地人，家裡在沙丘邊開民宿，爸媽都是普通人。有個小兩歲的妹妹在 大阪讀書。他從小在沙丘旁邊長大，喜歡看海，喜歡聽浪聲。</p>
@@ -219,9 +238,9 @@
         </div>
 
         <!-- 第四章 -->
-        <div class="chapter">
+        <div class="chapter" id="ch4">
             <p class="chapter-num">Chapter 4</p>
-            <h2 class="chapter-title">秋天</h2>
+            <h2 class="chapter-title">秋天 <button class="copy-btn" onclick="copyProse(this, 'ch4')">複製</button></h2>
             <div class="prose">
                 <p>秋天來的時候，關係發生了微妙的變化。也許是天氣涼了，人會變得比較渴望溫暖。也許只是相處的時間久了，有些東西自然會生長。總之，林澈開始會在不經意的情況下找藤間蒼。</p>
                 <p>比如發現了一家好吃的拉麵店，第一個想帶他去。看見了漂亮的銀杏樹，想拍給他看。自習到很晚，會繞遠路經過他的宿舍，看看房裡的燈有沒有亮。</p>
@@ -232,9 +251,9 @@
         </div>
 
         <!-- 第五章 -->
-        <div class="chapter">
+        <div class="chapter" id="ch5">
             <p class="chapter-num">Chapter 5</p>
-            <h2 class="chapter-title">確認</h2>
+            <h2 class="chapter-title">確認 <button class="copy-btn" onclick="copyProse(this, 'ch5')">複製</button></h2>
             <div class="prose">
                 <p>學期中某一天，林澈收到了一封郵件。是台灣的家裡寄來的。媽媽說，親戚幫他介紹了一份台北的實習，一年四月開始。如果確定要去，他要提前回去準備。這意味著，他可能没法在鳥取待滿一年。</p>
                 <p>他盯著手機熒幕，心裡有一種被抽空的感覺。明明是自己的人生規劃，明明是早就想好的退路，為什麼看到這封郵件時，會覺得難過？是因為那份實習很好？還是因為要離開鳥取？</p>
@@ -244,9 +263,9 @@
         </div>
 
         <!-- 第六章 -->
-        <div class="chapter">
+        <div class="chapter" id="ch6">
             <p class="chapter-num">Chapter 6</p>
-            <h2 class="chapter-title">告白</h2>
+            <h2 class="chapter-title">告白 <button class="copy-btn" onclick="copyProse(this, 'ch6')">複製</button></h2>
             <div class="prose">
                 <p>聖誕節前的一個晚上，藤間蒼跟他告白了。没有預兆，没有準備。他們只是在便利店門口站著，讨论明天考试的內容，然後藤間蒼突然安静了下来。</p>
                 <p>「林澈。」</p>
@@ -279,9 +298,9 @@
         </div>
 
         <!-- 第七章 -->
-        <div class="chapter">
+        <div class="chapter" id="ch7">
             <p class="chapter-num">Chapter 7</p>
-            <h2 class="chapter-title">春天</h2>
+            <h2 class="chapter-title">春天 <button class="copy-btn" onclick="copyProse(this, 'ch7')">複製</button></h2>
             <div class="prose">
                 <p>春天来的時候，林澈做出了决定。他告訴台灣的家裡，那份實習他不去。他申請了延期毕业，在鳥取再待一年。媽媽在電話那头沉默了很久，最后只說：「你自己的人生，你自己決定。」</p>
                 <p>他知道媽媽在生氣。但他更知道，如果这次離开，他会后悔。</p>
@@ -301,9 +320,9 @@
         </div>
 
         <!-- 尾聲 -->
-        <div class="chapter">
+        <div class="chapter" id="epilogue">
             <p class="chapter-num">Epilogue</p>
-            <h2 class="chapter-title">一年後</h2>
+            <h2 class="chapter-title">一年後 <button class="copy-btn" onclick="copyProse(this, 'epilogue')">複製</button></h2>
             <div class="prose">
                 <p>一年後，林澈毕业了。他在鳥取找到了工作。不是什麼了不起的职位，只是一家小旅行社的外語導遊。薪水不高，辦公室很小，但他每天都很開心。因为可以留在鳥取了，因为可以留在藤間蒼身边了。</p>
                 <p>他们在校外租了一間小公寓。離車站很近，窗外可以看見山。房间不大，但足够两个人住。陽台上種著幾盆薄荷，是林澈来鳥取后养成的習慣。</p>
@@ -319,5 +338,33 @@
             </nav>
         </footer>
     </div>
+
+    <script>
+        function copyText(btn, elemId) {
+            const text = document.getElementById(elemId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = '已複製 ✓';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = '複製';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+        
+        function copyProse(btn, chapterClass) {
+            const elems = document.querySelectorAll('.' + chapterClass + ' .prose');
+            let text = '';
+            elems.forEach(el => text += el.innerText + '\n\n');
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = '已複製 ✓';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = '複製';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>

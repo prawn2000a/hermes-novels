@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>信州・ふたり旅 — BENQ亭 · 小說舘</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+    --bg: #faf8f5;
+    --bg-warm: #f5f0ea;
+    --ink: #1a1a18;
+    --ink-light: #6b6560;
+    --accent: #8b6b4a;
+    --accent-light: #c4a882;
+    --line: #e0d8cc;
+    --card-bg: #ffffff;
+}
+body {
+    font-family: "Noto Sans TC", "Helvetica Neue", sans-serif;
+    font-weight: 300;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    padding: 80px 12vw;
+}
+.back-link {
+    font-size: 14px;
+    color: var(--ink-light);
+    text-decoration: none;
+    margin-bottom: 48px;
+    display: inline-block;
+}
+.back-link:hover { color: var(--accent); }
+.series-header { margin-bottom: 64px; }
+.series-label {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+.series-title {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 64px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    line-height: 1.1;
+}
+.series-subtitle {
+    font-size: 17px;
+    color: var(--ink-light);
+    margin-bottom: 32px;
+    max-width: 720px;
+}
+.series-meta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+.series-tag {
+    font-size: 13px;
+    padding: 4px 12px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    color: var(--ink-light);
+}
+.series-progress {
+    font-size: 14px;
+    color: var(--accent);
+    margin-top: 16px;
+}
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-top: 48px;
+}
+.chapter-row {
+    background: var(--bg);
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.2s;
+}
+.chapter-row:hover {
+    background: var(--bg-warm);
+}
+.chapter-row.quality-warning { opacity: 0.7; }
+.chapter-row.quality-crash { opacity: 0.5; }
+.chapter-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.chapter-num {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 22px;
+    color: var(--accent);
+    min-width: 56px;
+}
+.chapter-title {
+    font-size: 16px;
+    color: var(--ink);
+}
+.chapter-status {
+    font-size: 13px;
+    color: var(--ink-light);
+}
+.chapter-row.done .chapter-status { color: var(--accent); }
+.chapter-row.quality-warning .chapter-status::before { content: "⚠ "; }
+.chapter-row.quality-crash .chapter-status::before { content: "✕ 重寫中 "; color: #c44; }
+
+.series-note {
+    margin-top: 64px;
+    padding: 32px;
+    background: var(--bg-warm);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    color: var(--ink-light);
+    font-size: 14px;
+    line-height: 1.9;
+    max-width: 720px;
+}
+.series-note strong { color: var(--ink); }
+.legend {
+    margin-top: 32px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--ink-light);
+}
+.legend-item::before {
+    display: inline-block;
+    margin-right: 6px;
+}
+.legend-ok::before { content: "✓"; color: var(--accent); }
+.legend-warn::before { content: "⚠"; color: #c84; }
+.legend-crash::before { content: "✕"; color: #c44; }
+</style>
+</head>
+<body>
+
+<a href="../../../index.html" class="back-link">← 返回小說舘</a>
+
+<div class="series-header">
+    <p class="series-label">Long-form Series · 長篇連載</p>
+    <h1 class="series-title">信州・ふたり旅</h1>
+    <p class="series-subtitle">
+        兩個女仔、30 日、1 部車，由鎌倉出發穿越整個信州。<br>
+        桐野凜（19，計劃控、路痴、怕狗）與白石陽葵（18，衝動派、吃貨、剛考車牌），一齊踏上公路之旅，去搵返自己。
+    </p>
+    <div class="series-meta">
+        <span class="series-tag">公路小說</span>
+        <span class="series-tag">雙女主</span>
+        <span class="series-tag">吐槽喜劇</span>
+        <span class="series-tag">治癒系</span>
+        <span class="series-tag">連載中</span>
+    </div>
+    <p class="series-progress">連載進度：第 1-25 章（連載中） · 目標 50 章</p>
+</div>
+
+<div class="legend">
+    <span class="legend-item legend-ok">良好章節</span>
+    <span class="legend-item legend-warn">中等品質</span>
+    <span class="legend-item legend-crash">崩潰待修</span>
+</div>
+
+<div class="chapter-list">
+
+    <a href="./chapters/shinshu-chapter-01.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">01</span>
+            <span class="chapter-title">鎌倉の朝、東京出發</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-02.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">02</span>
+            <span class="chapter-title">中央道・諏訪湖 SA 遇豆豆</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-03.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">03</span>
+            <span class="chapter-title">輕井澤・銀座通亂逛</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-04.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">04</span>
+            <span class="chapter-title">雲場池・遇小白</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-05.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">05</span>
+            <span class="chapter-title">軽井澤→上高地・澤渡轉乘</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-06.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">06</span>
+            <span class="chapter-title">上高地・大正池</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-07.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">07</span>
+            <span class="chapter-title">明神池・遇田村老師</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-08.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">08</span>
+            <span class="chapter-title">松本城・凜的提問</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-09.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">09</span>
+            <span class="chapter-title">中町通・繩手通小雪</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-10.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">10</span>
+            <span class="chapter-title">松本→奈良井宿</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-11.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">11</span>
+            <span class="chapter-title">木曾路・早苗女士的味噌</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-12.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">12</span>
+            <span class="chapter-title">木曾馬牧場・阿栗打噴嚏</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-13.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">13</span>
+            <span class="chapter-title">木曾→美ヶ原・白樺湖</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-14.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">14</span>
+            <span class="chapter-title">美ヶ原暴雨滯留・第一次大吵</span>
+        </div>
+        <span class="chapter-status">良好（天氣轉折 #1）</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-15.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">15</span>
+            <span class="chapter-title">美ヶ原→蓼科・霧中行車</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-16.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">16</span>
+            <span class="chapter-title">白樺湖・湖畔談心（淺層）</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-17.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">17</span>
+            <span class="chapter-title">蓼科→別所溫泉</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-18.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">18</span>
+            <span class="chapter-title">別所・外湯初體驗</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-19.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">19</span>
+            <span class="chapter-title">別所→白馬八方・遇健治</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-20.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">20</span>
+            <span class="chapter-title">白馬八方・木曾雷雨失眠夜</span>
+        </div>
+        <span class="chapter-status">良好（天氣轉折 #2）</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-21.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">21</span>
+            <span class="chapter-title">白馬→大町溫泉鄉</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-22.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">22</span>
+            <span class="chapter-title">大町・黑部湖望台</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-23.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">23</span>
+            <span class="chapter-title">白馬纜車停運・行程改道</span>
+        </div>
+        <span class="chapter-status">良好（天氣轉折 #3）</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-24.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">24</span>
+            <span class="chapter-title">大町→戶倉上山田・遇小黑</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+    <a href="./chapters/shinshu-chapter-25.html" class="chapter-row done">
+        <div class="chapter-info">
+            <span class="chapter-num">25</span>
+            <span class="chapter-title">戶倉・玉之湯一泊</span>
+        </div>
+        <span class="chapter-status">良好</span>
+    </a>
+
+</div>
+
+<div class="series-note">
+    <strong>連載進度更新</strong><br>
+    第一期（章 1-25）已完成推送至 GitHub Pages。<br>
+    第二期（章 26-50）將以多 session 接力方式補完，包括 3 個天氣轉折點、Midpoint 攤牌、All Is Lost 嘅志賀高原、Break Into 3 嘅別所寒流室內湯，以及 Finale + Final Image 嘅鎌倉歸途。<br>
+    下次更新預計補完：千世婆婆、善光寺地震、蓼科暴雨霧中名場面、田中一家四口、OL 三人組、陽葵姊妹約定嘅最終告白。
+</div>
+
+</body>
+</html>

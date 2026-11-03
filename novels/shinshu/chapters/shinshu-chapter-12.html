@@ -37,9 +37,41 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .nav-hint { right: 10px; bottom: 10px; font-size: 10px; padding: 6px 8px; }
 }
 @media print { .nav-hint { display: none; } }
+
+/* ==== 右上角回到 BenQ亭 ==== */
+.benq-link {
+  position: fixed;
+  top: 12px;
+  right: 14px;
+  z-index: 1000;
+  display: inline-block;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: #6b5b4a;
+  text-decoration: none;
+  background: rgba(250, 248, 245, 0.92);
+  border: 1px solid #d4c5b0;
+  border-radius: 6px;
+  padding: 5px 11px;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  transition: color 0.2s ease, border-color 0.2s ease, opacity 0.35s ease;
+}
+.benq-link:hover {
+  color: #8a6a4a;
+  border-color: #b8a488;
+}
+@media (max-width: 640px) {
+  .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
+}
+@media print { .benq-link { display: none; } }
 </style>
 </head>
 <body>
+<a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
+
 <button class="copy-btn" onclick="navigator.clipboard.writeText(document.querySelector('.chapter-body').innerText); this.innerText='已複製'">複製本章</button>
 <h1>第 12 章　木曾馬牧場・阿栗打噴嚏</h1>
 <div class="chapter-body">

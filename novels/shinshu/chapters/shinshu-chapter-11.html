@@ -8,7 +8,6 @@
 h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom: 40px; color: #6b5b4a; border-bottom: 1px solid #d4c5b0; padding-bottom: 20px; }
 .chapter-body p { margin: 0 0 1.5em 0; text-indent: 2em; }
 .copy-btn { display: inline-block; padding: 4px 10px; background: #6b5b4a; color: #fff; border: none; border-radius: 3px; font-size: 12px; cursor: pointer; margin-bottom: 16px; }
-</style>
 
 /* ==== 章節導航（鍵盤 + 手機滑動） ==== */
 .nav-hint {
@@ -38,6 +37,7 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .nav-hint { right: 10px; bottom: 10px; font-size: 10px; padding: 6px 8px; }
 }
 @media print { .nav-hint { display: none; } }
+</style>
 </head>
 <body>
 <button class="copy-btn" onclick="navigator.clipboard.writeText(document.querySelector('.chapter-body').innerText); this.innerText='已複製'">複製本章</button>

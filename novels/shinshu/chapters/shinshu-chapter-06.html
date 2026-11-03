@@ -9,6 +9,35 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 .chapter-body p { margin: 0 0 1.5em 0; text-indent: 2em; }
 .copy-btn { display: inline-block; padding: 4px 10px; background: #6b5b4a; color: #fff; border: none; border-radius: 3px; font-size: 12px; cursor: pointer; margin-bottom: 16px; }
 </style>
+
+/* ==== 章節導航（鍵盤 + 手機滑動） ==== */
+.nav-hint {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 999;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #8a7a68;
+  background: rgba(250, 248, 245, 0.9);
+  border: 1px solid #d4c5b0;
+  border-radius: 6px;
+  padding: 7px 10px;
+  text-align: right;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  user-select: none;
+  -webkit-user-select: none;
+  transition: opacity 0.35s ease;
+}
+.nav-hint.is-faded { opacity: 0.28; }
+.nav-hint b { color: #6b5b4a; font-weight: 600; }
+.nav-hint .nav-keys { display: block; margin-top: 2px; }
+@media (max-width: 640px) {
+  .nav-hint { right: 10px; bottom: 10px; font-size: 10px; padding: 6px 8px; }
+}
+@media print { .nav-hint { display: none; } }
 </head>
 <body>
 <button class="copy-btn" onclick="navigator.clipboard.writeText(document.querySelector('.chapter-body').innerText); this.innerText='已複製'">複製本章</button>
@@ -66,5 +95,96 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>她加快腳步追上去，握著陽葵嘅手。這一次，她冇掂開。陽葵也冇說什麼。兩人並排走在落葉松之間，最後一程往回走。遠處的穗高連峰依然清晰，陽光打在她們身上，暖暖的。凜在心裡想，她不知道自己會唔會變成田村老師那樣的人——對住同一個池子，畫十七年。但是她知道她願意同陽葵一齊，畫很多很多嘅十四天，三十天，甚至更多。</p>
 
 </div>
+
+<script>
+/* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
+(function () {
+  var TOTAL = 45;
+  var CUR = 6;
+  var PREV = CUR > 1 ? CUR - 1 : null;
+  var NEXT = CUR < TOTAL ? CUR + 1 : null;
+  var base = location.pathname.replace(/[^/]*$/, '');
+
+  function href(n) {
+    if (n === null) return null;
+    var s = (n < 10 ? '0' : '') + n;
+    return base + 'shinshu-chapter-' + s + '.html';
+  }
+
+  function go(n) {
+    var h = href(n);
+    if (h) location.href = h;
+  }
+
+  /* --- 鍵盤：左右方向鍵 --- */
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var t = e.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+    /* 有文字被選取時不跳，避免讀者挑字時誤觸 */
+    var sel = window.getSelection && window.getSelection();
+    if (sel && sel.toString && sel.toString().length > 0) return;
+    if (e.key === 'ArrowLeft') { if (PREV !== null) { e.preventDefault(); go(PREV); } }
+    else if (e.key === 'ArrowRight') { if (NEXT !== null) { e.preventDefault(); go(NEXT); } }
+  });
+
+  /* --- 手機 / 觸控：左右滑動 --- */
+  var x0 = null, y0 = null, t0 = 0, tracking = false;
+
+  function isInteractive(t) {
+    return t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+  }
+
+  function hasSelection() {
+    var sel = window.getSelection && window.getSelection();
+    return !!(sel && sel.toString && sel.toString().length > 0);
+  }
+
+  document.addEventListener('touchstart', function (e) {
+    if (e.touches.length !== 1) { tracking = false; return; }
+    var t = e.target;
+    if (isInteractive(t)) { tracking = false; return; }
+    var touch = e.touches[0];
+    x0 = touch.clientX; y0 = touch.clientY; t0 = Date.now(); tracking = true;
+  }, { passive: true });
+
+  document.addEventListener('touchend', function (e) {
+    if (!tracking) { tracking = false; return; }
+    tracking = false;
+    var touch = e.changedTouches[0];
+    if (!touch) return;
+    var dx = touch.clientX - x0;
+    var dy = touch.clientY - y0;
+    var dt = Date.now() - t0;
+    /* 必須是明顯的橫向滑動：位移 > 60px、橫向比例 > 1.8、時間 < 800ms */
+    if (Math.abs(dx) < 60) return;
+    if (Math.abs(dx) < Math.abs(dy) * 1.8) return;
+    if (dt > 800) return;
+    if (hasSelection()) return;
+    if (dx > 0) { if (PREV !== null) go(PREV); }   /* 右滑 = 上一章 */
+    else { if (NEXT !== null) go(NEXT); }            /* 左滑 = 下一章 */
+  }, { passive: true });
+
+  /* --- 右下角提示 --- */
+  var parts = [];
+  if (PREV !== null) parts.push('<span class="nav-keys"><b>←</b> 上一章</span>');
+  if (NEXT !== null) parts.push('<span class="nav-keys"><b>→</b> 下一章</span>');
+  parts.push('<span class="nav-keys">手指右滑／左滑</span>');
+  var el = document.createElement('div');
+  el.className = 'nav-hint';
+  el.innerHTML = '第 ' + CUR + ' / ' + TOTAL + ' 章<br>' + parts.join('');
+  document.body.appendChild(el);
+
+  var faded = false;
+  function fade() {
+    if (faded) return;
+    faded = true;
+    el.classList.add('is-faded');
+  }
+  setTimeout(fade, 4000);
+  el.addEventListener('mouseenter', function () { faded = false; el.classList.remove('is-faded'); });
+  el.addEventListener('mouseleave', fade);
+})();
+</script>
 </body>
 </html>

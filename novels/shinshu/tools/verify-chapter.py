@@ -132,7 +132,11 @@ def check_body(body: str, label: str) -> list:
     for w in CANTONESE:
         if w in ALLOWED_CANTONESE:
             continue
-        c = text.count(w)
+        if w == "係":
+            # 「關係」係繁體正字，唔算粵語；用否定後顧排除
+            c = len(re.findall(r"(?<!關)係", text))
+        else:
+            c = text.count(w)
         if c:
             hit[w] = c
     if hit:

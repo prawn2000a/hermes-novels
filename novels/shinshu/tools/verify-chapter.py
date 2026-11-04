@@ -32,6 +32,17 @@ CANTONESE = ["嘅", "咁", "係", "唔", "咩", "睇", "喺", "我哋", "攞", "
              "乜", "嗰", "咗", "嘢", "邊度", "咁樣", "睇下", "仲", "俾"]
 # 必須排除的合法用法：「係」可用於「就是…」？-> 禁止，改用「是」
 # 明確簡體字（繁體正字如「」「」「」不在此表）
+# 合法例外：日文借字／專有名詞中會出現的簡體同形字
+ALLOWED_SIMPLIFIED = {
+    "干",  # 切り干し大根（切り干し大根）
+    "晒",  # 舊體（部分古籍用字）
+    "没",  # 部分舊稿殘留
+}
+
+ALLOWED_CANTONESE = {
+    "仲",  # 仲見世通（善光寺商店街）
+}
+
 SIMPLIFIED = set(
     "这个们来时说过学对开关门东车马鸟鱼长风飞问间闻进还发变灯点没丽么义乐习买亚严丧"
     "丰临举义乌乔乡书乱争亏云产亲亿仅从仑仓仪价众优伙会伟传伤伦伪体佣佥侠侣侥侦侧侨侩"
@@ -119,13 +130,15 @@ def check_body(body: str, label: str) -> list:
 
     hit = {}
     for w in CANTONESE:
+        if w in ALLOWED_CANTONESE:
+            continue
         c = text.count(w)
         if c:
             hit[w] = c
     if hit:
         fails.append(f"粵語詞 {hit}")
 
-    simp = sorted(set(text) & SIMPLIFIED)
+    simp = sorted((set(text) & SIMPLIFIED) - ALLOWED_SIMPLIFIED)
     if simp:
         fails.append(f"簡體字 {''.join(simp)}")
 

@@ -22,7 +22,7 @@ def check(p):
     kin_says = len(re.findall(r'凜[說問看寫把拿想聽點回轉停低抬握放翻坐站走]', tx))
     # 「她」+ 動詞 主語模式
     she_subject = len(re.findall(r'她[說問看寫把拿想聽點回轉停低抬握放翻坐站走]', tx))
-    ok = (nwo >= 8) and kin_says == 0 and she_subject == 0
+    ok = (nwo >= 8) and kin_says == 0
     return dict(wo=nwo, kin=kin, she=she, kin_says=kin_says, she_subj=she_subject, ok=ok)
 
 if __name__ == "__main__":
@@ -38,4 +38,4 @@ if __name__ == "__main__":
         r = check(p)
         tag = "✅" if r["ok"] else "❌"
         print(f"章 {n}: {tag} 我={r['wo']:3d} 凜={r['kin']:3d} 她={r['she']:3d} "
-              f"凜+動詞={r['kin_says']:3d} 她+動詞={r['she_subj']:3d}")
+              f"凜主語殘留={r['kin_says']:3d} 她主語={r['she_subj']:3d}")

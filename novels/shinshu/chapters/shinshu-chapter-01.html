@@ -10,6 +10,7 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 .chapter-body p { margin: 0 0 1.5em 0; text-indent: 2em; }
 .copy-btn { display: inline-block; padding: 4px 10px; background: #6b5b4a; color: #fff; border: none; border-radius: 3px; font-size: 12px; cursor: pointer; margin-bottom: 16px; }
 .copy-btn:hover { background: #4a3d2f; }
+.copy-btn.copied { background: #4a7a52; }
 
 /* ==== 章節導航（鍵盤 + 手機滑動） ==== */
 .nav-hint {
@@ -74,7 +75,7 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" onclick="navigator.clipboard.writeText(document.querySelector('.chapter-body').innerText); this.innerText='已複製'">複製本章</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
 <h1>第 1 章　鎌倉の朝、東京出發</h1>
 <div class="chapter-body">
 
@@ -139,7 +140,7 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
 (function () {
-  var TOTAL = 45;
+  var TOTAL = 50;
   var CUR = 1;
   var PREV = CUR > 1 ? CUR - 1 : null;
   var NEXT = CUR < TOTAL ? CUR + 1 : null;
@@ -224,6 +225,50 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   setTimeout(fade, 4000);
   el.addEventListener('mouseenter', function () { faded = false; el.classList.remove('is-faded'); });
   el.addEventListener('mouseleave', fade);
+})();
+
+/* ==== 複製本章（標題＋內文） ==== */
+(function () {
+  var btn = document.getElementById('copyChapterBtn');
+  if (!btn) return;
+  function buildText() {
+    var h = document.querySelector('h1');
+    var body = document.querySelector('.chapter-body');
+    var title = h ? h.innerText.trim() : '';
+    var content = body ? body.innerText.trim() : '';
+    return title ? title + '\n\n' + content : content;
+  }
+  function fallback(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+  btn.addEventListener('click', function () {
+    var text = buildText();
+    var label = btn.innerText;
+    function done() {
+      btn.innerText = '已複製 ✓';
+      btn.classList.add('copied');
+      setTimeout(function () { btn.innerText = label; btn.classList.remove('copied'); }, 1800);
+    }
+    function fail() {
+      btn.innerText = '複製失敗';
+      setTimeout(function () { btn.innerText = label; }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(function () {
+        if (fallback(text)) { done(); } else { fail(); }
+      });
+    } else if (fallback(text)) { done(); } else { fail(); }
+  });
 })();
 </script>
 </body>

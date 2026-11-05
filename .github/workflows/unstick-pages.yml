@@ -1,0 +1,52 @@
+name: Unstick GitHub Pages deployment
+
+# 只喺本 workflow 檔案被改動時觸發 —— 避免每次 push 都重複執行。
+# 用途：取消卡住唔完成嘅 github-pages deployment（會令之後所有部署回 400）。
+on:
+  push:
+    paths:
+      - '.github/workflows/unstick-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  deployments: write
+  contents: read
+
+jobs:
+  unstick:
+    name: Cancel stuck deployments
+    runs-on: ubuntu-latest
+    steps:
+      - name: List and cancel non-active github-pages deployments
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          ids=$(curl -sS -H "Authorization: Bearer $GH_TOKEN" \
+                 -H "Accept: application/vnd.github+json" \
+                 "https://api.github.com/repos/$REPO/deployments?per_page=50" \
+                 | python3 -c "
+          import json,sys
+          try:
+              data = json.load(sys.stdin)
+          except Exception:
+              sys.exit(0)
+          if isinstance(data, dict):
+              sys.exit(0)
+          for d in data:
+              if d.get('environment') == 'github-pages':
+                  print(d['id'])
+          ")
+          if [ -z "$ids" ]; then
+            echo 'No github-pages deployments found.'
+            exit 0
+          fi
+          for id in $ids; do
+            echo "Cancelling deployment $id"
+            curl -sS -o /dev/null -w '%{http_code}\n' -X DELETE \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/$REPO/deployments/$id"
+          done

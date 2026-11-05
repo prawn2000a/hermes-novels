@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一句話定生死 — 網文寫作解剖學</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="topbar"><div class="topbar-in">
+<a class="topbar-brand" href="../index.html">網文寫作解剖學<span>ANATOMY</span></a>
+<a class="back-link" href="https://prawn2000a.github.io/hermes-novels/">← 回到小說館</a>
+</div></div>
+<div class="wrap">
+<div class="hero">
+<p class="chapter-label">Chapter 01</p>
+<h1 class="chapter-title">一句話定生死</h1>
+<p class="chapter-sub">爽文唔係靠情節堆出嚟，靠一個講得清嘅公式撐住成本書。呢章用一句話講完，之後每一章都係喺呢句話上加零件。</p>
+<div class="chapter-meta"><a href="./chapter-01.html" class="on">01</a><a href="./chapter-02.html">02</a><a href="./chapter-03.html">03</a><a href="./chapter-04.html">04</a><a href="./chapter-05.html">05</a><a href="./chapter-06.html">06</a><a href="./chapter-07.html">07</a><a href="./chapter-08.html">08</a><a href="./chapter-09.html">09</a><a href="./chapter-10.html">10</a><a href="./chapter-11.html">11</a><a href="./chapter-12.html">12</a><a href="./appendix-techniques.html">附錄</a><a href="./appendix-template.html">附錄</a><a href="./appendix-data.html">附錄</a><a href="./appendix-checker.html">附錄</a></div>
+</div>
+<div class="content">
+<h2>一、核心公式（一句話）</h2>
+<p><strong>爽文 = 一個真實有約束力的機制 ＋ 一個每次啟動都有代價的反套路主角 ＋ 每章 2–3 個情緒節點 ＋ 章尾一句話把讀者釘住。</strong></p>
+<p>四項缺一不可。缺「機制」＝普通連載；缺「反套路」＝普通爽文；缺「情緒節點」＝流水帳；缺「章尾鉤子」＝讀者流失。</p>
+<div class="note"><p class="note-label">解讀</p><p>一句話公式嘅作用唔係好聽，係<strong>攞嚟做驗收標準</strong>。寫完一章之後，你可以用四個字逐項打勾：機制咬唔咬、反套路有冇、情緒節點有冇、章尾釘唔釘。任何一項打唔上勾，呢章就要返工。</p>
+<p>呢個公式亦都解釋咗點解好多「寫得唔差但冇人睇」嘅稿會死：佢哋有情節、有文筆、有角色，但<strong>冇機制</strong>。</p>
+<p>冇機制嘅後果係——主角成長同讀者收益冇綁定。主角越強，讀者越冇理由追。所以每一本長篇都必須有一樣嘢，令到主角變強嗰陣，讀者一齊變得更有利。</p>
+<p><strong>最常見嘅錯法</strong>：機制寫成「好感度系統」。好感度唔係機制，因為佢冇失敗後果——主角得罪晒所有女主角，最壞結果只係「冇人愛他」，而呢個狀態喺網文世界觀入面唔構成致命傷。</p>
+<p><strong>可用嘅機制</strong>，一定要同時答到三條問題：</p>
+<ol class="md-list"><li><strong>點解唔可以唔用？</strong> 冇得拒絕，冇得繞過。</li><li><strong>用咗有咩代價？</strong> 唔係獎勵扣減，而係<strong>本身就有代價</strong>（減壽命、多一個敵人、多一條枷鎖）。</li><li><strong>變強會點變化？</strong> 機制要隨主角變強而<strong>變緊</strong>，唔係變鬆。</li></ol>
+<p>第三條係分水嶺。做到第三條，先可以寫三百章以上。做唔到，第三百章開始就會見到「一個新女角色出現 → 解決一個新麻煩 → 角色退場」嘅迴圈。</p></div>
+
+</div>
+<div class="pager"><a class="p-next" href="./chapter-02.html"><span class="p-label">下一章 →</span><span class="p-title">機制層：決定書寫唔寫得完</span></a></div>
+</div>
+<script>window.__SLUGS__=["chapter-01", "chapter-02", "chapter-03", "chapter-04", "chapter-05", "chapter-06", "chapter-07", "chapter-08", "chapter-09", "chapter-10", "chapter-11", "chapter-12", "appendix-techniques", "appendix-template", "appendix-data", "appendix-checker"];
+
+/* 章節導航：鍵盤左右 / 手機滑動 */
+(function(){
+  var TOTAL=16, CUR=1;
+  var PREV=CUR>1?CUR-1:null, NEXT=CUR<TOTAL?CUR+1:null;
+  var base=location.pathname.replace(/[^/]*$/,'');
+  function go(n){ if(n===null)return; location.href=base+SLUG(n)+'.html'; }
+  function SLUG(n){ return window.__SLUGS__ ? window.__SLUGS__[n-1] : ('chapter-'+(n<10?'0':'')+n); }
+  document.addEventListener('keydown',function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey)return;
+    var t=e.target;
+    if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable))return;
+    var sel=window.getSelection&&window.getSelection();
+    if(sel&&sel.toString&&sel.toString().length>0)return;
+    if(e.key==='ArrowLeft'&&PREV!==null){e.preventDefault();go(PREV);}
+    else if(e.key==='ArrowRight'&&NEXT!==null){e.preventDefault();go(NEXT);}
+  });
+  var x0=null,y0=null,t0=0,tr=false;
+  function inter(t){return t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable);}
+  function hasSel(){var s=window.getSelection&&window.getSelection();return !!(s&&s.toString&&s.toString().length>0);}
+  document.addEventListener('touchstart',function(e){
+    if(e.touches.length!==1){tr=false;return;}
+    if(inter(e.target)){tr=false;return;}
+    var t=e.touches[0];x0=t.clientX;y0=t.clientY;t0=Date.now();tr=true;
+  },{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(!tr){tr=false;return;} tr=false;
+    var t=e.changedTouches[0]; if(!t)return;
+    var dx=t.clientX-x0, dy=t.clientY-y0, dt=Date.now()-t0;
+    if(Math.abs(dx)<60)return;
+    if(Math.abs(dx)<Math.abs(dy)*1.8)return;
+    if(dt>800)return;
+    if(hasSel())return;
+    if(dx>0){if(PREV!==null)go(PREV);} else {if(NEXT!==null)go(NEXT);}
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

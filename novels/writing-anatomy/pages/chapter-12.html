@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>失敗模式與使用原則 — 網文寫作解剖學</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="topbar"><div class="topbar-in">
+<a class="topbar-brand" href="../index.html">網文寫作解剖學<span>ANATOMY</span></a>
+<a class="back-link" href="https://prawn2000a.github.io/hermes-novels/">← 回到小說館</a>
+</div></div>
+<div class="wrap">
+<div class="hero">
+<p class="chapter-label">Chapter 12</p>
+<h1 class="chapter-title">失敗模式與使用原則</h1>
+<p class="chapter-sub">七種最常見嘅死法，每一種都有對策。最後係使用原則 —— 呢套嘢點用、邊度唔好用。</p>
+<div class="chapter-meta"><a href="./chapter-01.html">01</a><a href="./chapter-02.html">02</a><a href="./chapter-03.html">03</a><a href="./chapter-04.html">04</a><a href="./chapter-05.html">05</a><a href="./chapter-06.html">06</a><a href="./chapter-07.html">07</a><a href="./chapter-08.html">08</a><a href="./chapter-09.html">09</a><a href="./chapter-10.html">10</a><a href="./chapter-11.html">11</a><a href="./chapter-12.html" class="on">12</a><a href="./appendix-techniques.html">附錄</a><a href="./appendix-template.html">附錄</a><a href="./appendix-data.html">附錄</a><a href="./appendix-checker.html">附錄</a></div>
+</div>
+<div class="content">
+<h2>七、常見失敗模式（附對策）</h2>
+<div class="table-wrap"><table><thead><tr><th>失敗</th><th>症狀</th><th>對策</th></tr></thead><tbody><tr><td><strong>機制失效</strong></td><td>主角強到冇威脅，故事變日常</td><td>改用代價型／關係型解鎖機制；每 300 章強檢</td></tr><tr><td><strong>角色用完即棄</strong></td><td>新角色出現 20 章後消失</td><td>每個短線角色配可回收鉤子；核心團不動</td></tr><tr><td><strong>震場疲勞</strong></td><td>「所有人都驚呆了」重複</td><td>反應池擴到 60+，分類輪用</td></tr><tr><td><strong>章尾無鉤</strong></td><td>讀者唔撳下一章</td><td>目標 ≥40% 鉤子率，用 12 種句式庫</td></tr><tr><td><strong>節奏拖沓</strong></td><td>一章淨係鋪陳冇爽點</td><td>每章至少 2 個情緒節點；章末鉤子</td></tr><tr><td><strong>水字數</strong></td><td>靠景物／心理描寫充字</td><td>刪所有唔帶資訊嘅段落；每段都要推進或製造情緒</td></tr><tr><td><strong>語氣太正</strong></td><td>讀者覺得悶</td><td>參考作：驚嘆號 187/萬字、您 8,828 次、哈哈 5,443 次</td></tr></tbody></table></div>
+<h2>九、使用原則</h2>
+<ol class="md-list"><li><strong>數字係硬指標，唔係建議值</strong> —— 參考作 2757 章零崩、零重複章，靠嘅就係呢啲規格穩定。</li><li><strong>只抽技法，唔搬內容</strong> —— 人物、地名、機構名、具體情節、連續句子一律唔可以入新書。用「抽象技術 + 全新原創」。交付前跑 <code>references/copyright-safety.md</code> 嘅自檢流程。</li><li><strong>機制優先於情節</strong> —— 冇機制嘅爽文寫唔完。</li><li><strong>新書要改嘅地方</strong>：章尾鉤子率（11.5% → ≥40%）、震場反應池（12 → 60+）、機制有效期（400 章 → 全書）。</li><li><strong>每章寫完即刻跑 <code>scripts/verify-chapter.py</code></strong>，唔好靠肉眼對清單。</li></ol>
+<div class="note"><p class="note-label">解讀</p><h3>呢套嘢嘅適用邊界</h3>
+<p><strong>通通適用</strong>：機制層、規格層、技法層、鉤子層、排版層。呢啲係 WEB 閱讀介面嘅物理限制，同書種無關。</p>
+<p><strong>要重做</strong>：劇情層嘅「三百章換舞台 + 短線角色用完即棄」呢個模式，係為咗<strong>長篇商業爽文</strong>而設計嘅。</p>
+<p>如果你寫嘅係：</p>
+<ul class="md-list"><li>短篇（&lt;5 萬字）—— 機制層仍然要，但唔需要三百章輪替</li><li>純愛 / 女性向 —— 核心關係團設計要重新做</li><li>文學向 —— 規格層（章長、對話佔比）要大幅放寬</li><li>互動小說 —— 機制層可以用，但要改成分支解鎖</li></ul>
+<h3>最重要嗰條</h3>
+<blockquote><p>機制優先於情節。冇機制嘅爽文寫唔完。</p></blockquote>
+<p>其餘七條都係技術層面嘅嘢，呢一條係架構層面嘅。技術層面做得好，機制層一崩就全盤皆輸。</p></div>
+
+</div>
+<div class="pager"><a href="./chapter-11.html"><span class="p-label">← 上一章</span><span class="p-title">檢查清單與執行流程</span></a><a class="p-next" href="./appendix-techniques.html"><span class="p-label">下一章 →</span><span class="p-title">附錄一：技法庫</span></a></div>
+</div>
+<script>window.__SLUGS__=["chapter-01", "chapter-02", "chapter-03", "chapter-04", "chapter-05", "chapter-06", "chapter-07", "chapter-08", "chapter-09", "chapter-10", "chapter-11", "chapter-12", "appendix-techniques", "appendix-template", "appendix-data", "appendix-checker"];
+
+/* 章節導航：鍵盤左右 / 手機滑動 */
+(function(){
+  var TOTAL=16, CUR=12;
+  var PREV=CUR>1?CUR-1:null, NEXT=CUR<TOTAL?CUR+1:null;
+  var base=location.pathname.replace(/[^/]*$/,'');
+  function go(n){ if(n===null)return; location.href=base+SLUG(n)+'.html'; }
+  function SLUG(n){ return window.__SLUGS__ ? window.__SLUGS__[n-1] : ('chapter-'+(n<10?'0':'')+n); }
+  document.addEventListener('keydown',function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey)return;
+    var t=e.target;
+    if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable))return;
+    var sel=window.getSelection&&window.getSelection();
+    if(sel&&sel.toString&&sel.toString().length>0)return;
+    if(e.key==='ArrowLeft'&&PREV!==null){e.preventDefault();go(PREV);}
+    else if(e.key==='ArrowRight'&&NEXT!==null){e.preventDefault();go(NEXT);}
+  });
+  var x0=null,y0=null,t0=0,tr=false;
+  function inter(t){return t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable);}
+  function hasSel(){var s=window.getSelection&&window.getSelection();return !!(s&&s.toString&&s.toString().length>0);}
+  document.addEventListener('touchstart',function(e){
+    if(e.touches.length!==1){tr=false;return;}
+    if(inter(e.target)){tr=false;return;}
+    var t=e.touches[0];x0=t.clientX;y0=t.clientY;t0=Date.now();tr=true;
+  },{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(!tr){tr=false;return;} tr=false;
+    var t=e.changedTouches[0]; if(!t)return;
+    var dx=t.clientX-x0, dy=t.clientY-y0, dt=Date.now()-t0;
+    if(Math.abs(dx)<60)return;
+    if(Math.abs(dx)<Math.abs(dy)*1.8)return;
+    if(dt>800)return;
+    if(hasSel())return;
+    if(dx>0){if(PREV!==null)go(PREV);} else {if(NEXT!==null)go(NEXT);}
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

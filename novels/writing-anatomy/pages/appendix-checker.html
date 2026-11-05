@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>附錄四：自動檢查器 — 網文寫作解剖學</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="topbar"><div class="topbar-in">
+<a class="topbar-brand" href="../index.html">網文寫作解剖學<span>ANATOMY</span></a>
+<a class="back-link" href="https://prawn2000a.github.io/hermes-novels/">← 回到小說館</a>
+</div></div>
+<div class="wrap">
+<div class="hero">
+<p class="chapter-label">Appendix 04</p>
+<h1 class="chapter-title">附錄四：自動檢查器</h1>
+<p class="chapter-sub">寫完每章即刻跑嘅驗證工具。十二項硬指標逐項檢查，唔使靠肉眼對清單。</p>
+<div class="chapter-meta"><a href="./chapter-01.html">01</a><a href="./chapter-02.html">02</a><a href="./chapter-03.html">03</a><a href="./chapter-04.html">04</a><a href="./chapter-05.html">05</a><a href="./chapter-06.html">06</a><a href="./chapter-07.html">07</a><a href="./chapter-08.html">08</a><a href="./chapter-09.html">09</a><a href="./chapter-10.html">10</a><a href="./chapter-11.html">11</a><a href="./chapter-12.html">12</a><a href="./appendix-techniques.html">附錄</a><a href="./appendix-template.html">附錄</a><a href="./appendix-data.html">附錄</a><a href="./appendix-checker.html" class="on">附錄</a></div>
+</div>
+<div class="content">
+<h2>技能說明</h2>
+<p><strong>適用範圍</strong>：網文商業向長篇 —— 系統流、穿越、都市異能、修仙、歷史、日常文。</p>
+<p><strong>核心要求</strong>：開篇 3 章見機制、章章有爽點、機制全程有效。</p>
+<p><strong>觸發場景</strong>：寫網文、寫爽文、寫長篇小說、寫新書、開新坑、寫章節、爽點設計、 追讀率、章尾鉤子、人物設計、劇情節奏、把大綱寫成小說。</p>
+<p><strong>資料來源</strong>：一部多女主網文全書實測拆解 —— 2757 章、6,766,156 字、零亂碼、零重複章。</p>
+<hr>
+<h2>用法</h2>
+<pre class="code"><code class="lang-bash">python3 verify-chapter.py chapter01.txt chapter02.txt   # 指定章節
+python3 verify-chapter.py --dir chapters/                # 全目錄</code></pre>
+<p><strong>檢查項目</strong>：章長、段落數、平均段長、最長段落、對話佔比、章尾鉤子類型、 反轉詞/千字、時間跳躍、心聲段數與長度、震場反應重複、對話標記重複、 半形標點、U+FFFD 亂碼、重複段落（≥12字）。</p>
+<p><strong>輸出</strong>：✅ / ⚠️ / ❌ 三級，退出碼 1 = 有 FAIL。</p>
+<p><strong>每章寫完即刻跑一次</strong>，唔好等到全卷完先驗。</p>
+<hr>
+<h2>腳本原始碼</h2>
+<p>下載連結：<a href="../assets/verify-chapter.py"><code>verify-chapter.py</code></a></p>
+<pre class="code"><code class="lang-python">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+&quot;&quot;&quot;
+爽文章節自動檢查器 —— 對齊 shuangwen-novel 技能嘅硬指標。
+
+用法：
+    python3 verify-chapter.py &lt;chapter.txt&gt; [...]        # 檢查指定章節
+    python3 verify-chapter.py --dir &lt;dir&gt;                # 檢查目錄內全部 .txt
+
+每章逐項驗：章長 / 段落數 / 平均段長 / 對話佔比 / 章尾鉤子 / 震場反應重複 /
+對話標記重複 / 反轉詞密度 / 時間跳躍 / 心聲 / 半形標點 / 亂碼 / 重複段落。
+退出碼 0 = 無 FAIL；1 = 有 FAIL。
+&quot;&quot;&quot;
+
+import argparse
+import glob
+import os
+import re
+import sys
+from collections import Counter
+
+REPL = &quot;\ufffd&quot;                # 亂碼替換符
+
+# ── 目標值（來自 shuangwen-novel/references/measurements.md）────────────
+TARGET = {
+    &quot;chapter_len&quot;: (1900, 3000, 4500),      # (目標下限, 目標上限, 硬上限)
+    &quot;paragraphs&quot;: (60, 110, 140),
+    &quot;avg_para&quot;: (0, 30, 40),
+    &quot;dialogue_ratio&quot;: (45.0, 60.0, 70.0),    # %
+    &quot;reverse_per_k&quot;: (4.0, 12.0, 20.0),
+    &quot;time_jumps&quot;: (0, 1, 2),
+    &quot;inner_voice&quot;: (0, 3, 5),
+}
+
+REVERSE_WORDS = [&quot;但是&quot;, &quot;但&quot;, &quot;可是&quot;, &quot;却&quot;, &quot;然而&quot;, &quot;不过&quot;, &quot;反而&quot;,
+                 &quot;竟然&quot;, &quot;居然&quot;, &quot;没想到&quot;, &quot;不料&quot;, &quot;忽然&quot;, &quot;突然&quot;, &quot;猛地&quot;,
+                 &quot;愣&quot;, &quot;懵&quot;, &quot;傻眼&quot;, &quot;震惊&quot;, &quot;惊讶&quot;, &quot;倒吸&quot;]
+
+TIME_MARKS = [&quot;第二天&quot;, &quot;翌日&quot;, &quot;次日&quot;, &quot;第三天&quot;, &quot;一个小时后&quot;, &quot;半小时后&quot;,
+              &quot;十分钟后&quot;, &quot;晚上&quot;, &quot;早上&quot;, &quot;中午&quot;, &quot;下午&quot;, &quot;此时&quot;, &quot;与此同时&quot;,
+              &quot;另一边&quot;, &quot;同一时间&quot;, &quot;次日清晨&quot;, &quot;三天后&quot;, &quot;一周后&quot;, &quot;一个月后&quot;]
+
+# 震場反應句（參考作高頻集合，連續用同一種 = 疲勞）
+SHOCK_PATTERNS = [
+    &quot;所有人都是一愣&quot;, &quot;所有人都很吃惊&quot;, &quot;所有人都懵了&quot;, &quot;所有人都震惊了&quot;,
+    &quot;所有人都惊呆了&quot;, &quot;众人面面相觑&quot;, &quot;众人皆惊&quot;, &quot;全场震惊&quot;, &quot;全场都惊呆了&quot;,
+    &quot;全场都懵了&quot;, &quot;众人傻在原地&quot;, &quot;所有人都傻了&quot;, &quot;所有人都大惊失色&quot;,
+    &quot;众人皆是一惊&quot;, &quot;全场一片死寂&quot;, &quot;所有人都惊了&quot;, &quot;所有人都傻眼&quot;,
+]
+SHOCK_RE = re.compile(&quot;|&quot;.join(map(re.escape, SHOCK_PATTERNS)))
+
+TAGS = [&quot;说道&quot;, &quot;喊道&quot;, &quot;笑道&quot;, &quot;怒道&quot;, &quot;冷笑道&quot;, &quot;叹气&quot;, &quot;惊呆了&quot;, &quot;懵了&quot;,
+        &quot;沉默了&quot;, &quot;点点头&quot;, &quot;眯起眼睛&quot;, &quot;顿了顿&quot;, &quot;道&quot;, &quot;说&quot;, &quot;问&quot;]
+TAG_RE = re.compile(
+    r&quot;([\u4e00-\u9fff]{2,4}?)(&quot;
+    + &quot;|&quot;.join(map(re.escape, sorted(TAGS, key=len, reverse=True)))
+    + r&quot;)(?=[:\uff1a])&quot;
+)
+
+# 半形標點緊鄰中文 → 疑似未轉全形
+HALFWIDTH = re.compile(
+    &quot;[\u4e00-\u9fff][,.;:!?]|[,.;:!?][\u4e00-\u9fff]&quot;
+)
+
+
+def read(path):
+    with open(path, encoding=&quot;utf-8&quot;, errors=&quot;replace&quot;) as f:
+        return f.read()
+
+
+def paras(text):
+    return [p.strip() for p in text.split(&quot;\n&quot;) if p.strip()]
+
+
+def analyze(text):
+    ps = paras(text)
+    body = &quot;&quot;.join(ps)
+    n = len(body) or 1
+    res = {}
+
+    res[&quot;chapter_len&quot;] = len(body)
+    res[&quot;paragraphs&quot;] = len(ps)
+    res[&quot;avg_para&quot;] = round(sum(len(p) for p in ps) / max(len(ps), 1), 1)
+    res[&quot;max_para&quot;] = max((len(p) for p in ps), default=0)
+
+    quoted = sum(len(m) for m in re.findall(r&quot;\u201c[^\u201d]*\u201d&quot;, body))
+    res[&quot;dialogue_ratio&quot;] = round(quoted / n * 100, 1)
+
+    last = ps[-1] if ps else &quot;&quot;
+    if re.search(r&quot;(\u7a81\u7136|\u5ffd\u7136|\u7adf\u7136|\u5c45\u7136|\u731b\u5730|\u4e0d\u6599|\u51b7\u4e0d\u4e01)&quot;, last):
+        res[&quot;hook&quot;] = &quot;轉折詞鉤子&quot;
+    elif last.endswith((&quot;？&quot;, &quot;?&quot;)):
+        res[&quot;hook&quot;] = &quot;疑問鉤子&quot;
+    elif last.endswith((&quot;！&quot;, &quot;!&quot;)):
+        res[&quot;hook&quot;] = &quot;驚嘆鉤子&quot;
+    elif re.search(r&quot;(……|\.\.\.|…)$&quot;, last):
+        res[&quot;hook&quot;] = &quot;省略號鉤子&quot;
+    elif re.search(r&quot;[，,]$&quot;, last):
+        res[&quot;hook&quot;] = &quot;逗號截斷&quot;
+    else:
+        res[&quot;hook&quot;] = &quot;平鋪收尾&quot;
+
+    rev = sum(body.count(w) for w in REVERSE_WORDS)
+    res[&quot;reverse_per_k&quot;] = round(rev / (n / 1000), 2)
+    res[&quot;time_jumps&quot;] = sum(body.count(w) for w in TIME_MARKS)
+
+    iv = re.findall(r&quot;【([^】]*)】&quot;, body)
+    res[&quot;inner_voice&quot;] = len(iv)
+    res[&quot;iv_bad_len&quot;] = [s for s in iv if not (20 &lt;= len(s) &lt;= 60)]
+
+    res[&quot;shock_counts&quot;] = Counter(SHOCK_RE.findall(body))
+    res[&quot;shock_max&quot;] = res[&quot;shock_counts&quot;].most_common(1)[0][1] if res[&quot;shock_counts&quot;] else 0
+
+    tags = TAG_RE.findall(body)
+    res[&quot;tag_counts&quot;] = Counter(tags)
+    res[&quot;tag_max&quot;] = res[&quot;tag_counts&quot;].most_common(1)[0][1] if res[&quot;tag_counts&quot;] else 0
+
+    res[&quot;halfwidth&quot;] = HALFWIDTH.findall(body)
+    res[&quot;replacement_char&quot;] = body.count(REPL)
+
+    pc = Counter(p for p in ps if len(p) &gt;= 12)
+    res[&quot;dup_paras&quot;] = {k: v for k, v in pc.items() if v &gt; 1}
+    return res
+
+
+def check(res):
+    &quot;&quot;&quot;回傳 [(狀態, 項目, 實測, 目標)]&quot;&quot;&quot;
+    out = []
+
+    lo, hi, hard = TARGET[&quot;chapter_len&quot;]
+    v = res[&quot;chapter_len&quot;]
+    out.append((&quot;FAIL&quot; if v &lt; lo or v &gt; hard else (&quot;WARN&quot; if v &gt; hi else &quot;OK&quot;),
+                &quot;章長&quot;, v, f&quot;{lo}-{hi}（硬上限 {hard}）&quot;))
+
+    lo, hi, hard = TARGET[&quot;paragraphs&quot;]
+    v = res[&quot;paragraphs&quot;]
+    out.append((&quot;FAIL&quot; if v &lt; lo or v &gt; hard else (&quot;WARN&quot; if v &gt; hi else &quot;OK&quot;),
+                &quot;段落數&quot;, v, f&quot;{lo}-{hi}&quot;))
+
+    lo, hi, hard = TARGET[&quot;avg_para&quot;]
+    v = res[&quot;avg_para&quot;]
+    out.append((&quot;FAIL&quot; if v &gt; hard else (&quot;WARN&quot; if v &gt; hi else &quot;OK&quot;),
+                &quot;平均段長&quot;, v, f&quot;≤{hi}&quot;))
+
+    lo, hi, hard = TARGET[&quot;dialogue_ratio&quot;]
+    v = res[&quot;dialogue_ratio&quot;]
+    out.append((&quot;FAIL&quot; if v &lt; lo or v &gt; hard else (&quot;WARN&quot; if v &gt; hi else &quot;OK&quot;),
+                &quot;對話佔比&quot;, f&quot;{v}%&quot;, f&quot;{lo}%-{hi}%&quot;))
+
+    h = res[&quot;hook&quot;]
+    out.append((&quot;OK&quot; if h != &quot;平鋪收尾&quot; else &quot;WARN&quot;, &quot;章尾鉤子&quot;, h, &quot;非平鋪收尾&quot;))
+
+    lo, hi, hard = TARGET[&quot;reverse_per_k&quot;]
+    v = res[&quot;reverse_per_k&quot;]
+    out.append((&quot;FAIL&quot; if v &gt; hard else (&quot;WARN&quot; if v &lt; lo else &quot;OK&quot;),
+                &quot;反轉詞/千字&quot;, v, f&quot;{lo}-{hi}&quot;))
+
+    lo, hi, hard = TARGET[&quot;time_jumps&quot;]
+    v = res[&quot;time_jumps&quot;]
+    out.append((&quot;FAIL&quot; if v &gt; hard else (&quot;WARN&quot; if v &gt; hi else &quot;OK&quot;),
+                &quot;時間跳躍&quot;, v, f&quot;≤{hi}&quot;))
+
+    lo, hi, hard = TARGET[&quot;inner_voice&quot;]
+    v = res[&quot;inner_voice&quot;]
+    out.append((&quot;FAIL&quot; if v &gt; hard else (&quot;WARN&quot; if v &gt; hi else &quot;OK&quot;),
+                &quot;心聲段數&quot;, v, f&quot;≤{hi}&quot;))
+    if res[&quot;iv_bad_len&quot;]:
+        out.append((&quot;WARN&quot;, &quot;心聲長度&quot;,
+                    f&quot;{len(res[&#x27;iv_bad_len&#x27;])} 段超出 20-60 字&quot;, &quot;每段 20-60 字&quot;))
+
+    if res[&quot;shock_max&quot;] &gt;= 3:
+        top = res[&quot;shock_counts&quot;].most_common(1)[0]
+        out.append((&quot;FAIL&quot;, &quot;震場反應重複&quot;, f&quot;「{top[0]}」×{top[1]}&quot;, &quot;同一句式 ≤2 次&quot;))
+    else:
+        out.append((&quot;OK&quot;, &quot;震場反應重複&quot;, res[&quot;shock_max&quot;], &quot;≤2 次&quot;))
+
+    if res[&quot;tag_max&quot;] &gt;= 4:
+        top = res[&quot;tag_counts&quot;].most_common(1)[0]
+        out.append((&quot;FAIL&quot;, &quot;對話標記重複&quot;, f&quot;「{top[0][0]}{top[0][1]}」×{top[1]}&quot;, &quot;同一標記 ≤3 次&quot;))
+    else:
+        out.append((&quot;OK&quot;, &quot;對話標記重複&quot;, res[&quot;tag_max&quot;], &quot;≤3 次&quot;))
+
+    out.append((&quot;FAIL&quot; if res[&quot;halfwidth&quot;] else &quot;OK&quot;,
+                &quot;半形標點&quot;, len(res[&quot;halfwidth&quot;]) or &quot;無&quot;, &quot;0&quot;))
+    out.append((&quot;FAIL&quot; if res[&quot;replacement_char&quot;] else &quot;OK&quot;,
+                &quot;亂碼 U+FFFD&quot;, res[&quot;replacement_char&quot;], &quot;0&quot;))
+    out.append((&quot;FAIL&quot; if res[&quot;dup_paras&quot;] else &quot;OK&quot;,
+                &quot;重複段落(≥12字)&quot;, len(res[&quot;dup_paras&quot;]), &quot;0&quot;))
+
+    if res[&quot;max_para&quot;] &gt; 80:
+        out.append((&quot;WARN&quot;, &quot;最長段落&quot;, res[&quot;max_para&quot;], &quot;≤80 字&quot;))
+    return out
+
+
+ICON = {&quot;OK&quot;: &quot;✅&quot;, &quot;WARN&quot;: &quot;⚠️ &quot;, &quot;FAIL&quot;: &quot;❌&quot;}
+
+
+def report(path, checks):
+    fails = sum(1 for c in checks if c[0] == &quot;FAIL&quot;)
+    warns = sum(1 for c in checks if c[0] == &quot;WARN&quot;)
+    flag = &quot;❌&quot; if fails else (&quot;⚠️ &quot; if warns else &quot;✅&quot;)
+    print(f&quot;\n{flag} {os.path.basename(path)}&quot;)
+    for status, item, actual, target in checks:
+        print(f&quot;   {ICON[status]} {item:&lt;14} 實測 {str(actual):&lt;24} 目標 {target}&quot;)
+    return fails, warns
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument(&quot;files&quot;, nargs=&quot;*&quot;)
+    ap.add_argument(&quot;--dir&quot;)
+    a = ap.parse_args()
+
+    paths = list(a.files)
+    if a.dir:
+        paths += sorted(glob.glob(os.path.join(a.dir, &quot;*.txt&quot;)))
+    if not paths:
+        print(__doc__)
+        return 2
+
+    total_fail = total_warn = 0
+    hook_hit = 0
+    lens = []
+    for p in paths:
+        res = analyze(read(p))
+        checks = check(res)
+        f, w = report(p, checks)
+        total_fail += f
+        total_warn += w
+        hook_hit += 1 if res[&quot;hook&quot;] != &quot;平鋪收尾&quot; else 0
+        lens.append(res[&quot;chapter_len&quot;])
+
+    print(&quot;\n&quot; + &quot;=&quot; * 60)
+    print(f&quot;章數 {len(paths)}｜FAIL {total_fail}｜WARN {total_warn}&quot;)
+    if lens:
+        print(f&quot;平均章長 {sum(lens)//len(lens)}｜最短 {min(lens)}｜最長 {max(lens)}&quot;)
+    print(f&quot;章尾鉤子率 {hook_hit/len(paths)*100:.1f}%（目標 ≥40%）&quot;)
+    print(&quot;=&quot; * 60)
+    return 1 if total_fail else 0
+
+
+if __name__ == &quot;__main__&quot;:
+    sys.exit(main())</code></pre>
+</div>
+<div class="pager"><a href="./appendix-data.html"><span class="p-label">← 上一章</span><span class="p-title">附錄三：實測數據</span></a></div>
+</div>
+<script>window.__SLUGS__=["chapter-01", "chapter-02", "chapter-03", "chapter-04", "chapter-05", "chapter-06", "chapter-07", "chapter-08", "chapter-09", "chapter-10", "chapter-11", "chapter-12", "appendix-techniques", "appendix-template", "appendix-data", "appendix-checker"];
+
+/* 章節導航：鍵盤左右 / 手機滑動 */
+(function(){
+  var TOTAL=16, CUR=16;
+  var PREV=CUR>1?CUR-1:null, NEXT=CUR<TOTAL?CUR+1:null;
+  var base=location.pathname.replace(/[^/]*$/,'');
+  function go(n){ if(n===null)return; location.href=base+SLUG(n)+'.html'; }
+  function SLUG(n){ return window.__SLUGS__ ? window.__SLUGS__[n-1] : ('chapter-'+(n<10?'0':'')+n); }
+  document.addEventListener('keydown',function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey)return;
+    var t=e.target;
+    if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable))return;
+    var sel=window.getSelection&&window.getSelection();
+    if(sel&&sel.toString&&sel.toString().length>0)return;
+    if(e.key==='ArrowLeft'&&PREV!==null){e.preventDefault();go(PREV);}
+    else if(e.key==='ArrowRight'&&NEXT!==null){e.preventDefault();go(NEXT);}
+  });
+  var x0=null,y0=null,t0=0,tr=false;
+  function inter(t){return t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable);}
+  function hasSel(){var s=window.getSelection&&window.getSelection();return !!(s&&s.toString&&s.toString().length>0);}
+  document.addEventListener('touchstart',function(e){
+    if(e.touches.length!==1){tr=false;return;}
+    if(inter(e.target)){tr=false;return;}
+    var t=e.touches[0];x0=t.clientX;y0=t.clientY;t0=Date.now();tr=true;
+  },{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(!tr){tr=false;return;} tr=false;
+    var t=e.changedTouches[0]; if(!t)return;
+    var dx=t.clientX-x0, dy=t.clientY-y0, dt=Date.now()-t0;
+    if(Math.abs(dx)<60)return;
+    if(Math.abs(dx)<Math.abs(dy)*1.8)return;
+    if(dt>800)return;
+    if(hasSel())return;
+    if(dx>0){if(PREV!==null)go(PREV);} else {if(NEXT!==null)go(NEXT);}
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

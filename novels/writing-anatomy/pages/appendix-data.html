@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>附錄三：實測數據 — 網文寫作解剖學</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600&family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<div class="topbar"><div class="topbar-in">
+<a class="topbar-brand" href="../index.html">網文寫作解剖學<span>ANATOMY</span></a>
+<a class="back-link" href="https://prawn2000a.github.io/hermes-novels/">← 回到小說館</a>
+</div></div>
+<div class="wrap">
+<div class="hero">
+<p class="chapter-label">Appendix 03</p>
+<h1 class="chapter-title">附錄三：實測數據</h1>
+<p class="chapter-sub">全部數據明細：段落長度分佈、標點密度、角色登場輪替軌跡、詞頻表、章末收尾分佈。做新書對照基準用。</p>
+<div class="chapter-meta"><a href="./chapter-01.html">01</a><a href="./chapter-02.html">02</a><a href="./chapter-03.html">03</a><a href="./chapter-04.html">04</a><a href="./chapter-05.html">05</a><a href="./chapter-06.html">06</a><a href="./chapter-07.html">07</a><a href="./chapter-08.html">08</a><a href="./chapter-09.html">09</a><a href="./chapter-10.html">10</a><a href="./chapter-11.html">11</a><a href="./chapter-12.html">12</a><a href="./appendix-techniques.html">附錄</a><a href="./appendix-template.html">附錄</a><a href="./appendix-data.html" class="on">附錄</a><a href="./appendix-checker.html">附錄</a></div>
+</div>
+<div class="content">
+<h1>實測數據明細 —— 新書對照基準</h1>
+<blockquote><p>來源：一部多女主網文全書拆解 檔案：2757 個 .txt，總 6,766,156 字 章序結構：14 位檔名組（章 1–2052）+ 8 位檔名組（後續 705 章），內容連續（已用情節接縫驗證）</p></blockquote>
+<hr>
+<h2>1. 規模</h2>
+<div class="table-wrap"><table><thead><tr><th>項目</th><th>數值</th></tr></thead><tbody><tr><td>檔案數</td><td>2,757</td></tr><tr><td>總字數</td><td>6,766,156</td></tr><tr><td>平均章長</td><td>2,454</td></tr><tr><td>中位章長</td><td>2,219</td></tr><tr><td>最長章</td><td>4,403</td></tr><tr><td>最短章</td><td>1,930</td></tr><tr><td>段落總數</td><td>246,194</td></tr><tr><td>唯一段落（≥10字）</td><td>209,198 / 209,565（重複率 0.18%）</td></tr><tr><td>完全重複章</td><td>0</td></tr><tr><td>亂碼字元 U+FFFD</td><td>0</td></tr></tbody></table></div>
+<h3>章長分佈</h3>
+<pre class="code"><code>&lt; 3,000 字    2,186 章  (79.4%)
+3,000–5,000     571 章  (20.7%)</code></pre>
+<blockquote><p>5,000 字        0 章  ( 0.0%)   ← 硬上限</p></blockquote>
+<pre class="code"><code>
+---
+
+## 2. 段落規格
+
+| 區間 | 數量 | 佔比 |
+|---|---|---|
+| 1–10 字 | 42,672 | 17.3% |
+| 11–20 字 | 72,202 | 29.3% |
+| 21–40 字 | 89,344 | 36.3% |
+| 41–80 字 | 35,895 | 14.6% |
+| &gt; 80 字 | 6,081 | 2.5% |
+
+- 平均段長 **26.5**，中位 **22**
+- 每章段落數：平均 **89.3**，中位 84，範圍 38–174
+- 每章段落數分佈：&lt;50 章 13 個 / 50–100 章 2,096 個 / ≥100 章 648 個
+
+---
+
+## 3. 對話與標點
+
+| 標點 | 總數 | 每萬字 |
+|---|---|---|
+| ， | 339,385 | 501.6 |
+| 。 | 145,654 | 215.3 |
+| ！ | 126,705 | **187.3** |
+| ？ | 70,358 | 104.0 |
+| … | 80,725 | **119.3** |
+| — | 3,972 | 5.9 |
+| “ | 147,702 | 218.3 |
+| 【 | 1,950 | 2.9 |
+
+- 引號內總字數 3,510,797 = 全文 **51.9%**
+- 「哈哈」5,443 次｜「特么」3,486 次｜「您」8,828 次｜「卧槽」53｜髒話類 89
+- 「我」107,461｜「他」55,655｜「您」8,828
+
+---
+
+## 4. 章末收尾類型（⚠️ 關鍵弱點）
+
+| 類型 | 數量 | 佔比 |
+|---|---|---|
+| 平鋪收尾 | 2,355 | **85.4%** |
+| 驚嘆鉤子 | 213 | 7.7% |
+| 轉折詞鉤子 | 91 | 3.3% |
+| 疑問鉤子 | 86 | 3.1% |
+| 省略號鉤子 | 11 | 0.4% |
+| 預告式 | 1 | 0.0% |
+
+**合計鉤子率 11.5%** → 新書目標 **≥ 40%**
+
+### 平鋪收尾實例</code></pre>
+<p>第一女主表情冰冷，甚至，还带着一丝挑衅的冷笑。 赵刚表示：“我不李姐。”</p>
+<pre class="code"><code>### 鉤子實例</code></pre>
+<p>他决定兵行险招！                    ← 驚嘆鉤子 是因为钱吗！？                       ← 疑問鉤子 果然，主角猛地转头……              ← 轉折鉤子 但是主角，你竟然……敢如此侮辱我！   ← 轉折鉤子</p>
+<pre class="code"><code>
+---
+
+## 5. 開篇第一句類型
+
+| 類型 | 數量 | 佔比 |
+|---|---|---|
+| 常規敘事開頭 | 2,251 | 81.6% |
+| 其他 | 473 | 17.2% |
+| 疑問開頭 | 30 | 1.1% |
+| 對話直接開頭 | 3 | 0.1% |
+
+⚠️ 頭 3 章**唔適用**呢個分佈（需建立機制）。
+
+---
+
+## 6. 心聲（【】）
+
+| 指標 | 數值 |
+|---|---|
+| 總段數 | 1,950（佔全文 0.8%） |
+| 總字數 | 51,010 |
+| 含心聲嘅章 | 407 / 2,757（14.8%） |
+| 章均心聲段 | 0.71 |
+| 14 位組（章 1–2052） | 1,926 段 |
+| 8 位組（後 705 章） | **24 段** ← 機制流結束後幾乎冇 |
+| 每章心聲數：0 段 | 1,653 章（14位組） |
+| 每章心聲數：1–5 段 | 264 章 |
+| 每章心聲數：6–10 段 | 96 章 |
+| 每章心聲數：&gt;10 段 | 39 章 |
+
+### 心聲內容分類
+| 類型 | 段數 |
+|---|---|
+| 其他（多為吐槽） | 1,696 |
+| 情緒爆發 | 106 |
+| 算計盤算 | 96 |
+| 吐槽貶低（明確） | 46 |
+| 系統提示 | **6** |
+
+---
+
+## 7. 反轉詞密度
+
+檢查詞：但是／但／可是／却／然而／不过／反而／竟然／居然／没想到／不料／忽然／突然／猛地／愣／懵／傻眼／震惊／惊讶／倒吸
+
+- 每章平均 **16.4** 個，中位 16
+- 每千字 **6.76** 個
+- 章內分佈：0–10 個 → 489 章｜11–20 個 → 1,579 章｜21–35 個 → 664 章｜&gt;35 個 → 25 章
+
+---
+
+## 8. 時間跳躍標記
+
+| 每章跳躍數 | 章數 |
+|---|---|
+| 0 | 655 |
+| 1 | 799 |
+| 2 | 619 |
+| 3 | 354 |
+| 4 | 191 |
+| 5 | 79 |
+| ≥6 | 60 |
+
+標記詞：第二天／翌日／次日／第三天／一小时后／半小时后／十分钟后／晚上／早上／中午／下午／此时／与此同时／另一边／同一时间／次日清晨／三天后／一周后／一个月后
+
+---
+
+## 9. 章內結構特徵
+
+| 指標 | 數值 |
+|---|---|
+| 前 3 段含對話 | 1,496 / 2,757（54.3%） |
+| 後 3 段含對話 | 2,376 / 2,757（**86.2%**） |
+| 首 3 段出現主角名 | 1,459 / 2,757（52.9%） |
+| 最後一段含對話 | 1,737 / 2,757（63.0%） |
+| 最後一段含主角 | 997 / 2,757（36.2%） |
+| 「主角出手→對手震場」相鄰配對 | 1,045 章（37.9%） |
+| 震場句前一段係主角 | 106 vs 228（主角先行 31.7%） |
+| 「震場三連」連續 3 段 | 僅 4 章（0.1%） |
+
+**含義**：章尾**絕大多數係對話收**（86.2%），唔係敘述收。
+
+---
+
+## 10. 角色登場分佈（每 25 章為單位）
+
+### 主要角色
+| 角色 | 總出現 | 峰值區段 |
+|---|---|---|
+| 主角 | 56,622 | 全書均勻 |
+| 兄弟團成員一 | 20,049 | 全書貫穿 |
+| 兄弟團成員二 | 13,378 | 第 175–2,700 章 |
+| 第五女主 | 4,074 | 第 100–800 章 |
+| 第二女主 | 3,408 | 第 1–600 章 |
+| 第一女主 | 2,725 | 第 1–400 章 |
+| 前輩角色 | 1,975 | 分散 |
+| 第三女主 | 1,695 | 分散 |
+| 兄弟團成員二 | 1,618 | 第 350–2,000 章 |
+| 配角 | 158 | 第 1,900–2,000 章（極短） |
+| 第四女主 | 1,469 | 第 350–2,300 章 |
+
+### 角色輪替軌跡（每 25 章峰值位置）
+| 角色 | 峰值區段 |
+|---|---|
+| 第一女主 | 第 1–150 章 |
+| 第二女主 | 第 1–100 章、375–425 |
+| 第三女主 | 第 1–125 章、750–775 |
+| 配角 | 第 1–175 章 |
+| 第四女主 | 第 500–575 章、1,600–1,700 |
+| 反派 | 第 1,850–1,975 章 |
+| 第六女主 | 第 600–650、1,900–2,100 章 |
+| 終盤角色一 | 第 2,500–2,725 章 |
+| 終盤角色二 | 第 2,300–2,600 章 |
+| 終盤角色一 | 第 2,600–2,750 章 |
+
+**規律**：每個角色集中 20–30 章（500–600 章範圍內）後退場，下一個角色補上。核心三人不換。
+
+---
+
+## 11. 稱謂統計
+
+| 稱謂 | 次數 |
+|---|---|
+| 前輩 | 2,911 |
+| 暱稱 | 2,529 |
+| 大哥 | 1,982 |
+| 資歷稱謂 | 1,574 |
+| 家主 | 1,531 |
+| 主人 | 1,309 |
+| 小子 | 1,008 |
+| 殿主／殿下 | 485 |
+| 老大 | 653 |
+| 師弟 | 673 |
+| 尊稱（暱稱） | 206 |
+| 核心稱謂 | 93 |
+| 第四女主（全名） | 1,469 |
+| 兄弟團成員三 | 849 |
+
+---
+
+## 12. 對話標記統計
+
+- 總種類：**9,142**
+- Top：主角道 1,547｜兄弟團成員一道 433｜兄弟團成員二道 233｜第二女主道 199｜第五女主道 198｜前輩角色道 159｜智囊角色道 116｜主角心說 112｜第一女主道 103｜配角女子道 101
+- 「笑着道」86｜「X眯起眼睛」15｜「X點點頭」26｜「X嘆口氣」12
+- 動作 + 說話（`X笑/怒/驚/冷/震` + `：`）共 **6,782** 次
+- 其中 `X道：“` 形式 2,127 次
+
+---
+
+## 13. 震場反應池（參考作只用 12 種）
+
+| 句式 | 次數 |
+|---|---|
+| 所有人都是一愣。 | 14 |
+| 所有人都很吃驚。 | 13 |
+| 所有人都懵了。 | 12 |
+| 所有人都震驚了。 | 10 |
+| 所有人都懵了。（無「都」） | 8 |
+| 所有人都驚呆了。 | 8 |
+| 眾人面面相覷。 | 6 |
+| 所有人都很吃驚。（無「都」） | 4 |
+| 所有人都震驚了。（無「都」） | 4 |
+| 全場震驚。 | 4 |
+| 全場都驚呆了。 | 4 |
+| 眾人一愣。 | 4 |
+
+- 總種類 **266**，總次數 368
+- 高調震場詞（震驚/傻眼/倒吸/嘩然/震撼/懵了/服了/跪）合計 **6,076**
+- 低調反差詞（不動聲色/雲淡風輕/毫不/淡淡/隨手/毫不在意）合計 **1,024**
+- **落差比 5.9 : 1** ← 爽感來源
+
+---
+
+## 14. 關鍵詞統計（機制相關）
+
+| 詞 | 全書次數 |
+|---|---|
+| 系統 | 412 |
+| 獎勵 | 146 |
+| 任務 | 329 |
+| 劇情 | 187 |
+| 媽媽 | 441 |
+| 手術 | 294 |
+| 苟 | 102 |
+| 主線 | 14 |
+| 穿越 | 21 |
+| 原著 | 5 |
+| **現實世界** | **18** |
+
+**含系統／現實世界嘅章：39 章**（佔 14 位組 1.9%），最後一次係第 1,958 章。
+
+⚠️ **機制失效證據**：現實世界只出現 18 次、劇情 187 次 → 主角已唔需要「避開死亡」，故事變成角色輪流上位的日常連載。
+
+---
+
+## 15. 情緒／語氣詞
+
+| 詞 | 次數 |
+|---|---|
+| 哈哈 | 5,443 |
+| 幺麼（么） | 3,486（特指「特麼」） |
+| 您 | 8,828 |
+| 卧槽 | 53 |
+| 尼瑪 | 89 |
+| 你 | 94,517 |
+| 我 | 107,461 |
+| 他 | 55,655 |
+
+---
+
+## 16. 標題行
+
+- 全書只有 **33 行**以「第X章」開頭
+- 實例：`第2074章某門派门主`、`第2075章先搞搞情报`、`第2108章总之都是平手`
+- **結論**：作者唔靠章名，讀者靠流水號定位
+
+---
+
+## 17. 檔名結構（供參考，非必須）
+
+- 14 位組：`16856751340001` = 10 位發布時間戳（Unix 秒） + 4 位章號
+- 8 位組：`40499624` = 8 位時間戳 + 章號（章號範圍 2–9985，共 705 章，非連續）
+- 兩組合計 = 同一本書連續內容（已用情節接縫驗證：鵪鶉變主菜 → 牌位上的勝負）
+
+---
+
+# 新書對照基準速查
+
+寫新書時，用以下數值做對照：
+</code></pre>
+<p>章長              2,000–3,000 字（硬上限 5,000） 段落數／章         70–110 平均段長           ≤ 30 字 對話佔比           45–60% 心聲               ≤ 3 段／章，每段 20–60 字 反轉詞             每千字 6–7 個 時間跳躍           ≤ 1 個／章 章尾鉤子率         ≥ 40%   ← 參考作 11.5%，必須改 震場反應池種類     ≥ 60 種 ← 參考作 12 種，必須改 對話標記種類       ≥ 50 種 ← 參考作 9,142 種 機制彈出間隔       ≤ 5 章 角色稱謂           每角色一個，出現 ≥2000 次 = 核心 低調:高調落差      1:6 ~ 1:5 標點               驚嘆號 ≥150/萬字，省略號 ≥100/萬字，破折號 &lt;10/萬字</p>
+<pre class="code"><code></code></pre>
+</div>
+<div class="pager"><a href="./appendix-template.html"><span class="p-label">← 上一章</span><span class="p-title">附錄二：寫作模板</span></a><a class="p-next" href="./appendix-checker.html"><span class="p-label">下一章 →</span><span class="p-title">附錄四：自動檢查器</span></a></div>
+</div>
+<script>window.__SLUGS__=["chapter-01", "chapter-02", "chapter-03", "chapter-04", "chapter-05", "chapter-06", "chapter-07", "chapter-08", "chapter-09", "chapter-10", "chapter-11", "chapter-12", "appendix-techniques", "appendix-template", "appendix-data", "appendix-checker"];
+
+/* 章節導航：鍵盤左右 / 手機滑動 */
+(function(){
+  var TOTAL=16, CUR=15;
+  var PREV=CUR>1?CUR-1:null, NEXT=CUR<TOTAL?CUR+1:null;
+  var base=location.pathname.replace(/[^/]*$/,'');
+  function go(n){ if(n===null)return; location.href=base+SLUG(n)+'.html'; }
+  function SLUG(n){ return window.__SLUGS__ ? window.__SLUGS__[n-1] : ('chapter-'+(n<10?'0':'')+n); }
+  document.addEventListener('keydown',function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey)return;
+    var t=e.target;
+    if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable))return;
+    var sel=window.getSelection&&window.getSelection();
+    if(sel&&sel.toString&&sel.toString().length>0)return;
+    if(e.key==='ArrowLeft'&&PREV!==null){e.preventDefault();go(PREV);}
+    else if(e.key==='ArrowRight'&&NEXT!==null){e.preventDefault();go(NEXT);}
+  });
+  var x0=null,y0=null,t0=0,tr=false;
+  function inter(t){return t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable);}
+  function hasSel(){var s=window.getSelection&&window.getSelection();return !!(s&&s.toString&&s.toString().length>0);}
+  document.addEventListener('touchstart',function(e){
+    if(e.touches.length!==1){tr=false;return;}
+    if(inter(e.target)){tr=false;return;}
+    var t=e.touches[0];x0=t.clientX;y0=t.clientY;t0=Date.now();tr=true;
+  },{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(!tr){tr=false;return;} tr=false;
+    var t=e.changedTouches[0]; if(!t)return;
+    var dx=t.clientX-x0, dy=t.clientY-y0, dt=Date.now()-t0;
+    if(Math.abs(dx)<60)return;
+    if(Math.abs(dx)<Math.abs(dy)*1.8)return;
+    if(dt>800)return;
+    if(hasSel())return;
+    if(dx>0){if(PREV!==null)go(PREV);} else {if(NEXT!==null)go(NEXT);}
+  },{passive:true});
+})();
+</script>
+</body>
+</html>

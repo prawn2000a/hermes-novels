@@ -68,13 +68,64 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告 + 日文解釋（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: #9a8a76;
+  margin-bottom: 0.3em !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+.chapter-preview .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-preview .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 2 章　中央道・諏訪湖 SA 遇豆豆</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>離開鎌倉，上了首都高，再轉中央自動車道。開了快兩個鐘，我開始暈車，卻不肯在途中下車，因為行程表寫著「中途不下車」。</p>
+<p>中途短暫停靠在<b>諏訪湖 SA</b>。攤位用紅色帆布搭著木屋，招牌寫著「信州名物 蘋果・蘋果派・蘋果糖」，一位戴小草帽、拿著抹汗毛巾的男人正把富士蘋果往攤位上搬。</p>
+<p>陽葵一下車就衝向攤位，而我真正在意的，是那隻叫<b>豆豆</b>的柴犬。牠捲成 C 字睡著，尾巴偶爾動一下。陽葵伸手，豆豆睜開眼，蹭了蹭她的手心。</p>
+<p>山下先生切了一盤帶皮的富士蘋果，薄薄八片排在白瓷碟上。咬下去甜得出乎意料。但我更在意另一件事。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>早上八點多，車子駛上首都高。白色 Yaris 在車流裡一格一格往前挪，引擎發出很穩的嗡鳴。我坐在副駕，把膝蓋上的摺疊地圖攤平，又折回去。</p>
@@ -138,6 +189,18 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>數出來的答案比我願意承認的還要短。我還在這裡想著要怎麼介紹自己、要不要先伸手，陽葵已經跑出去三步了。我把最後一口蘋果吞下去，甜味還留在舌根，可我心裡有一小塊地方，空了一下。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">夜に駆ける</span><span class="jp-note">YOASOBI 的歌名，意思接近「奔向夜晚」。陽葵在中央道上換到的第四首歌。</span></p>
+<p><span class="jp">ひまりん</span><span class="jp-note">凜對陽葵的暱稱，取自本名「白石陽葵（しらいしひまり）」的「ひまり」。「陽葵」日語讀作 ひまわり，意思是向日葵，永遠追著光走。</span></p>
+<p><span class="jp">SA</span><span class="jp-note">Service Area，服務區。日本高速公路上的休息站，有廁所、餐廳、便利店，也是觀光客拍照的地點。</span></p>
+<p><span class="jp">信州</span><span class="jp-note">日本中部的一個縣，Nagano Prefecture 的舊稱。這趟三十日公路旅行的主要目的地。</span></p>
+<p><span class="jp">梓橋 山下蘋果園 直營</span><span class="jp-note">SA 上的蘋果攤位招牌。梓橋是諏訪湖附近的產地，「直營」代表果園直接送貨，不經中間商。</span></p>
+<p><span class="jp">富士</span><span class="jp-note">富士蘋果，品種名。中午時分切片上碟，山下先生說這批是今早現切的。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -235,9 +298,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

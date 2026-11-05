@@ -68,13 +68,64 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告 + 日文解釋（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview-label {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: #9a8a76;
+  margin-bottom: 0.3em !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+.chapter-preview .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-preview .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 3 章　輕井澤・銀座通亂逛</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>下午四點多駛進<b>舊輕井澤銀座通</b>。碎石路、落葉松、磚紅色舊式建築，氣溫比東京低了一截，空氣裡混著泥土、咖啡和果醬的味道。</p>
+<p>陽葵在行前就已經決定好要去哪裡：蘋果派、果醬專門店、舊書攤。而我正默默計算銀座通全長約六百公尺，每間店至少要停一個鐘。</p>
+<p>果醬店店員是戴老花眼鏡的中年女士，遞給我們一把木匙試吃。自家果園的「夏姑娘草莓」，加了少少玫瑰水。陽葵的眼睛瞪得圓圓的。</p>
+<p>我們翻過一九九六年的《anan》特集，在舊書攤前站了幾秒。離開時陽葵攬住我的手臂道謝，我卻只說得出點頭。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>車子拐上通往輕井澤市區的坡道時，錶上剛過四點。車窗外的光線和東京不一樣，綠得比較硬，比較乾，連遠處的山稜線都看得清清楚楚。我把外套的拉鏈一路拉到最頂，脖子那圈風才終於被擋住。ひまりん把車停進立體停車場，熄火之前朝我笑了一下，說這裡的風比想像中冷。</p>
@@ -128,6 +179,18 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>上車之前我回頭看了一眼那條街。白天看起來只是舊，傍晚看起來卻像被人一直記住。我一直以為旅行就是把計畫一格一格填滿，現在才發現，有些格位是別人填的，而且填得比我好。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">銀座通</span><span class="jp-note">舊輕井澤最有名的一條散步路。全長約六百公尺，兩側是落葉松與石板路，因聚集陶器、果醬、古道具店而聞名。</span></p>
+<p><span class="jp">軽井沢</span><span class="jp-note">輕井澤的日文寫法（舊字體為「澤」，新字體為「沢」），Nagano 縣的高原度假區，海拔約一千一百公尺，東京出發約兩小時車程。</span></p>
+<p><span class="jp">ひまりん／りんりん</span><span class="jp-note">兩人的暱稱。凜叫陽葵「ひまりん」，陽葵叫凜「りんりん」，是全書暗藏的笑點。</span></p>
+<p><span class="jp">夏姑娘</span><span class="jp-note">日本草莓品種名，字面意思是「夏天的女孩」。用於描述草莓的清甜、嬌氣與香氣。</span></p>
+<p><span class="jp">anan</span><span class="jp-note">日本知名的女性時尚雜誌，創刊於一九八八年。舊書攤上的是一九九六年的特集。</span></p>
+<p><span class="jp">AERA</span><span class="jp-note">日本的報紙型時尚雜誌，一九八八年創刊，以大版面影像聞名。舊書攤上的另一本。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -225,9 +288,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

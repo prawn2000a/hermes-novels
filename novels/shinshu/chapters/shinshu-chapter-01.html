@@ -96,13 +96,78 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 1 章　鎌倉の朝、東京出發</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>清晨五點四十二分，鎌倉。JR 橫須賀線的電車聲從窗外掃過天花板。陽葵的房間牆上貼著文化祭海報，門邊掛著她爸在去年十二月替她拍的第一張駕照照。</p>
+<p>她房間的牆上還貼著一張自己畫的信州路線圖，每個服務區都用紅色標記，旁邊寫著「豆豆的店」。</p>
+<p>而在隔壁和室，我坐在六疊榻榻米上，面前攤開列印好的行程表，最底一行用紅字寫著：<b>Buffer：每日預留 2 小時應急</b>。</p>
+<p>三十日的信州公路旅行就這樣開始了。陽葵說了句「今天開始，不准計畫」，我卻在玄關回頭看了一眼那張折好的紙。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>我在五點四十二分醒來。窗外一列電車正往隧道裡去，車燈一格一格掃過天花板，像有人用指節慢慢地敲一段很慢的節拍。我數到第七格的時候，房間才重新暗下來。潮氣從紙門底下滲進來，貼著我的腳踝。</p>
@@ -134,6 +199,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>陽葵問：「紙收好了。」「嗯。」「那可以睡覺了。」「我不睡。」「那你幹嘛坐得這麼直。」「因為我在看風景。」她笑出聲，車子轉上中央道，車道往西一節一節數過去。我轉頭看著窗外，因為窗外的山一重又一重，一直推向今天還沒有到的地方。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">ソーダサーフ</span><span class="jp-note">Mr. Children 的成名曲，一九九六年發行。曲名來自作者芹澤廣明在漫畫《Monster Soul》裡的用語，指像蘇打水衝上天花板般飛起來。陽葵公路歌單的第一首。</span></p>
+<p><span class="jp">夜に駆ける</span><span class="jp-note">YOASOBI 的代表曲，二〇一九年發行，收錄在專輯《転生》。歌名意思是「奔向夜晚」。陽葵在中央道上換到的第四首歌。</span></p>
+<p><span class="jp">ひまりん／りんりん</span><span class="jp-note">兩人的暱稱。凜叫陽葵「ひまりん」，陽葵叫凜「りんりん」。取自本名「白石陽葵（しらいしひまり）」與「桐野凜（きりのりん）」。日文暱稱一律用假名，漢字是「稱呼對方」，假名是「放進心裡」。</span></p>
+</div>
+
+
 
 
 <div class="reader-note">
@@ -241,9 +315,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

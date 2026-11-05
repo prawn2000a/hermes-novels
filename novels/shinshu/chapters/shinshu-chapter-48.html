@@ -70,12 +70,77 @@ h1 { font-size: 1.6em; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 48 章　首都高速→湘南・最後的歌</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天從首都高往湘南走，陽葵按了歌單第一首，是離開鎌倉那天的聲音。</p>
+<p>兩側高牆退開，遠處能看見塔吊和貨櫃，城市的燈光一片一片掃過車窗。</p>
+<p>她說歌要按順序放，跳著放就等於把路走爛了。</p>
+<p>最後一首的位置還空著，我看了很久，遲遲沒有寫下名字。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>首都高上的車流比我想像的密。第三號新宿線往前挪的時候，兩側的高架把天空切成細長的條。陽葵把公路歌單的 USB 插進車機，螢幕亮起一列資料夾，她沒有往下翻，直接按了第一首。</p>
@@ -113,6 +178,20 @@ h1 { font-size: 1.6em; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 
 <p>我把 USB 放進口袋，沒有讓它掉出來。口袋的布料隔著它，還留著一點體溫。我看著前方的路，橙色的路牌一個一個從車頂掠過，寫著由比濱、辻堂。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">ソーダサーフ</span><span class="jp-note">Mr. Children 的成名曲，一九九六年發行。曲名來自作者芹澤廣明在漫畫《Monster Soul》裡的用語，指像蘇打水衝上天花板般飛起來。本章是陽葵按下的歌單第一首，與離開鎌倉那個早上的第一個聲音相同。</span></p>
+<p><span class="jp">まちぶせ</span><span class="jp-note">荒井由實作詞作曲的曲，一九七六年首由三木聖子演唱，一九八一年石川ひとみ翻唱成為代表作。歌名意思是「想把你留在故鄉」。本章這首一響起，杉木的味道好像跟著回來。</span></p>
+<p><span class="jp">上を向いて歩こう</span><span class="jp-note">坂本九的代表作，日文原題，英文題名是 SUKIYAKI。作詞永六輔，作曲中村八大，一九六六年發行。本章這首是從善光寺前的上坡開始播的，那天車子還在十八號，稻田的水面亮得刺眼。</span></p>
+<p><span class="jp">Ref：rain</span><span class="jp-note">Aimer 的歌曲，收錄在二〇一八年發行的單曲《Ref：rain／眩いばかり》中，是她第十四張單曲的主打曲。本章這首配的是蓼科湖邊的那個下午，凜在筆記本寫下一行字時，手心是鬆的。</span></p>
+<p><span class="jp">糸（いと）</span><span class="jp-note">中島みゆき的代表作，收錄在一九九八年發行的單曲《命の別名／糸》，是她的第三十五張單曲。本章這首配的是白樺湖邊的擊掌，凜說那一下擊掌的聲音到現在還在耳朵裡，比歌聲還清楚。</span></p>
+<p><span class="jp">中島みゆき</span><span class="jp-note">日本的創作歌手，一九五二年出生於北海道，歌手生涯橫跨半個世紀以上。她的作品常以血緣、記憶與日常的細節為題，本章由陽葵挑來配白樺湖邊的那一下擊掌。</span></p>
+<p><span class="jp">湾岸線（わんがんせん）</span><span class="jp-note">沿東京灣北岸與浦安一帶的道路與路線，讀作わんがんせん。本章首都高之後接上灣岸線，車道變寬，兩邊的高牆退開，遠處能看見塔吊和貨櫃。</span></p>
+<p><span class="jp">首都高（しゅとこう）</span><span class="jp-note">首都高速道路，讀作しゅとこう。本章的車流比想像中密，兩側高架把天空切成細長的條，引擎以外的聲音很均勻，像一個很長的呼吸。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -204,9 +283,15 @@ h1 { font-size: 1.6em; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

@@ -68,13 +68,79 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 44 章　別所・重新並肩</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天醒得很早，走出旅館時石板還帶著昨夜的雨。</p>
+<p>霧氣裡的溫泉街很安靜，她的腳步和我的對上了同一個節奏。</p>
+<p>我把那頁寫得很亂的筆記讀出了聲，也把怕的東西說了出來。</p>
+<p>桌子中間是空的，我第一次不用東西替我說話。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>清晨六點多我就醒了。窗外的天空已經清了，寒流退到山的那一邊，只留下屋簷下一顆一顆往下掉的水珠。我躺著沒有動，先把昨晚最後那段對話在心裡重播一次。它沒有變形，也沒有多出什麼新的東西。這讓我鬆了一口氣，同時有點不知所措。</p>
@@ -115,6 +181,19 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>我把另一隻手也放上桌沿，沒有說什麼。窗外的霧把整條街包起來，我們坐在裡面，什麼都沒有決定，也什麼都不急著決定。這一次，我不會先替她回答。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">春枝（はるえ）</span><span class="jp-note">旅館老闆娘的名字，讀作はるえ。她年輕時做過算命師，現在只在客人面前看手相。本章她只說了一句，你們的手相比上次誠實，多的不講，說完就拎著茶壺走進廚房。</span></p>
+<p><span class="jp">手相（てそう）</span><span class="jp-note">日本常見的看掌紋與掌紋分線占卜的說法，讀作てそう。算命師與旅館的婆婆常以此跟客人聊天，本章她先看陽葵的手，再看凜的手。</span></p>
+<p><span class="jp">玉之湯（たまのゆ）</span><span class="jp-note">戶倉溫泉區最古老的溫泉設施，讀作たまのゆ。相傳浸過之後皮膚滑得像玉，因此得名。本章凜從鳳凰盒裡取出的兩塊泉水石，就是當初在那裡拿到的。</span></p>
+<p><span class="jp">御朱印（ごしゅいん）</span><span class="jp-note">日本寺社發給參拜者的朱色印章與貼紙，讀作ごしゅいん。本章御朱印帳上寫著善光寺和日期，右下角蓋著紅色的鳳凰印。</span></p>
+<p><span class="jp">鳳凰（ほうおう）</span><span class="jp-note">神話中的不死鳥，日文讀作ほうおう。本章鳳凰盒盒蓋上那隻鳳凰的翅膀有一點金色，打開蓋子時裡面沒有任何反應，石頭在掌心是涼的。</span></p>
+<p><span class="jp">別所（べっしょ）</span><span class="jp-note">上田市北側的溫泉地，讀作べっしょ。本章的溫泉街在霧裡一盞一盞亮起燈，白色的蒸汽在燈下往上飄，遠處的鐘樓響了幾下，聲音被霧吃掉一半。</span></p>
+<p><span class="jp">味噌（みそ）</span><span class="jp-note">以大豆或米麴加鹽發酵而成的日本發酵食品，讀作みそ。信州是日本味噌的主要產地之一。本章早餐的味噌湯與煎豆腐，是兩人重新並肩之後的第一頓飯。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -212,9 +291,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

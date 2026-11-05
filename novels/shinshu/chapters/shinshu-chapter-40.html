@@ -68,13 +68,79 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 40 章　湯田中→駒根・光前寺遇閃電</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天從湯田中開到駒ヶ根，一百二十幾公里的高速，胃一直往上浮。</p>
+<p>到光前寺時天已經全黑，石階旁冒出一團灰白橘的顏色。</p>
+<p>寺裡的貓住持閃電沒有選誰，就坐在我和陽葵中間的台階上，後來把前身壓在我們兩塊袖口上。</p>
+<p>我走進本堂許了願，什麼也沒有問她。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>早上七點多，我們把行李搬上白色的車。湯田中的早晨還留著一層白霧，旅館的老闆在門口掃地，沒有再說什麼。我把摺疊地圖收進筆記本後面，這一次沒有攤開。</p>
@@ -114,6 +180,20 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>明天還要往北走，回別所。想到這件事的時候，我發現自己沒有那麼抗拒了。也許只要路上還有很長的距離，人就還有時間慢慢決定要不要說出口，也許再遠一點，答案就會自己浮出來。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">駒ヶ根（こまがね）</span><span class="jp-note">長野縣駒ヶ根市的舊地名，讀作こまがね，也常寫作こまね。中央自動車道在此設有駒ヶ根交流道，是從長野往南進出諏訪與伊那平地方的要道，本章兩人正是從這裡轉上通往光前寺的縣道。</span></p>
+<p><span class="jp">光前寺（こうぜんじ）</span><span class="jp-note">駒ヶ根市赤穗的天台宗別格本山，院號無動院，正式名稱是高贵山光前寺。主祭大日如來，通稱「光前さま」，是長野縣一帶信仰與地方文化的中心，山門與本堂之間的石階兩側是杉林，入夜後自成一條幽暗的上參道。</span></p>
+<p><span class="jp">閃電（せんでん）</span><span class="jp-note">寺裡的貓住持名字，讀作せんでん。日本寺院常收養流浪貓並取名，名字多取自古典詞彙或節氣、星座一類的意象。本章牠不選誰，只坐在兩人中間的石階上，寺務人員說牠從來不勉強誰。</span></p>
+<p><span class="jp">三毛猫（みけねこ）</span><span class="jp-note">毛色由白、橘、黑三種斑塊交錯組成的家貓，讀作みけねこ。日本人普遍認為三毛貓性格溫順，寺社附近的野貓多為三毛，本章這隻灰白橘的貓一開始被凜誤認成別人的行李。</span></p>
+<p><span class="jp">別格本山（べっかくほんざん）</span><span class="jp-note">天台宗各派之中地位較高的寺院稱號，讀作べっかくほんざん。光前寺是總本山山門派下的別格本山，在長野縣一帶是信仰與地方文化的中心，參道兩側的石階與杉林都留有長年的參拜痕跡。</span></p>
+<p><span class="jp">信州中野IC（しゅうしゅうなかのインターチェンジ）</span><span class="jp-note">上信越自動車道的交流道，位於長野市中野區。IC 是 Interchange 的縮寫，日文讀作インターチェンジ。本章兩人從湯田中上高速後第一個經過的就是它，接著轉上長野道。</span></p>
+<p><span class="jp">更埴JCT（こうしょくジャンクション）</span><span class="jp-note">上信越自動車道與長野自動車道相接的交流道，JCT 是 Junction 的縮寫，讀作ジャンクション。兩條路並不直接相連，必須在此轉一次，本章凜在車裡把地名順序念了又念才記住。</span></p>
+<p><span class="jp">岡谷（おかや）</span><span class="jp-note">諏訪湖西岸的城市，讀作おかや。中央自動車道在此與長野自動車道相接，是往伊那平與駒ヶ根的轉換點，本章兩人在地圖上比的就是這一段。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -211,9 +291,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

@@ -68,13 +68,75 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 33 章　志賀高原・遇 OL 三人組</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天從菅平開上志賀高原，在半山的展望台遇見三個來旅行的女生。木欄杆外的草坡被午後的光染成淡藍，遠處望得見四國連山的方向。她們的熱情太快，我只擠出一個嗯，有什麼東西開始不對了。住進溫泉旅館以前，我想先數清楚自己到底說了幾句話。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>離開菅平高原旅館的時候還不到九點。晨霧壓在山谷裡，遠處的杉木只露出上半截。我站在門口把摺疊地圖收進背包，說今天走大路。陽葵正在繫鞋帶，聽見之後抬起頭，點了一下頭，沒有問為什麼。</p>
@@ -113,6 +175,19 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>窗外有人在石階上走，腳步聲一下一下，然後被風吹散。陽葵在浴室裡哼起今天車上那首英文歌，跑調跑得很遠，遠到變成另一首歌。我把筆記本合上，今天的頁面這樣就好。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">志賀高原（しがこうげん）</span><span class="jp-note">上信越高原國定公園的一部分，長野縣下高井郡山之內町一帶的高原，讀作しがこうげん，不是しかこうげん。地名由長野電鐵創辦人神津藤平所定，涵蓋木戶池、大沼池、琵琶池一帶，滑雪場與溫泉區在高原上密集分布。</span></p>
+<p><span class="jp">四国連山（しこくれんざん）</span><span class="jp-note">橫跨長野、新潟、山梨三縣的山系，主峰信濃境之岳海拔二千九百二十八公尺，被指定為日本百名山與新日本百名山。本章從志賀高原往西望，遠處山脊層層疊疊就是這條連嶺。</span></p>
+<p><span class="jp">志賀高原道路（しがこうげんどうろ）</span><span class="jp-note">連接志賀高原溫泉區與各滑雪場的主要道路，山區路段多為雙向二車道，彎道密集而坡度平緩。本章下午沿著它往上爬，視線會突然打開，公路右側遠處正是四國連山的方向。</span></p>
+<p><span class="jp">まちぶせ</span><span class="jp-note">荒井由實作詞作曲的曲，一九七六年首由三木聖子演唱，一九八一年石川ひとみ翻唱後成為代表作。歌名意思是「想把你留在故鄉」。本章是陽葵插上公路歌單之後播出的第一首歌。</span></p>
+<p><span class="jp">アイスクリーム</span><span class="jp-note">日文裡冰淇淋的通常說法。展望台上的三個女生把空飲料罐收進垃圾袋之後，順口說要去買冰品，並問兩人要不要一起。</span></p>
+<p><span class="jp">ラクウショウ（落羽松）</span><span class="jp-note">落葉針葉樹，學名 Taxodium distichum，葉子在枝上兩列對生，像鳥的羽毛，秋天整枝落下而得名，也常寫作「沼杉」。志賀高原的停車場與濕地旁成排栽種，踩上去的針葉很軟，腳底不會發出聲音。</span></p>
+<p><span class="jp">硫黄（いおう）</span><span class="jp-note">硫磺的日文讀音。志賀高原一帶的溫泉區空氣裡常帶著淡薄的硫味，本章傍晚走進旅館時，風裡就混著那股味道。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -210,9 +285,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

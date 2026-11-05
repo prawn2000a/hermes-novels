@@ -68,13 +68,79 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 38 章　志賀→湯田中・沉默的車程</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天從志賀高原下到湯田中，一路沒有把摺疊地圖攤開。</p>
+<p>車廂裡只有公路歌單，鼓點很輕，她的食指在方向盤上跟著點，點到一半就停住。</p>
+<p>中午走進地獄谷野猿公苑，蒸汽裡的猴子泡在戶外溫泉裡，沒有一隻要離開。</p>
+<p>泡湯時我們第一次分開進了同一個池子。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>清晨五點多，我就醒了。志賀高原山莊的木窗縫還塞著一點夜裡的冷氣，窗外是白的，看不出是霧還是雲。屋內是榻榻米和炭火的味道。我躺了幾分鐘，等身體確認今天還在旅行裡面。</p>
@@ -110,6 +176,20 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>然後我在下面寫：我們還有幾天。寫完之後我又看了很久，沒有劃掉，也沒有補上數字。我把筆帽蓋回去，關掉燈，房間裡只剩窗外那些蒸汽的白光，還有我自己的呼吸聲，一下一下，比外面那些噴氣孔更近。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">湯田中（ゆたなか）</span><span class="jp-note">長野縣山之內町的溫泉區，位於志賀高原北端，讀作ゆたなか。名稱中的「中」是古地名用字，整條街的旅館與商店都帶著終年散不掉的水蒸氣，本章兩人在這裡的旅館過夜，並第一次分開泡湯。</span></p>
+<p><span class="jp">地獄谷野猿公苑（じごくだにやえんこうえん）</span><span class="jp-note">長野縣山之內町的野生日本猴觀察設施，位於地獄谷的硫磺地帶，猴子在峽谷兩側的天然溫泉裡越冬。公苑以木棧道與觀景台串起，管理人員會提醒遊客不要直視、不要舉手、不要為了拍照靠近，讓猴子自己決定要不要靠過來。</span></p>
+<p><span class="jp">野猿（やえん）</span><span class="jp-note">指日本猴，日文讀作やえん。與「原始林」裡的野生猴群不同，公苑裡的猴子已被人類餵食習慣，對人的距離感很特別。本章那些泡在戶外溫泉裡的身影，肩膀浮在水面，只在蒸汽裡浮現輪廓。</span></p>
+<p><span class="jp">上信越自動車道（じょうしんえつじどうしゃどう）</span><span class="jp-note">連接長野與東京的高速公路，在長野縣境內與長野自動車道以更埴交流道相接。本章兩人就是從湯田中上這條路往南，再轉往中央道。</span></p>
+<p><span class="jp">長野自動車道（ながのじどうしゃどう）</span><span class="jp-note">中央自動車道在長野縣的段落，與上信越自動車道在更埴交流道相連，再往南經岡谷交流道接回中央道。本章的轉乘點就是這兩條路，凜在車裡把地名順序念了又念。</span></p>
+<p><span class="jp">硫黄（いおう）</span><span class="jp-note">硫磺的日文讀音。地獄谷一帶的溫泉含硫量高，空氣裡有煮熟的雞蛋味，靠近了眼睛會辣。日本「硫黄溫泉」這類地名用的就是這個字。</span></p>
+<p><span class="jp">檜（ひのき）</span><span class="jp-note">日本扁柏，讀作ひのき。日本建築與木材家具最常用的樹種之一，浴場與本堂的地板常用檜木，踩上去有一種清涼的香氣。</span></p>
+<p><span class="jp">星（ほし）</span><span class="jp-note">日文裡星星的通常說法，也用在「明星」與「一族」等詞裡。山區旅館的客房名常以星星與天體命名，本章兩人在房裡最常停下來看的，是窗外那些噴氣孔冒出的白煙。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -207,9 +287,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

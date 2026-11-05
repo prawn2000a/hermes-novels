@@ -68,13 +68,75 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 35 章　木戶池・一個人離開</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天清晨五點醒來，獨自走下木戶池的木棧道。霧把整片湖藏起來，天地只剩下眼前十公尺的板子，還有一棵枯掉的樹。那天晚上，我把想說的話全部說了，連對不起三個字都沒有排隊。只是那一刻起，我不確定自己記得的路，還是不是我們一起走的那一條。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>清晨五點多，我就醒了。山莊的木頭地板比前幾夜更冷，冷到讓我一睜眼就知道自己睡得不算好。窗外的白不是雪的白，是霧把整片山谷填滿之後剩下的那種白，連邊界都沒有。</p>
@@ -114,6 +176,20 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 </content>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">木戸池（きどいけ）</span><span class="jp-note">志賀高原最大的湖，位於長野縣山之內町，海拔約一千二百公尺，讀作きどいけ。湖南岸是泥炭濕原與木棧道，本章凜獨自走上的正是這條棧道，也是「志賀高原」這片高原得名的起點之一。</span></p>
+<p><span class="jp">御朱印帳（ごしゅいんちょう）</span><span class="jp-note">用來貼滿寺社朱印的摺頁冊子，日本各大寺社的參拜處都備有這種本子。本章鳳凰盒裡那一本寫著善光寺與日期，上面蓋著紅色的鳳凰印。</span></p>
+<p><span class="jp">鳳凰の灯（ほうおうのひかり）</span><span class="jp-note">善光寺本堂前的銅製燈籠塔，讀作ほうおうのひかり。塔頂立著一隻抬著脖子的鳳凰，因此廣場直接叫做鳳凰廣場。本章鳳凰盒盒蓋上那一點金色，就是這隻鳳凰的形狀。</span></p>
+<p><span class="jp">湿原（しつげん）</span><span class="jp-note">由泥炭與莎草構成的濕地生態。木戶池周邊就是這樣一片濕原，表面的水窪把天空的白色映得更白，走棧道時看不見對岸，也看不見山脊線。</span></p>
+<p><span class="jp">木棧道（さんぽくどう）</span><span class="jp-note">架在濕原或水面上、由一條條木板鋪成的步道。本章凜一個人走的那一段，每踩一步木板都發出不太一樣的聲音，走到盡頭是一座小小的展望台。</span></p>
+<p><span class="jp">枯木（かれき）</span><span class="jp-note">已經枯死卻仍然直立的樹木，樹皮裂成一片一片，枝幹常被風吹得偏向一邊。本章棧道轉彎處那棵枯樹，走近才看見它後面還藏著一小片樹林，只是被霧擋住，看起來像只有一棵。</span></p>
+<p><span class="jp">鍋焼うどん</span><span class="jp-note">長野縣山區常見的鄉土料理，高山野菜與豆腐煮在鹹味較重的湯裡，烏冬另外煮好再放進鍋裡。本章傍晚山莊主人煮的就是這一鍋，陽葵把湯喝到見底，又去添了一次。</span></p>
+<p><span class="jp">風鈴（ふうりん）</span><span class="jp-note">掛在屋簷下的玻璃或金屬小鈴，風一吹就發出聲音。本章夜裡風把雲推過山頂，屋簷上的風鈴響了兩聲，之後就只剩下暖氣的低音。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -211,9 +287,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

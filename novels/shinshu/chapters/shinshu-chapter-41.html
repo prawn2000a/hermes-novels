@@ -68,13 +68,78 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 41 章　駒根→別所・漫長折返</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天從駒根出發，經岡谷再轉東，往北折回別所。</p>
+<p>杉木一棵接一棵往後退，隧道的光從車頂一遍遍掃過我的臉。</p>
+<p>我把時間整段交了出去，連休息多久都沒有算，心裡空著，卻不慌。婆婆在玄關只說了兩個字，回來了。我重複了一次，才反應過來那是她對我說的。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>清晨六點多我就醒了。駒根的旅館窗外是剛停下來的雨，屋簷還在滴水，一滴一滴落在鐵皮棚上，聲音很規律。我躺著聽了幾分鐘，才想起今天要走很長的一段路。</p>
@@ -110,6 +175,20 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>到這裡我仍然沒有寫出那句話，她也沒有。這一天就這樣過去了，像一條長長的坡道，我們還在路上，車燈還亮著，前面還有最後幾公里。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">駒根（こまね）</span><span class="jp-note">諏訪郡駒ヶ根市的通稱，讀作こまね；市名寫作「駒ヶ根」，讀作こまがね。位於中央道與長野道交會處，是從諏訪湖往東進入伊那谷的門戶。本章清晨出發的地方就在這座小城。</span></p>
+<p><span class="jp">別所（べっしょ）</span><span class="jp-note">上田市北側的溫泉地，讀作べっしょ，寫法與讀法不一致，是日本地名把讀法與字面分開的典型例子。位於信濃川與矢留川交會處的盆地，標高約五百七十公尺，號稱信州最古老的溫泉地。本章兩人繞回來的最後一個落腳點就在這裡。</span></p>
+<p><span class="jp">岡谷（おかや）</span><span class="jp-note">諏訪郡岡谷市，位於諏訪湖的西南岸。中央道與長野道在此分岔，本章折返路線在這裡轉向，車子從中央道改上長野道往東。</span></p>
+<p><span class="jp">上信越道（じょうしんえつどう）</span><span class="jp-note">連接長野與新潟的高速公路，讀作じょうしんえつどう。本章從更埴交流道轉上這條路往東，穿越山區後進入上田盆地，是信州中部東西向的交通主幹道。</span></p>
+<p><span class="jp">上田（うえだ）／上田市（うえだし）</span><span class="jp-note">長野縣北部的城市，位於上田盆地，海拔約四百五十公尺，自古是信濃國的政經中心。本章是信州境內最後一個寫下的地名，別所溫泉街就在市區北側。</span></p>
+<p><span class="jp">春枝（はるえ）</span><span class="jp-note">本章旅館老闆娘的名字，讀作はるえ，是昭和時代常見的女性名字。她年輕時做過算命師，現在只在客人面前看手相，見到兩人回來只說了回來了。</span></p>
+<p><span class="jp">御朱印（ごしゅいん）</span><span class="jp-note">日本寺社發給參拜者的朱色印章與貼紙，讀作ごしゅいん。本章的御朱印帳和鳳凰盒一起放在行李最上層，盒子裡沒有任何光，裡面的紙與石頭都只是安靜地躺著。</span></p>
+<p><span class="jp">泉水石（せんせき）</span><span class="jp-note">溫泉源頭自然析出的石質沉澱物，讀作せんせき，鴿子蛋大小、表面光滑、握在掌心冰涼。本章兩塊泉水石一直放在凜的內袋裡，從來沒有拿出來過。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -207,9 +286,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

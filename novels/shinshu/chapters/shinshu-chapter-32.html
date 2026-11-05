@@ -68,13 +68,75 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 32 章　菅平高原・畫錯的路</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天從菅平高原的旅館出發，去牧場盡頭的舊滑雪場。斷掉的纜車鋼索翹著像鳥的骨頭，我在地圖上畫上一條能省四十分鐘的林道。有什麼東西開始不對了，我第一次承認那條線是我自己畫錯的。天黑回到旅館，我會把想說的話寫在筆記本的最後一行。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>清晨的旅館很安靜，杉木林還罩著一層薄霧。海拔一千兩百公尺的冷氣從窗縫鑽進來，我把摺疊地圖攤在矮几上，用手掌把折痕一道一道壓平。</p>
@@ -105,6 +167,19 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>寫完之後我停了很久。窗外的蟲聲很密，房間裡只有暖氣的嗡嗡聲。我又在下面補上一行，我沒有告訴她。補完我沒有合上筆記本，只是坐在床邊，看著那兩行字在檯燈下發亮。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">菅平高原（すがだいらこうげん）</span><span class="jp-note">長野縣東北部上田市境內的高原，讀作すがだいらこうげん。海拔約一千二百公尺，冬季是滑雪場集中的地方，夏季則有牛隻放牧的牧場。本章兩人從山上的旅館開車下來，第一個抵達的就是這片高原。</span></p>
+<p><span class="jp">菅平神社（すがだいらじんじゃ）</span><span class="jp-note">菅平高原山腰一塊凹進去坡地上的小神社，石階只有十二級，兩旁欄杆與石階都長滿青苔。社殿很小，木色比外面的石頭還深，院子裡有一株老樹。荒廢的小祠常是山路中途讓旅人歇腳的地方。</span></p>
+<p><span class="jp">通行止（つうこうどめ）</span><span class="jp-note">「禁止通行」的告示寫法，讀作つうこうどめ。道路崩塌修復或施工時，會在入口掛上黃色告示牌與橙色網狀圍籬。本章那條自以為能省下四十分鐘的林道，盡頭就是這塊牌子。</span></p>
+<p><span class="jp">杉（すぎ）</span><span class="jp-note">日本最普遍的針葉樹之一，也寫作「杉木」，讀作すぎ。信州山區海拔一千公尺以上仍連片成林，早晨常整片罩著薄霧。本章清晨的旅館窗外與上山的路旁，都是這種樹。</span></p>
+<p><span class="jp">たくあん</span><span class="jp-note">醃漬的蘿蔔，以米糠與鹽釀成，是日本家常小菜與便當的固定角色。本章旅館早餐那碟醃蘿蔔就是它，之後在志賀高原一帶的餐桌上也一直出現。</span></p>
+<p><span class="jp">味噌（みそ）</span><span class="jp-note">以大豆或米麴加鹽發酵而成的日本發酵食品。本章旅館早餐的味噌湯用的就是它，山區旅館幾乎每家都有自己的配方，鹹度也各有不同。</span></p>
+<p><span class="jp">Yaris（ヤリス）</span><span class="jp-note">豐田推出的緊湊型掀背車，車身小、油耗低。在山區窄路與狹小停車位上都很方便，本章兩人就是靠這部白色小車在高原上來回。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -202,9 +277,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

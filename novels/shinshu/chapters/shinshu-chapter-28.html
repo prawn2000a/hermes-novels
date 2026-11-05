@@ -68,13 +68,79 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 28 章　善光寺參拜・寫明信片</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天又走進善光寺的本堂，晨光把石板地照成一片淡白。</p>
+<p>香的味道很淡，木頭與布的味道反而更重，隊伍安靜得只剩腳步聲。</p>
+<p>抄經的時候我一句都念不出來，只好一筆一筆慢慢抄。</p>
+<p>傍晚我把一張寫給媽媽的明信片投進郵筒，寄不出去的信也還是要寫。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>清晨的善光寺還沒有醒過來。空氣冷得像薄薄一層玻璃，我推開旅館的門時，遠處的屋瓦只亮著一層淡白。石板路被昨夜的露水洗過，走上去會發出一點很輕的聲音。我在門口站了幾秒，把旅行筆記簿攤在手上，寫下今天的日期，又停住。</p>
@@ -120,6 +186,20 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>我坐在那裡看著那一句字，忽然意識到那已經是昨天的事了，明日本堂參拜這一句，指的是今天。我不記得自己當時是怎麼寫下那一句的。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">善光寺（ぜんこうじ）</span><span class="jp-note">長野市的佛教寺院，讀作ぜんこうじ，是無宗派的單立寺院。住職由「大勸進貫主」與「大本願上人」兩人擔任。本章是兩人第二次來到這裡，也是這趟旅行裡唯一重複造訪的寺院。</span></p>
+<p><span class="jp">本堂（ほんどう）</span><span class="jp-note">寺院的主殿，讀作ほんどう。本章排隊進去的本堂裡供的是一光三尊阿彌陀如來，香爐裡的煙在深殿裡慢慢升起，散成看不見的東西。</span></p>
+<p><span class="jp">一光三尊阿弥陀如来（いっこうさんぞんあみだにょらい）</span><span class="jp-note">善光寺本堂的主尊，讀作いっこうさんぞんあみだにょらい。三尊阿彌陀如來並排而坐，中間那尊姿態安定並放著光，兩側稍瘦。「弥陀」是日文新字體寫法，繁體中文寫作「彌陀」。</span></p>
+<p><span class="jp">写経堂（しょうきょうどう）</span><span class="jp-note">善光寺內供人抄寫經文的堂舍，讀作しょうきょうどう。「写経」是日文新字體寫法，繁體中文寫作「抄經」。本章兩人在這裡各抄了一段經文，桌上備好硯台與筆，寫完可以帶走。</span></p>
+<p><span class="jp">硯（すず）／硯台（すずだい）</span><span class="jp-note">日本書寫時磨墨用的石盤，讀作すず。本章抄經時每一個字都要先在腦裡想一遍落筆的位置，寫壞了就用指腹輕輕壓一下。</span></p>
+<p><span class="jp">御朱印帳（ごしゅいんちょう）</span><span class="jp-note">記錄參拜朱印的專用冊子，讀作ごしゅいんちょう。本章凜在寺務所窗口寫上「善光寺」與當天的日期，職員蓋下一枚紅色的鳳凰印，帳本最後一頁還留著上一個人的字。</span></p>
+<p><span class="jp">宝蔵殿（ほうぞうでん）</span><span class="jp-note">善光寺的寶物殿，讀作ほうぞうでん，收藏寺寶與各國贈禮。本章中央立著一尊觀音菩薩，衣紋的木雕褶痕每一道都很深，邊緣卻磨得很圓。</span></p>
+<p><span class="jp">ひまりん</span><span class="jp-note">凜對陽葵的暱稱，取自本名「白石陽葵（しらいしひまり）」的「ひまり」。本章陽葵在香爐邊小聲問：ひまりん在這裡念了什麼，凜搖頭說自己也不會，兩人就那樣站了幾十秒。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -217,9 +297,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

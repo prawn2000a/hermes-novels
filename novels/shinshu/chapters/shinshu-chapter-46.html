@@ -70,12 +70,77 @@ h1 { font-size: 1.6em; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 46 章　善光寺・最後參拜</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天又走進善光寺的仲見世通，街上還沒有人潮。</p>
+<p>木板路被水沖過，走上去腳底會發出很輕的聲音，空氣裡有煮昆布和烤餅的味道。</p>
+<p>千世婆婆認出我背包上露出的鳳凰盒，說了一句讓我停下來的話。</p>
+<p>我很久沒有這樣安靜地站著了，想把寺裡的聲音全部聽完。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>前一晚我們回到善光寺附近的小旅店，車停在巷子裡，引擎熄了之後引擎蓋還在輕輕地抖動。我把鳳凰盒從背包裡拿出來放在枕邊，蓋上那隻鳳凰的翅膀有一點金色，房間的燈照上去，看不出任何特別。</p>
@@ -113,6 +178,20 @@ h1 { font-size: 1.6em; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 
 <p>明天早上我們會從這裡開出去，離開長野，走上回鎌倉的路。今晚我不會再去看寺廟的屋簷，也不會再數一次還有多少公里，我只把窗外的聲音聽完，然後去睡。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">善光寺（ぜんこうじ）</span><span class="jp-note">長野市內的佛教寺院，讀作ぜんこうじ，是日本無宗派的單立寺院。住職由「大勸進貫主」與「大本願上人」兩人擔任。本章是第二次走進這座寺，柱子和光線都一樣，看的人卻已經不一樣。</span></p>
+<p><span class="jp">仲見世通（なかみせどおり）</span><span class="jp-note">通往善光寺本堂的參道商店街，讀作なかみせどおり，另有古老的讀法「みせじ」。全街約兩百五十公尺，兩側店家密排。本章清晨的街上還沒有人潮，木板路被前一天的水沖過，走上去腳底會發出很輕的聲音。</span></p>
+<p><span class="jp">千世（ちよ）</span><span class="jp-note">善光寺名物お焼き的代表性攤主，名字讀作ちよ。本章她仍在仲見世通的老位置擺攤，灰頭巾、深藍圍裙，腳上是一雙穿慣了的草履。</span></p>
+<p><span class="jp">お焼き（おやき）</span><span class="jp-note">長野縣的傳統食品，讀作おやき。把蔬菜或小豆煮成餡，包進薄薄的小麥粉皮，再放到鐵板或爐上烤成圓形，直徑約八到十公分。本章千世婆婆的鐵板上整齊排著切開的お焼き。</span></p>
+<p><span class="jp">野沢菜（のざわな）</span><span class="jp-note">長野縣名產的蔬菜，讀作のざわな。以信州下高井郡野澤溫泉村為中心栽培，與高菜、廣島菜並列為日本三大漬菜之一。本章買的兩個お焼き，一個是野沢菜餡，一個是切り干し大根餡。</span></p>
+<p><span class="jp">切り干し大根（きりぼしだいこん）</span><span class="jp-note">把蘿蔔切成薄片曬乾的乾物，讀作きりぼしだいこん。鹹香能把糯米皮的甜味拉住，是本章陽葵吃得最快的那一種。</span></p>
+<p><span class="jp">御朱印帳（ごしゅいんちょう）</span><span class="jp-note">用來貼滿寺社朱印的摺頁冊子，讀作ごしゅいんちょう。日本各大寺社的參拜處都備有這種本子。本章凜的御朱印帳裡，善光寺那一頁仍只有最初蓋過的痕跡。</span></p>
+<p><span class="jp">柄杓（ひしゃく）</span><span class="jp-note">淨手用的木柄水杓，讀作ひしゃく。善光寺本堂前的淨手處備有這種木杓，取水沖手之後把杓放回原處，是日本寺社參拜的固定動作。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -204,9 +283,15 @@ h1 { font-size: 1.6em; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

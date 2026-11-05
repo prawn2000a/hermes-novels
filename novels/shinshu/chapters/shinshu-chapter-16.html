@@ -68,13 +68,78 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 16 章　白樺湖・湖畔談心（淺層）</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天在白樺湖邊醒得很早，木階上還留著露水。</p>
+<p>湖面平得像一面剛擦過的鏡子，陽葵從車門回身向我伸出手，說石板濕了。</p>
+<p>她問我將來我們會怎樣，又說那個答案可以先不給名字。</p>
+<p>湖邊很安靜，安靜到能聽見自己說話。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>清晨五點，旅宿還沒有完全醒。走下木門的時候，腳底的木階是濕的，昨晚的露水積在板縫裡，一腳踩下去就發出很輕的聲音。湖邊只有我們兩個醒著的人，空氣冷得可以看見形狀，吸進肺裡有一點刺痛。</p>
@@ -113,6 +178,20 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>我寫下：別所的第一夜。月光。春枝婆婆。大湯。然後在最下面加一行：「明天去白馬八方。」寫完之後筆尖停在紙面上沒有動。我沒有寫「我們的未來會怎樣」，因為那個問題在清晨的碼頭上已經有答案了，它不需要名字。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">白樺湖（しらかばこ）</span><span class="jp-note">茅野市與立科町交界的湖泊，位於蓼科高原，湖面海拔約一千二百五十公尺。名稱來自湖畔成片的白樺林，風吹時葉背反光成銀白色，是這一帶的代表性景觀。</span></p>
+<p><span class="jp">桟橋（さんばし）</span><span class="jp-note">搭在湖岸或海岸上的木製平台，讀作さんばし。湖上的木碼頭是清晨最安靜的位置，腳踩下去時，木板縫裡會傳出另一種低低的聲音。</span></p>
+<p><span class="jp">別所（べっしょ）</span><span class="jp-note">上田市別所溫泉區，標高約五百七十公尺，是信州最古老的溫泉地之一。名字讀作べっしょ，不是照字面念的べつしょ。</span></p>
+<p><span class="jp">大湯（おおゆ）</span><span class="jp-note">別所溫泉區最老的公共浴場，據說湧出已有六百年。泉質乳白，池邊石頭被水染成深色，池水溫度約四十二度，是信州溫泉最具代表性的場所。</span></p>
+<p><span class="jp">錦鯉（きんりょ）</span><span class="jp-note">日本原產的觀賞鯉，讀作きんりょ。別所公園的池裡養了許多紅、白與帶斑點的錦鯉，遊客可以買餌餵食，是當地最受歡迎的行程之一。</span></p>
+<p><span class="jp">手相（てそう）</span><span class="jp-note">看手掌與指紋的紋路來推測性格與運勢，讀作てそう。春枝婆婆年輕時做過算命師，現在只看熟客的手，說人的手比臉老得慢，看久了就知道一個人過得辛苦不辛苦。</span></p>
+<p><span class="jp">和菓子（わがし）</span><span class="jp-note">日本傳統點心，讀作わがし，分成生菓子、乾菓子與餡菓子三大類。文中陽葵從町上的店買回來的這一盒，是豆沙與羊羹兩種，切得很整齊。</span></p>
+<p><span class="jp">羊羹（ようかん）</span><span class="jp-note">以紅豆沙與寒天製成的日式甜點，讀作ようかん，切成長方形的小塊。與抹茶一起吃是最普通的搭配，也是旅館夜裡最簡單的一道點心。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -210,9 +289,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

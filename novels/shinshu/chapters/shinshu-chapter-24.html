@@ -68,13 +68,75 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 24 章　大町→戶倉上山田・遇小黑</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天從大町下到戶倉上山田，千曲川平得像一面鏡子。舊溫泉資料館的牆上排著黑白照片，櫃台旁放著可以帶走的白色泉石。河邊長凳上坐著一隻黑貓，牠讓陽葵撲空，卻把額頭慢慢靠到我掌心。心跳的節奏忽然變穩，我第一次覺得這趟旅行或許真的值得。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>清晨的戶倉上山田，空氣還帶著昨夜的雨味。千曲川平靜得像一面沒有波紋的鏡子，把兩岸的柳樹和遠山一起收進水裡。昨晚沿著國道148號從大町下來時，雨大到看不見路牌，我把摺疊地圖攤在膝蓋上，標了兩個停靠點。</p>
@@ -150,6 +212,18 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>這一句下面我沒有加任何註解，也沒有畫箭頭。陽葵洗完澡回來，問我在寫什麼。我把筆記本轉過去讓她看，陽葵讀了兩次，然後說，寫得比原來那句好。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">大町（おおまち）</span><span class="jp-note">長野縣北部的城市，位於信州最北端。本章兩人沿著國道148号（こくどう148ごう）從這裡下到千曲川流域，路旁是連續的落葉松與白樺，是從白馬山區往北阿爾卑斯下山的必經之路。</span></p>
+<p><span class="jp">戸倉・上山田（とくら・かみやまだ）</span><span class="jp-note">千曲市（ちくまし）北部的溫泉區與高原。「戸倉」讀作とくら，是千曲川上游的舊町；「上山田」是附近的高原地帶，兩者合稱「戸倉上山田溫泉」。本章的旅館、溫泉街與千曲川步道都在這一帶。</span></p>
+<p><span class="jp">千曲川（ちくまがわ）</span><span class="jp-note">流經長野縣的河川，讀作ちくまがわ。與犀川合流之後成為信濃川（しなががわ），是信州水系的骨幹。本章河邊的木棧道、柳樹與那一整排被水浸得發黑的木柱，都是這條河在城鎮裡留下的痕跡。</span></p>
+<p><span class="jp">玉之湯（たまのゆ）</span><span class="jp-note">戶倉溫泉區的古老露天溫泉，讀作たまのゆ。據說八百年來因浸過之後皮膚滑如玉而得名，泉水是鹼性單純泉，溫度約四十度。本章在舊溫泉資料館的職員口中第一次出現，也是明天要出發去的地方。</span></p>
+<p><span class="jp">泉石（せんせき）</span><span class="jp-note">從溫泉源頭自然析出的石質沉澱物，讀作せんせき。戶倉的旅遊服務處與玉之湯都會把白色的小泉石放在盤子裡，讓遊客免費拿一粒當紀念。本章兩人各拿了一粒，握在掌心裡。</span></p>
+<p><span class="jp">舊溫泉資料館（きゅうおんしりょうかん）</span><span class="jp-note">戶倉溫泉街一角的老房子，牆上一格一格排著照片。最早的幾張是江戶時代露天浴場的黑白照片，說明牌寫著鍋爐、馬車與挑夫，是溫泉地曾經是旅人停留之處的見證。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -247,9 +321,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

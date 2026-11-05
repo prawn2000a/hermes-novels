@@ -68,13 +68,75 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 27 章　善光寺・仲見世通・千世婆婆</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天從戶倉開到善光寺，一踏進仲見世通就聞到三種味道。烤お焼き的甜焦味、烤味噌的鹹香、烤糯米的焦香一起。千世婆婆在鐵板後面翻著串，說看到我們就會想起她的孫女。她把刻著鳳凰的木盒交到我們手上，說希望這段路被記得，我只想帶回家。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>清晨六點半，我辦退房的時候，旅館老闆娘從櫃台後面走出來，手裡捧著兩個小紙包，說是戶倉溫泉的入浴劑，帶回家泡澡的時候會想起這個早晨。我把紙包收進背包最上層，陽葵接過自己那一份，先湊到鼻子前聞了一下，說聞起來像海。</p>
@@ -148,6 +210,21 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>窗外看不太到本堂，只看得到遠處山線上一小段被燈照亮的屋簷。鳳凰盒放在床頭的矮桌上，安靜地待在那裡，一點聲音也沒有。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">善光寺（ぜんこうじ）</span><span class="jp-note">長野市的佛教寺院，讀作ぜんこうじ，是無宗派的單立寺院。住職由「大勸進貫主」與「大本願上人」兩人擔任，實際的護持與營運由天台宗與淨土宗負責。本堂前有著名的「鳳凰の灯」，本章兩人就是從這條參道走進來。</span></p>
+<p><span class="jp">仲見世通（なかみせどおり）</span><span class="jp-note">通往善光寺本堂的參道商店街，讀作なかみせどおり，另外還有古老的讀法「みせじ」。全街約兩百五十公尺，兩側店家密排，以お焼き、善光寺餅與手工工藝品最出名。本章兩人是在這裡第一次同時聞到三種燒烤味道。</span></p>
+<p><span class="jp">お焼き（おやき）</span><span class="jp-note">長野縣的傳統食品，讀作おやき。把蔬菜或小豆煮成餡，包進薄薄的小麥粉或蕎麥粉皮裡，再放到鐵板或爐上烤成圓形，直徑約八到十公分。本章千世婆婆賣的就是這個，在善光寺名物裡佔最主要的位置。</span></p>
+<p><span class="jp">千世（ちよ）</span><span class="jp-note">善光寺名物お焼き的代表性攤主，名字讀作ちよ。本章她在仲見世通的一個攤位前，站在爐子後面用圍裙包著身子，已經賣了三十年的お焼き，只做野沢菜與切り干し大根兩種餡。</span></p>
+<p><span class="jp">野沢菜（のざわな）</span><span class="jp-note">長野縣名產的蔬菜，讀作のざわな。以信州下高井郡野澤溫泉村為中心栽培，與高菜、廣島菜並列為日本三大漬菜之一，也是本章お焼き的兩種餡之一。</span></p>
+<p><span class="jp">切り干し大根（きりぼしだいこん）</span><span class="jp-note">把蘿蔔切成薄片曬乾的乾物，讀作きりぼしだいこん。曬得越久越香，鹹香能把糯米皮的甜味拉住，是本章陽葵吃得最快的那一種お焼き。</span></p>
+<p><span class="jp">まちぶせ</span><span class="jp-note">荒井由實作詞作曲的曲，一九七六年首由三木聖子演唱。一九八一年石川ひとみ翻唱成為代表作，歌名意思是「想把你留在故鄉」。本章陽葵在前往善光寺的車上選了這一首，說這首要配山看，不配海。</span></p>
+<p><span class="jp">鳳凰の灯（ほうおうのひかり）</span><span class="jp-note">善光寺本堂前的銅製燈籠塔，讀作ほうおうのひかり。塔頂立著一隻抬著脖子的鳳凰，因此廣場直接叫作鳳凰廣場，名字就是從塔頂來的。本章兩人在廣場抬頭看了很久。</span></p>
+<p><span class="jp">御朱印（ごしゅいん）</span><span class="jp-note">日本寺社發給參拜者的朱色印章與貼紙，讀作ごしゅいん。參拜者會把印有寺社名號與日期的御朱印貼在專用冊子上，是日本特有的參拜紀錄方式，仲見世通沿街有許多這樣的專門店。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -245,9 +322,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

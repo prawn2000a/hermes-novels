@@ -68,13 +68,78 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 22 章　黑部湖・天氣不同的地方</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天坐纜車上黑部湖，湖水翠綠得不真實。</p>
+<p>望台的風把陽葵的頭髮吹到我手臂上，有人說天氣不同，湖就是不同的地方。</p>
+<p>我的筆記本寫滿日期與註解，忽然覺得自己的筆太重，有什麼不對了。</p>
+<p>那句話我劃掉了，改成要再問一次才行，但問誰，我還不確定。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>清晨五點多，大町的旅館還很安靜。我拉開窗簾，立山連峰整排在藍天裡，山頂的雪線乾淨得像剛剛描上去。昨夜的雨把空氣洗過一次，連遠處山稜的邊緣都沒有糊。陽葵那邊還沒有動靜，被子隆起一小塊，公路歌單的耳機線從床邊垂下來，隨著呼吸輕輕晃。我在門口站了一會兒，決定先去泡咖啡。</p>
@@ -106,6 +171,20 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>我停住了。窗外的溫泉街只剩幾盞燈，山影黑成一片。我盯著那兩個字看了很久，然後用筆劃掉，改成：「要再問一次才行。」蓋上筆記本之前，我在最後一行補了一句：今天沒有寫下那個人的名字。這一次，先不寫。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">黒部湖（くろべこ）</span><span class="jp-note">日文寫作「黒部湖」，中文寫作黑部湖。位於立山黑部阿爾卑斯山系，標高一千四百五十四公尺，水質透明度長期名列世界前茅，冬天不結冰。</span></p>
+<p><span class="jp">立山連峰（たてやみれんぽう）</span><span class="jp-note">由立山、大日山等三千公尺級山峰組成的山稜，冬季積雪量在日本名列前茅。本章清晨從大町旅館窗戶望見的整排雪線就是這條連峰。</span></p>
+<p><span class="jp">黒部ロープウェイ（くろべロープウェイ）</span><span class="jp-note">通往黒部湖的纜車，總長約八公里，分成兩段，是日本最長的纜車路線之一。車廂地板微微震動，玻璃外側的水氣會被上升氣流拉成長長的痕跡。</span></p>
+<p><span class="jp">黒部湖展望台（くろべこてんぼうだい）</span><span class="jp-note">架在山脊上的木結構展望平台，四面沒有遮擋，可同時望見湖、森林與稜線。站在中央那一小塊木地板上時，腳底會隨風輕輕震動。</span></p>
+<p><span class="jp">紅葉（もみじ）</span><span class="jp-note">楓葉等樹種在秋季轉紅的現象，日本常以「紅葉狩り」指前往觀賞。本章職員說秋天的山會把湖面染成紅色。</span></p>
+<p><span class="jp">健治（けんじ）</span><span class="jp-note">八方纜車站那位安靜職員的名字。凜在黑部纜車站看到戴黑框眼鏡的男職員時，一度想寫下這個名字，才發現自己太早替別人取好了名字。</span></p>
+<p><span class="jp">北アルプス（きたあるぷす）</span><span class="jp-note">日本阿爾卑斯山系的日文名稱。立山連峰與黒部湖都在北阿爾卑斯的範圍內，是日本冬季積雪最深的山區之一。</span></p>
+<p><span class="jp">大町温泉郷（おおまちおんせんきょう）</span><span class="jp-note">本章傍晚回程住宿的溫泉旅館街，標高約七百公尺。夜裡街面只剩幾盞燈，山影黑成一片。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -203,9 +282,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

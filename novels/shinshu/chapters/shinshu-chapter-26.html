@@ -68,13 +68,75 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 26 章　戶倉・千曲川花火大會</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天在千曲川邊待到天黑，兩岸屋台全亮起來，人一點一點填滿河堤。熱氣和煙火的味道混在夜風裡，攤位燈籠一串串垂下。我抓著陽葵的袖子站了一小時，煙火的倒影在水面上又炸開一次。散場時她光腳走在石板上說不想講話，我希望那條路可以再長一點。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>花火大會的前一天，戶倉上山田的空氣已經換了一種味道。不是變冷了，是多了一層黏稠的期待，像有人用看不見的手慢慢把這條街收緊。我早上六點半就醒了，窗簾只拉開一條縫，遠處的千曲川是灰藍色的，兩岸的攤位已經開始搭棚，木頭互相撞擊的聲音隔著屋子傳進來。</p>
@@ -104,6 +166,20 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>她說那下次去聽音樂會要帶棉花塞住耳朵。她把 USB 插進房間的小喇叭，公路歌單從第一首開始，聲音很小，剛好蓋過耳鳴。我坐在床沿聽，覺得這一天熱鬧得不像真的，又好像太安靜，安靜得讓人想再寫一行字。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">屋台（やたい）</span><span class="jp-note">有頂篷、能移動的小吃攤位，讀作やたい。日本祭典與夏日大會的攤位多沿著河道或廣場排開，本章河兩岸一整列的攤子就是屋台，屋簷下掛著寫著攤名與價目的燈籠。</span></p>
+<p><span class="jp">屋台券（やたいけん）</span><span class="jp-note">在屋台攤位使用的餐券，讀作やたいけん。有些攤主會把印著燙金圖案的小卡片發給客人，客人拿券去任一攤位兌換一份小吃，本章的燙金卡片還被攤主用小剪刀沿邊線剪去一角，兌回一份食物。</span></p>
+<p><span class="jp">花火大会（はなびたいかい）</span><span class="jp-note">夏夜在河邊或海邊舉行的煙火大會，讀作はなびたいかい。日本各地都有代表性的大會，信州一帶最有名的是千曲川的這場。本章的煙火把整條天空照亮兩秒，也把凜的耳朵震到只剩嗡的一聲。</span></p>
+<p><span class="jp">千曲川（ちくまがわ）</span><span class="jp-note">流經長野縣的河川，讀作ちくまがわ。本章河面成了整塊黑色的鏡子，煙火的倒影在水裡又炸開一次，比天上的更慢也更亂，是全章最明亮的一個畫面。</span></p>
+<p><span class="jp">綿矢通（わたやどおり）</span><span class="jp-note">長野市的一條商店街名，讀作わたやどおり。名字源自江戶時代在此做棉布批發的「綿矢商」，如今沿街多為布料與和服相關店家，本章兩人走進的這間和服店就掛著一排綿矢通的布簾。</span></p>
+<p><span class="jp">暖簾（のれん）</span><span class="jp-note">掛在店門口的短布簾，讀作のれん，既遮陽也用來招客。上面常印著店名或家紋。本章中午回烏冬店時，門口掛著暖簾，熱氣與湯的味道一起撲上來。</span></p>
+<p><span class="jp">うどん（烏冬）</span><span class="jp-note">日文裡烏冬麵的通常說法，寫作うどん。日本把烏冬麵歸在「麺」類裡，本章中午的烏冬店老闆娘已經認得兩人，直接問還是兩碗嗎。</span></p>
+<p><span class="jp">和服（わふく）</span><span class="jp-note">日式和服的總稱，讀作わふく。花火大會那晚多數人穿的是夏天的浴衣，配著腰帶在河邊走上一整晚；本章凜選了那件藍底銀繡的和服，腰帶是店員從後面幫忙繫上的。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -201,9 +277,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

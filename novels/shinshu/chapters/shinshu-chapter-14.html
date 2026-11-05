@@ -68,13 +68,78 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 14 章　美ヶ原暴雨滯留・第一次大吵</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天坐接駁車上美ヶ原，雲壓在山脊，雨沒有要停的意思。</p>
+<p>保護中心旁的山羊咖啡店裡，玻璃內的羊群走來走去，角最粗的那隻叫団子。</p>
+<p>走到一半，我和陽葵在雨裡吵了起來，聲音被風打散，我說的話自己都聽不見。</p>
+<p>還有一句話留在嘴裡，我已經先轉身走了。</p>
+</div>
+
 <div class="chapter-body">
 <p>我沒有按掉鬧鐘，直接坐起身，把手機亮度調到最低。螢幕上的雷達圖是一圈淡綠與淡黃，雲帶比昨天更靠近山脊。我切到山屋的公告網頁，最上面一行寫著午後降雨機率升高。我截圖，貼進旅行筆記簿，補上時間。五點五十二分。</p>
 <p>我接著翻開摺疊地圖，用指甲沿著王ヶ鼻那一段虛線刮了兩下。昨晚標好的行程寫得很滿，格線是我自己畫的。六點整，我拉開窗簾。天空是整片的鉛灰色，遠處的樹梢被風推得一直往同一邊倒。</p>
@@ -103,6 +168,18 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>陽葵坐在床邊，在黑暗裡看見門縫下有一小塊對折的白色。她看了很久，沒有伸手，也沒有回應。屋裡只有她自己的呼吸聲，和那張沒有被拿起的紙。</p>
 <p>我在房裡數著時間。從十點四十七開始，數到十一點五十二，數到數字開始不像數字。我把手機螢幕朝下放在床頭櫃上。兩扇門之間的走廊沒有燈，只有門縫下那一小塊白色。</p>
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">美ヶ原（うつくしがはら）</span><span class="jp-note">八ヶ岳中信高原國定公園北部的高原，跨松本市、上田市與小縣郡長和町。地名寫作「美ヶ原」，讀音是うつくしがはら，不是みヶはら；與南方的八ヶ岳（やつがたけ）是兩個地方。</span></p>
+<p><span class="jp">美ヶ原自然保護センター</span><span class="jp-note">美ヶ原山區的遊客中心，讀作うつくしがはらしぜんほごセンター。屋內掛著山脈模型與照片，落地窗正對草原，是往王ヶ鼻步道走之前最後一個能坐下來的地方。</span></p>
+<p><span class="jp">王ヶ鼻（おうがはな）</span><span class="jp-note">美ヶ原的最高點與著名展望點，海拔超過兩千公尺。名字寫作「王ヶ鼻」，讀音是おうがはな，其中的「ヶ」是表示中間音節縮短的符號。從保護中心上來的步道平緩，卻整段都暴露在風裡。</span></p>
+<p><span class="jp">山羊（やまぎし）</span><span class="jp-note">保護中心旁咖啡店裡養的山羊，讀作やまぎし。文中那隻角特別大的山羊是店裡的店長，會用角頂人的手，要人停下來陪牠玩。</span></p>
+<p><span class="jp">団子（だんご）</span><span class="jp-note">だんご在日文裡是麻糬一類的軟點心，也常被拿來當名字。文中那隻七歲的山羊就叫団子，取這樣的綽號，是因為牠走起路來像一團會移動的白色圓球。</span></p>
+<p><span class="jp">鯖（さば）</span><span class="jp-note">青魚，日文讀作さば。山區旅館的早餐常是「味噌湯、飯、烤鯖魚和小菜」的組合，鯖魚先用鹽醃再烤到表面焦香，是最普通的家庭料理味道。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -200,9 +277,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

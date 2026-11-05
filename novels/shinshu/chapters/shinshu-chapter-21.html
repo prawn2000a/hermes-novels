@@ -68,13 +68,78 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 21 章　白馬大池・海抜七百公尺</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天開上白馬大池，一千四百五十公尺，落到大町七百公尺。</p>
+<p>湖水淡藍得看不出岸，五隻白鴨排成歪歪一列走下水邊，旁邊有母鹿帶小鹿。</p>
+<p>我把寫著五龍池的地圖折了三折收進背包，心裡有什麼不對了，卻說不清。</p>
+<p>往下走也是往前走，這句話我想再聽一次。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>雷是在夜裡過去的。我醒來的時候，窗外的天還沒有全亮，雲被昨夜的雷打散，露出一片洗過的淡藍。屋簷下還在滴水，一滴，一滴，落在鐵桶上的聲音很規律。</p>
@@ -113,6 +178,18 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>陽葵在另一邊的房間裡，已經沒有聲音了。窗外的風吹過杉木，屋簷上的水早就乾了。我把摺疊地圖從背包裡拿出來，放在筆記本旁邊，沒有打開，它只是放在那裡，像一件已經不需要的東西。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">白馬大池（しろうまおいけ）</span><span class="jp-note">位於白馬村與大町市交界的高山湖，標高一千四百五十公尺，屬八ヶ岳中信高原國定公園。倒影完整，是北阿爾卑斯山系最著名的湖泊之一。</span></p>
+<p><span class="jp">八ヶ岳（やちがたけ）</span><span class="jp-note">跨越長野與山梨兩縣的高山群，主峰赤岳標高二千九百二十五公尺。本章在白馬大池抬頭望見的正是這條稜線。</span></p>
+<p><span class="jp">大町温泉郷（おおまちおんせんきょう）</span><span class="jp-note">長野縣北部的溫泉旅館街，位於白馬大池下方的山谷，標高約七百公尺。屋簷下的紙提燈與街上的溫泉味是這一帶的標誌。</span></p>
+<p><span class="jp">提灯（ちょうちん）</span><span class="jp-note">日式紙燈籠，日文寫作「提灯」。在溫泉街與祭典場合常掛在屋簷下，傍晚一盞一盞亮起，是日本街景的基本元素。</span></p>
+<p><span class="jp">五龍池（ごりゅういけ）</span><span class="jp-note">白馬五龍纜車線的終點池。本章它只出現在凜手寫的地圖上，結果被主動折進了背包。</span></p>
+<p><span class="jp">国道148号（こくどう148ごう）</span><span class="jp-note">經過白馬大池與大町的國道，道路兩側的積水映著整排山影，是本章下山走的路線。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -210,9 +287,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

@@ -68,13 +68,78 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 17 章　離開別所・北向觀音</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天離開別所，往北走。</p>
+<p>六點的鐘樓把聲音一格一格送進窗簾，石階上落滿杉樹的影子，春枝婆婆在門口塞給我們兩包入浴劑和明信片。</p>
+<p>她說別所會記住每一個來過的人，那句話落進耳朵裡，比我預想的重。</p>
+<p>這一次，我想自己決定。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>六點整，別所鐘樓敲了六下。聲音不重，卻沿著石板路一格一格傳進窗簾。我睜眼的時候，房裡還留著一點灰藍的暗。陽葵的呼吸還很沉，被子隆起一個不肯動的弧度。</p>
@@ -110,6 +175,20 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>「但會不會有一天，我們真的回來？」我寫完這一句，沒有再畫底線，也沒有寫日期。筆記簿就這樣闔著，攤在我和那盞小燈之間。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">別所（べっしょ）</span><span class="jp-note">上田市別所溫泉區，標高約五百七十公尺，是信州最古老的溫泉地之一。名字讀作べっしょ，不是照字面念的べつしょ。本章兩人在這裡住了一晚，之後帶著別所的入浴劑與明信片離開。</span></p>
+<p><span class="jp">北向観音（きたむかんにん）</span><span class="jp-note">上田市別所溫泉區北側的觀音堂，正式名稱是北向観音堂，通稱きたむかんにん。名字的由來是門朝北方開，據說是戰國時代的人希望厄運從南方來。石階長而窄，日光從杉樹縫隙落下來。</span></p>
+<p><span class="jp">入浴剤（にゅうよくざい）</span><span class="jp-note">浸泡用與外用的入浴藥劑，讀作にゅうよくざい。別所溫泉區的旅館與商店常賣給旅客帶走，是當地溫泉文化的固定產物。</span></p>
+<p><span class="jp">明信片（めいしんじゃん）</span><span class="jp-note">從明治時代開始流傳的郵政明信片，讀作めいしんじゃん，尺寸固定，可直接寄出。本章春枝婆婆在背面用鉛筆慢慢寫下「別所溫泉八百年的祝福」，送給兩人。</span></p>
+<p><span class="jp">上田城（うえだじょう）</span><span class="jp-note">長野縣上田市的日本名城，真田氏歷代居城的天守現為日本國寶。白色天守牆與規則排列的屋瓦是它的名目，本章兩人在山腰展望所遠望這座城。</span></p>
+<p><span class="jp">長野自動車道（ながのじどうしゃどう）</span><span class="jp-note">連接長野與東京的高速公路，沿著山腰往北延伸，經過上田一帶。本章車子沿著山腰北上，窗外稻田的割痕一塊一塊移動，遠處有收割機慢慢走過。</span></p>
+<p><span class="jp">白馬八方（はくばはっぽう）</span><span class="jp-note">白馬村北方的山麓地帶，纜車站與旅館集中在此。本章傍晚兩人駛進白馬館的停車場，引擎熄火後只剩風聲。</span></p>
+<p><span class="jp">山之湯（やまのゆ）</span><span class="jp-note">別所溫泉區最古老也最有名的公共浴場之一，泉質乳白，池水溫度約四十二度。本章離開別所之後，兩人在白馬山麓也泡了同名的露天溫泉。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -207,9 +286,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

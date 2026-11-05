@@ -68,13 +68,78 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 20 章　白馬八方雷雨・失眠夜</h1>
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天把計畫表上白馬五龍那兩行劃掉，改去白馬歴史民俗資料館。</p>
+<p>玻璃櫃裡擺著三副木刨的雪板，陽葵說那個年代的人要自己背上山。</p>
+<p>傍晚雷壓過山頭，纜車停駛，我躺在榻榻米上數雨聲，有什麼開始不對了。</p>
+<p>門外有腳步聲停下來，我有點怕，也期待。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>清晨五點半，房間的窗簾還沒透光。我坐在床沿，把手機的雷達圖打開，雨雲從日本海的方向推進。一條淡藍色的降水帶正往陸地壓過來，山區那一格已經變成深藍。</p>
@@ -113,6 +178,19 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>我拿起旅行筆記簿，翻到最後一頁。那一頁本來是留給五龍池的，寫了半句地名就停住。我在下面另起一行，寫下：「我想我已經不怕一個人了。」寫完我沒有把筆記簿合上。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">白馬（はくば）</span><span class="jp-note">長野縣北部的白馬村，作地名讀作はくば，另有しろうま的讀法。村內有白馬五龍纜車與八方池一帶，是本章雷雨發生的山區。</span></p>
+<p><span class="jp">白馬五龍（はくばごりゅう）</span><span class="jp-note">白馬村北側的纜車線名稱，通往五龍池。全線海拔較低，冬季積雪豐富，白馬五龍滑雪場就在附近，是日本滑雪發源地之一。</span></p>
+<p><span class="jp">五龍池（ごりゅういけ）</span><span class="jp-note">白馬五龍纜車線的終點池，海拔約一千五百公尺，池底有泥炭層，冬天結冰時可以步行過去。</span></p>
+<p><span class="jp">八方池（はっぽういけ）</span><span class="jp-note">白馬村北阿爾卑斯後立山連峰附近的高山湖，標高二千零六十公尺。地名讀称作っぽういけ，不是はちほういけ。八方池纜車站與八方尾根都在這一帶，是健治先生工作的車站。</span></p>
+<p><span class="jp">白馬歴史民俗資料館（はくばれきしぶんぞくしりょうかん）</span><span class="jp-note">白馬村內展示滑雪史與山村生活器具的資料館，館內保存早期木製滑雪用具，是理解白馬滑雪史的重要一站。</span></p>
+<p><span class="jp">露天風呂（ろてんぶろ）</span><span class="jp-note">沒有屋頂的公共浴池，日本溫泉旅館的標準設施。本章雷雨夜泡的就是露天池，水聲與雨聲混在一起，分不出是哪一個。</span></p>
+<p><span class="jp">国道148号（こくどう148ごう）</span><span class="jp-note">日本一般國道編號一百四十八號，經過白馬村與大町市，是從松本、白樺湖一帶往北進入白馬山區的主要路線。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -210,9 +288,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

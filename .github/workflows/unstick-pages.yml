@@ -5,8 +5,7 @@ name: Unstick GitHub Pages deployment
 #   "Deployment request failed ... due to in progress deployment.
 #    Please cancel <sha> first or wait for it to complete."
 #
-# 注意：必須先 POST status=inactive 釋放環境鎖，再 DELETE 部署記錄；
-# 反序（先 DELETE）會令 POST 回 404，等於冇解除到。
+# 順序：先 POST status=inactive 釋放環境鎖，再 DELETE 部署記錄。
 on:
   push:
     paths:
@@ -24,28 +23,36 @@ jobs:
     name: Cancel stuck deployments
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
       - name: Unstick and report
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
-          BRANCH: ci/pages-deploy-status
         run: |
           set -uo pipefail
-          OUT=$(mktemp)
+          {
+            echo "## Pages deploy 診斷"
+            echo
+            echo "run: $GITHUB_RUN_ID  sha: $GITHUB_SHA"
+            echo
+          } >> "$GITHUB_STEP_SUMMARY"
+
           api() {
             local code
             code=$(curl -sS -o /tmp/body -w '%{http_code}' "$@" \
               -H "Authorization: Bearer $GH_TOKEN" \
               -H "Accept: application/vnd.github+json" \
               -H "X-GitHub-Api-Version: 2022-11-28")
-            echo "http $code" >> "$OUT"
-            head -c 600 /tmp/body >> "$OUT"
-            echo >> "$OUT"
+            echo "- \`$code\` $(head -c 400 /tmp/body | tr '\n' ' ')" >> "$GITHUB_STEP_SUMMARY"
             echo "$code"
           }
 
-          echo "### list deployments" >> "$OUT"
-          api "https://api.github.com/repos/$REPO/deployments?per_page=100" >> "$OUT"
+          echo "### GET deployments" >> "$GITHUB_STEP_SUMMARY"
+          api "https://api.github.com/repos/$REPO/deployments?per_page=100" >/dev/null
 
           python3 - <<'PY' > /tmp/ids
           import json
@@ -59,36 +66,18 @@ jobs:
               if d.get('environment') == 'github-pages':
                   print(d['id'])
           PY
-          echo "### ids" >> "$OUT"; cat /tmp/ids >> "$OUT"
+          echo "### deployment ids" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          cat /tmp/ids >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
 
           for id in $(cat /tmp/ids); do
-            echo "### POST inactive $id" >> "$OUT"
+            echo "### POST inactive $id" >> "$GITHUB_STEP_SUMMARY"
             api -X POST "https://api.github.com/repos/$REPO/deployments/$id/statuses" \
-              -d '{"state":"inactive","description":"auto-cancelled by unstick workflow"}' >> "$OUT"
-            echo "### DELETE $id" >> "$OUT"
-            api -X DELETE "https://api.github.com/repos/$REPO/deployments/$id" >> "$OUT"
+              -d '{"state":"inactive","description":"auto-cancelled by unstick workflow"}' >/dev/null
+            echo "### DELETE $id" >> "$GITHUB_STEP_SUMMARY"
+            api -X DELETE "https://api.github.com/repos/$REPO/deployments/$id" >/dev/null
           done
 
-          echo "### POST pages/builds" >> "$OUT"
-          api -X POST "https://api.github.com/repos/$REPO/pages/builds" >> "$OUT"
-
-          {
-            echo "# Pages deploy status"
-            echo
-            echo "generated: $(date -u +%FT%TZ)"
-            echo
-            echo '```'
-            cat "$OUT"
-            echo '```'
-          } > /tmp/pages-deploy-status.md
-
-          # 推去獨立 branch，避免觸發 pages 重新部署造成迴圈
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git fetch origin "$BRANCH" || true
-          git checkout -B "$BRANCH"
-          mkdir -p ci
-          cp /tmp/pages-deploy-status.md ci/pages-deploy-status.md
-          git add ci/pages-deploy-status.md
-          git commit -m "ci: 更新 pages 部署狀態報告" || true
-          git push origin "HEAD:refs/heads/$BRANCH" || true
+          echo "### POST pages/builds" >> "$GITHUB_STEP_SUMMARY"
+          api -X POST "https://api.github.com/repos/$REPO/pages/builds" >/dev/null

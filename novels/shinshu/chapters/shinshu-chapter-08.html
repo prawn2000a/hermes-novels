@@ -68,13 +68,76 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 8 章　松本城・凜的提問</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天把車停進松本城大手門旁的停車場，天空曬得柏油路面發白。天守閣的黑色外壁配上白色窗框，導遊用四種語言把同一座城講了四遍。我問了一個連自己都沒預期的問題：同一件事做十七年，那件事還有意義嗎。問完之後我低頭看筆記簿，第一次覺得每一行都太輕了。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>從上高地開出來的時候，陽葵把車導上國道 158 號。接下來是一小時的山路，車子沿著梓川的上游緩緩上行，路面不斷有小小的彎道，轉彎的時候車身會輕輕晃一下，窗外的景色就換成另一片綠。</p>
@@ -140,6 +203,21 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>然後我在下面寫：我們的行程表，每一行都只出現一次。寫完這一句，我合上筆記簿，聽見陽葵在門口叫我，說該下山了，問我要不要先拍一張照片。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">松本城（まつもとじょう）</span><span class="jp-note">松本市的日本國寶，別稱「烏城（うじょう）」，因為天守外牆塗成漆黑而得名。天守建於一五九三年，是日本現存最古的五座國寶天守之一。</span></p>
+<p><span class="jp">天守閣（てんしゅかく）</span><span class="jp-note">日本城堡的主樓，兼具守備與象徵權力的功能。松本城的天守是外觀四層、內部五層的複合式城郭，黑色下見板塗外牆配白色窗框是最明顯的特徵。</span></p>
+<p><span class="jp">大手門（てももん）</span><span class="jp-note">城郭的正門，與「追手門」相對。松本城的大手門由石垣與多棟門樓組成，現已列為日本重要文化財，緊鄰停車場。</span></p>
+<p><span class="jp">石垣（いしがき）</span><span class="jp-note">用石塊堆砌而成的城牆與護堤，兼具防洪與防禦功能。牆上特意挖出的凹坑叫「曲輪（くるわ）」，守軍可以從裡面朝下方射擊來敵。</span></p>
+<p><span class="jp">梓川（あずがわ）</span><span class="jp-note">流經上高地的主要河川，源自白樺湖與蓼科一帶，穿過上高地谷底後往南匯入信濃川。從上高地往松本城的一路上，都沿著它的上游行駛。</span></p>
+<p><span class="jp">カタオモイ</span><span class="jp-note">King Gnu 的代表曲，二〇一五年發行。歌名是自造語，通常解讀為把面對面的心意說出口，也是陽葵在上山路上跟著哼唱的曲子。</span></p>
+<p><span class="jp">ボランティアガイド（義工導遊）</span><span class="jp-note">日文又寫「ぎこうどうゆう」。日本的名勝古蹟常招募退休教師與在地居民做免費解說，一名會講四國語言的義工在松本城一做就是十幾年，是日本觀光文化的特色之一。</span></p>
+<p><span class="jp">まつもとじょうかい</span><span class="jp-note">松本城的民間支援組織名稱，負責義工導遊的招募與排班，也推動古蹟的保存維修與導覽。內田先生左胸名牌上的團體名稱就是它。</span></p>
+<p><span class="jp">內田康弘（うちだ やすひろ）</span><span class="jp-note">松本城的義工導遊，退休前在中學教英文，會講中文、英文、韓文與法文四國語言。自從太太過身之後，每個星期三都來天守閣前帶團，一做就是十七年。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -237,9 +315,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

@@ -68,13 +68,79 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 13 章　木曾→美ヶ原・白樺湖</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我們沿著木曾路往上開，海拔表每跳一次，車窗外的樹就矮一截。</p>
+<p>中午我們坐在白樺湖邊的窗前，風從湖面吹上來，比山下冷一季。</p>
+<p>陽葵告訴我，她家每年夏天都有一場成年禮，而她今年要開車去完成那件事。</p>
+<p>她把紙條貼在湖心老松樹上，說這是她計畫好的，我第一次覺得被選中。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>清晨離開奈良井宿，白色 Yaris 順著木曾路的坡道一路往上。井筒宿的格子窗與旅人看板很快縮成遠方幾個小點，路面從平直的柏油變成連續的彎道，引擎聲也跟著沉下來。陽葵一邊開，一邊把 USB 裡的公路歌單從頭撥起，說今天要聽能配得上高山的那幾首。</p>
@@ -104,6 +170,21 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>最後我在下面又加了一句：「這代表什麼？」寫完之後我沒有合上筆記本，也沒有去關燈，只是讓那個問號留在那裡，和窗外的雲海一起安靜下來。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">美ヶ原（うつくしがはら）</span><span class="jp-note">八ヶ岳中信高原國定公園北部的高原，跨松本市、上田市與小縣郡長和町。地名寫作「美ヶ原」，讀音是うつくしがはら，不是みヶはら，與南方的八ヶ岳（やつがたけ）是兩個地方。</span></p>
+<p><span class="jp">美ヶ原道路（うつくしがはらどうろ）</span><span class="jp-note">連接松本市與上田市、翻越美ヶ原的日本國道，全線皆為雙向二車道，冬季常有雪鏈管制，是從信州盆地往高原移動的主要路線。</span></p>
+<p><span class="jp">白樺湖（しらかばこ）</span><span class="jp-note">茅野市與立科町交界的湖泊，位於蓼科高原，湖面海拔約一千二百五十公尺。名稱來自湖畔的白樺林，冬天湖面結冰時可以走上去。</span></p>
+<p><span class="jp">蓼科高原（たてしなこうげん）</span><span class="jp-note">茅野市境內的高原，北望蓼科山，南望八ヶ岳。海拔一千公尺上下，早晨常有雲海，是白樺湖與美ヶ原的共同地理背景。</span></p>
+<p><span class="jp">茅野市（かみのし）</span><span class="jp-note">長野縣南信地方的市，位於諏訪地方中部。八ヶ岳、白樺湖、蓼科高原、車山等觀光資源都在市境內，是信州南部最集中的高原觀光區。名字讀作かみのし，與字面的讀法不同。</span></p>
+<p><span class="jp">成人式（せんにんしき）</span><span class="jp-note">日本每年一月第二個星期一舉行的成年儀式，滿二十歲的人穿和服或正裝出席，被視為社會上的成人。在這一章裡，陽葵把它改寫成自己家的版本：由家族中最長的孩子完成一件成人才做得到的事。</span></p>
+<p><span class="jp">おにぎり</span><span class="jp-note">「飯糰」，用米捏成三角形或圓形的便當主食，常包海苔、鮭魚、梅子或昆布。便利店的飯糰與罐裝咖啡，是日本山區公路旅行最典型的午餐組合。</span></p>
+<p><span class="jp">USB（ユーエスビー）</span><span class="jp-note">通用序列匯流排的縮寫，日本稱為隨身碟。自駕旅行者常把共用的歌單與地圖檔案放進去，插入車機就能播放，也是陽葵這趟旅行的 soundtrack 來源。</span></p>
+<p><span class="jp">ひまりん／りんりん</span><span class="jp-note">兩人的暱稱。凜叫陽葵「ひまりん」，陽葵叫凜「りんりん」，取自本名「白石陽葵（しらいしひまり）」與「桐野凜（きりのりん）」。這兩個名字也一起被寫在湖心老松樹的樹根上。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -201,9 +282,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

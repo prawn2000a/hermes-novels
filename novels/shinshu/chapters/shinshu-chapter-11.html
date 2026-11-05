@@ -68,13 +68,79 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 11 章　木曾路・早苗女士的味噌</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我在奈良井宿的清晨醒來，比木曾路還早，河水細得像在牆的另一邊翻書。</p>
+<p>早苗女士的味噌店在土倉街轉角，十一個橡木桶排滿屋子，鹹香濃得實在。</p>
+<p>我本來只打算買一罐，卻坐了兩小時問完七種味噌的來歷，讓超支的數字留在螢幕上。</p>
+<p>我開始覺得，我寫的那張表，可能有一點問題。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>我在清晨五點半醒來，比整條木曾路都早。窗外的光還沒有完全亮起來，只有一層淡得幾乎看不出的灰白，落在旅館後院的石板地上。遠處有河水聲，不是白天那種寬闊的轟響，而是很細的一條，像有人在牆壁的另一邊持續地翻一本很厚的書。空氣裡有青苔、泥土和舊木頭的氣味，全部是帶著年份的氣味。</p>
@@ -108,6 +174,20 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>我把筆記簿闔上。陽葵已經吃完整整一碗飯，正把罐子的蓋子轉緊，動作很仔細，怕漏。她的側臉被走廊的燈照著，邊緣有一圈很淡的黃。窗外的河水聲還在，跟清晨一樣，細，沒有斷。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">木曽路（きそじ）</span><span class="jp-note">中山道的一段，又稱木曾街道。從長野往南翻過幾座山，經過奈良井宿、井筒宿、木曾馬宿，是江戶與京都之間的舊驛道。「木曽」是日文舊字體，繁體中文寫作「木曾」。</span></p>
+<p><span class="jp">奈良井宿（ならいじゅく）</span><span class="jp-note">中山道第三十四個宿場，現屬長野縣鹽尻市。白牆黑瓦的土倉街保存完好，是信州最能看出三百年前宿場樣子的地方。</span></p>
+<p><span class="jp">味噌（みそ）</span><span class="jp-note">以大豆或米麴加鹽發酵而成的日本發酵食品，種類依原料分成米味噌、麥味噌、添味噌、赤味噌等。信州是日本味噌的主要產地之一，幾乎每家店都有自己的配方。</span></p>
+<p><span class="jp">信州（しゅうしゅう）</span><span class="jp-note">長野縣的舊稱。合戰時代屬於信濃國，「信州」是「信濃」的雅稱，讀作しゅうしゅう，不是しんしゅう。</span></p>
+<p><span class="jp">麹（こうじ）</span><span class="jp-note">讓米或麥發酵成麴的微生物培養物，是味噌、麵麵、清酒與甜味醬的共同起點。信州味噌用米麴比例高，所以顏色偏淡、口感溫和，也因此發酵要更久。</span></p>
+<p><span class="jp">味噌玉（みそだま）</span><span class="jp-note">用整粒黃豆磨碎製成的粗粒味噌，顆粒明顯，淋在豆腐或茄子燒上非常好吃。與研磨成糊的味噌不同，保留了豆子的口感。</span></p>
+<p><span class="jp">美智子（みちこ）</span><span class="jp-note">早苗女士尚未命名的第七種味噌，將來預定用女兒的名字。美智子在日語裡是「美麗而聰明的孩子」，是昭和到平成之間常見的女性名字。</span></p>
+<p><span class="jp">井筒（いづつ）</span><span class="jp-note">中山道上的宿場，緊接在奈良井宿南側，現屬長野縣南木曽町。「井筒」保留的是古音，寫法與讀法不一致，是日本地名把古音留在讀法裡的典型例子。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -205,9 +285,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

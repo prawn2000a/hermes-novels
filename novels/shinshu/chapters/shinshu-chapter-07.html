@@ -68,13 +68,76 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 7 章　明神池・遇田村老師</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天從山上的木屋走下來，去明神池。落葉松換上金黃的初秋衣裳，陽光斜斜落在池面，冷風和暖光同時落在手臂上。一位每天在這裡畫同一個池子的老先生，讓我對自己那張寫得密密麻麻的行程表，有點在意。他還沒回答我的一個問題，我卻已經有點期待答案了。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>早晨七點，我推開槍見館的木門走出來。空氣清涼到可以看見自己的呼吸，那一小團白霧在鼻前散開，又慢慢聚攏回去，一邊走一邊淡掉。山上很安靜，安靜到可以聽見自己的腳步踩在木頭台階上的聲音。</p>
@@ -128,6 +191,18 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>陽葵把筆記本翻開，在新的一頁寫下日期，又寫下一行字。她寫完把本子轉給我看，上面只有八個字：「同一個池，不同的光。」我望著畫架上未乾的水彩，忽然明白了一件事。慢行不是走得更少，而是看見得更多。我把這句話記在心裡，沒有寫下來，因為我知道寫下來的東西，會變得沒有那麼重。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">明神池（みょうじんいけ）</span><span class="jp-note">松本市上高地明神宿附近的池塘，是上高地最具代表性的景點。冬天整片池面結冰，可以步行通過，是上高地著名的「冰之觀光地」。</span></p>
+<p><span class="jp">上高地（かみこうち）</span><span class="jp-note">松本市西部、梓川上游的山谷，標高約一千五百公尺。一九二二年道路開通後成為登山與觀光名勝，日本文學史上也是多位作家寫作的舞台。</span></p>
+<p><span class="jp">穂高連峰（ほたかれんぽう）</span><span class="jp-note">北阿爾卑斯山系的一列山峰，以標高三千一百九十公尺的奥穗高岳為主峰，穗高岳（ほたかだけ）海拔二千九百七十七公尺。從明神池抬頭看見的就是這條稜線。</span></p>
+<p><span class="jp">落葉松（からまつ）</span><span class="jp-note">日文正式名「カラマツ」，也寫「歐洲落葉松」，是信州高海拔地帶最普遍的樹種。上高地一帶整片落葉松林是著名的賞景步道背景。</span></p>
+<p><span class="jp">鳥居（とりい）</span><span class="jp-note">日本神社入口的門式建築，通常漆成朱紅色。貫穿兩柱的那根叫「島木」，橫在兩柱之間的叫「貫」。明神池入口有一座褪色的小鳥居。</span></p>
+<p><span class="jp">槍見館（やりみつかん）</span><span class="jp-note">上高地明神宿的百年旅舍，名字源自日本古典槍術的名手槍見德太郎。文人和登山客都曾在此投宿，本故事裡的兩個人就住在這裡。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -225,9 +300,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

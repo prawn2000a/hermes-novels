@@ -68,13 +68,76 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 6 章　上高地・大正池</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天搭清早的接駁巴士進上高地，冷氣讓鼻腔一陣刺痛。大正池的池面平得像鏡子，倒映著穗高連峰，水裡立著一片沉木。陽葵說想哭，我卻只想到：那些樹站著是因為走不了，不是想留下。心裡有點害怕，我沒有說出口。不知道今天還能走多遠？很期待。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>早晨五點半，我是被敲門聲叫醒的。老闆沒有按電鈴，就站在門外，一下一下敲得很規律，聲音穿過薄薄的木門。「兩位小姐，下來吃早餐。五點四十五就要搭六點的接駁巴士。」他隔著門說，語氣溫和，卻沒有商量的餘地。</p>
@@ -134,6 +197,20 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>我想起那些沉木。它們一根一根站在那裡，枯乾，完整，被水泡了百年也不肯躺下。它們不是因為想留在這裡才留下的，是因為走不了。我把這句話留在心裡，沒有說出口，跟著陽葵往明神池的方向走。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">上高地（かみこうち）</span><span class="jp-note">松本市西部清流梓川上游的山岳名勝，海拔約一千五百公尺，也是日本山岳景勝地中少數可由大眾交通工具直達的地方。正文裡的清晨霧氣、落葉松與冷杉，正是這一帶四時常見的景象。</span></p>
+<p><span class="jp">上高地観光バス</span><span class="jp-note">「上高地觀光巴士」，由澤渡停車場往返上高地園區的接駁巴士。私家車不能進入山區，所有遊客都必須在澤渡轉乘這條線。</span></p>
+<p><span class="jp">鍋沢橋（なべさわばし）</span><span class="jp-note">位於上高地入口、梓川上的橋，讀作なべさわばし。接駁巴士的終點設在橋頭附近，下車後沿著木棧道往大正池、明神池方向步行。</span></p>
+<p><span class="jp">大正池（たいしょういけ）</span><span class="jp-note">松本市安曇的池，位於上高地，屬國家特別名勝與特別天然紀念物。大正四年（一九一五）燒岳火山爆發，岩漿堵塞梓川形成堰塞湖，湖底仍保留著當時的形狀。</span></p>
+<p><span class="jp">沉木（ちんもく）</span><span class="jp-note">指淹死在水中、枯乾後仍直立於湖底的樹木。大正池最著名的景觀正是這批沉木，樹皮剝落成灰白色，枝幹完整，在水面與水底交界處畫出一條細細的白線。</span></p>
+<p><span class="jp">梓川（あずさがわ）</span><span class="jp-note">流經松本市的河川，是信濃川水系犀川的上游，別稱清流梓川。上高地的木棧道沿著梓川上行，河床多石、水色清透，是全程的聲音背景。</span></p>
+<p><span class="jp">穂高連峰（ほたかれんぽう）</span><span class="jp-note">北阿爾卑斯山系的一列山峰，以標高三千一百九十公尺的奥穗高岳為主峰，穗高岳（ほたかだけ）海拔二千九百七十七公尺。被列入日本百名山與新日本百名山，清晨的陽光會把雪頂染成淡淡的粉紅色。</span></p>
+<p><span class="jp">焼岳（やけだけ）</span><span class="jp-note">跨越長野縣與岐阜縣的活火山，標高二千四百五十五公尺，別名硫黃岳，也是日本百名山之一。大正池正是它在一九一五年的爆發所留下的堰塞湖。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -231,9 +308,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

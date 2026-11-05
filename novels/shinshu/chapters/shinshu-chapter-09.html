@@ -68,13 +68,76 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 9 章　中町通・繩手通小雪</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天走進松本的中町通和繩手通，老街黑瓦白牆，正一間一間醒過來。巷子深處有一間陶器店，貓躺在櫃上，我伸出手，牠閉上了眼睛。旁邊的人一伸手就被躲開，貓卻把鼻子朝向我，我開始覺得，我寫的那張表，可能有一點問題。離開時我回頭看了一眼，這個答案大概要回家才問得出口。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>從松本城出來，步行大約十分鐘，我們到了中町通。這裡保留了好多江戶時代的土藏式建築，黑白的外壁，瓦片的屋頂，一棟接一棟沿著路邊排開。我走在前面，慢慢看每一扇木格子門。</p>
@@ -130,6 +193,20 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>陽葵在門口等我，紅色小碗抱在胸前，催我快點。我點頭，跟上她的腳步走出小巷。背上的淺青色茶杯貼著我的肩胛骨，涼涼的，我一直沒有把它拿出來。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">中町通（なかまちどおり）</span><span class="jp-note">松本市街中心的南北老街，江戶時代是城下町的一部分。兩側保留大量土藏建築，黑白外牆與瓦片屋頂連成一排，因此被稱為「信州的小京都」。</span></p>
+<p><span class="jp">縄手通（なわてどおり）</span><span class="jp-note">中町通的第二條街，名字據說與從前把商品用繩索吊在店前的賣法有關。如今以陶器店、和菓子店與古道具店密集聞名，是松本最熱鬧的老街。</span></p>
+<p><span class="jp">土蔵（どぞう）</span><span class="jp-note">江戶時代商家用厚土牆蓋的倉房，用來防火與防盜，牆面常抹上白灰或黑漆。中町通沿線的土藏是這一帶最典型的街景元素。</span></p>
+<p><span class="jp">蔵の猫堂（くらのねこどう）</span><span class="jp-note">繩手通小巷裡的陶器店，店貓是三花貓，取名小雪（こゆき）。老闆娘說貓只在上午出現，過了中午就不會出來，因此成了當地固定的口袋景點。</span></p>
+<p><span class="jp">のれん</span><span class="jp-note">日文漢字寫作「暖簾」，掛在店門口的布簾，既遮陽又用來招客，上面常印著店名或家紋。小巷口垂著的那面藍色暖簾上寫著「貓」兩個字。</span></p>
+<p><span class="jp">三花猫（さんかねこ）</span><span class="jp-note">毛色由白、橘黃、黑三種斑塊交錯組成的家貓，與「三毛猫（みけねこ）」同屬日本愛貓的兩大名種。能一次懷孕不同毛色的小貓，在老街的店裡幾乎到處可見。</span></p>
+<p><span class="jp">1000円</span><span class="jp-note">「円」是日本的貨幣單位，讀作えん，一千日圓。兩只手工陶器的價錢，對當地人來說是日常消費。</span></p>
+<p><span class="jp">Craft Bell</span><span class="jp-note">繩手通上的陶器店名，英文意思是「手工的鈴鐺」。架上的陶器都是信州本地窯燒的，每只杯口的高低、釉面的厚薄都不一樣。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -227,9 +304,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

@@ -68,13 +68,76 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 10 章　松本→奈良井宿</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天從松本往北開上中山道，去奈良井宿。黑色木構造建築配上白色漆喰牆排成一公里長，街上安靜得只聽得見掃地聲。一位掃地的管理人說這條街有三百年歷史，而我只能在這裡停一個鐘。我站在石板上，忽然不想再翻筆記本了。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>早上十點，我們從松本出發。陽葵把白色小車開上往北的公路，車上的GPS開始報路。我坐在副駕駛，把摺疊地圖打開放在腿上，確認今天要走的方向，也確認午餐的時間要往後挪一小段，這樣才趕得上午的光線。</p>
@@ -142,6 +205,20 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>我把手放在筆記本上，記住這個上午的空氣味道。木頭、泥土、酒，還有一點炊煙。陽葵在前面催我，說時間到了，車還在停車場等著，而北邊還有更遠的路要走，等著我們。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">中山道（ちゅうさんどう）</span><span class="jp-note">江戶時代五街道之一，連結江戶與京都，全程約三百三十七公里。旅行靠雙腳與轎子完成，沿途設有許多宿場。</span></p>
+<p><span class="jp">五街道（ごかいどう）</span><span class="jp-note">江戶幕府直轄的五條主要道路：甲州街道、奧州街道、越前街道、紀州街道與中山道，合稱五街道，是當時往來各地的主幹道。</span></p>
+<p><span class="jp">奈良井宿（ならいじゅく）</span><span class="jp-note">中山道三十四個宿場之一，位於現在的鹽尻市奈良井。保存完整的木造街道與黑白土藏，讓它成為日本宿場町保存最完整的例子之一。</span></p>
+<p><span class="jp">宿場（しゅくば）</span><span class="jp-note">五街道沿線供旅人與馬匹休息、換馬、投宿的驛站，每站之間約五十里。宿場裡有供領主使用的「本陣（ほんじん）」與供旅人投宿的「旅籠（りょうご）」。</span></p>
+<p><span class="jp">漆喰（しっくい）</span><span class="jp-note">日本牆面與塗裝用的石灰材料，由石灰、砂與膠調成，乾燥後堅硬耐磨。奈良井宿的白牆是反覆修補漆喰而成，黑白之間因此乾淨得讓人想深呼吸。</span></p>
+<p><span class="jp">お早うございます</span><span class="jp-note">「早上好」的意思，是名古屋與東海一帶的方言說法，標準日語一般講「おはようございます」。街上的人跟掃地的管理人打招呼，用的就是這一句。</span></p>
+<p><span class="jp">創業一七八九年</span><span class="jp-note">日本老店常見的看板標法，意思是創業於一七八九年，正值江戶時代中期。這塊木製看板字刻得很深，字縫裡的木紋都發黑了。</span></p>
+<p><span class="jp">木曾路（きそじ）</span><span class="jp-note">中山道在木曾與福島一帶的舊稱，又稱木曾街道，沿線以木曾民藝品與味噌聞名。街上的店招寫著「木曾味噌三代老鋪」，把路名直接當成店名。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -239,9 +316,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

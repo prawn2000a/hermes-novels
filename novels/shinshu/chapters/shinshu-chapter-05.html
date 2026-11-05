@@ -68,13 +68,76 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   .benq-link { top: 9px; right: 10px; font-size: 11px; padding: 4px 9px; }
 }
 @media print { .benq-link { display: none; } }
+
+/* ==== 本章預告（正文前） ==== */
+.chapter-preview {
+  margin: 0 0 30px;
+  padding: 20px 24px;
+  background: rgba(238, 234, 226, 0.55);
+  border-left: 3px solid #8a9a7b;
+  border-radius: 0 6px 6px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #4a453e;
+}
+.chapter-preview p { margin: 0 0 0.85em 0; text-indent: 0; }
+.chapter-preview p:last-child { margin-bottom: 0; }
+.chapter-preview-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 12px !important;
+  font-weight: 600;
+}
+.chapter-preview strong { color: #6b5b4a; font-weight: 600; }
+
+/* ==== 本章日文（章末） ==== */
+.chapter-japanese {
+  margin: 48px 0 24px;
+  padding: 22px 26px;
+  background: rgba(244, 238, 230, 0.6);
+  border-left: 3px solid #c4a882;
+  border-radius: 0 6px 6px 0;
+  font-size: 15.5px;
+  line-height: 1.95;
+  color: #4a453e;
+}
+.chapter-japanese p { margin: 0 0 0.9em 0; text-indent: 0; }
+.chapter-japanese p:last-child { margin-bottom: 0; }
+.chapter-japanese-title {
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #8a7a68;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.chapter-japanese .jp {
+  display: block;
+  color: #6b5b4a;
+  font-weight: 600;
+}
+.chapter-japanese .jp-note {
+  display: block;
+  color: #5a554d;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  .chapter-preview { padding: 16px 16px; font-size: 14px; }
+  .chapter-japanese { padding: 18px 18px; font-size: 14.5px; }
+}
 </style>
 </head>
 <body>
 <a href="https://prawn2000a.github.io/hermes-novels/" class="benq-link">← 回到BenQ亭</a>
 
-<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（標題＋內文）</button>
+<button class="copy-btn" id="copyChapterBtn" type="button">複製本章（完整）</button>
 <h1>第 5 章　軽井澤→上高地・澤渡轉乘</h1>
+
+<div class="chapter-preview">
+<p class="chapter-preview-title">本章預告</p>
+<p>我今天從輕井澤開車往南，去上高地入口的澤渡。中途在白樺湖停十分鐘，葉背被陽光曬成銀白色，一翻一片亮光。我的行程表第一次派上用場，連蕎麥麵店的名字都查好了。被別人帶著走，好像也不壞。不知道今晚會不會走進那間掛著木簾的店？真的很期待。</p>
+</div>
+
 <div class="chapter-body">
 
 <p>早上九點，我們從輕井澤的旅舍出發。陽葵把白色的 Yaris 倒出停車位，車窗上還留著昨夜的露水，我伸手用袖口擦掉一小塊。摺疊地圖放在膝頭，我一段一段確認走法，確認車要往南繞，路況看起來乾爽，適合開快一點。</p>
@@ -142,6 +205,19 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
 <p>我抬腳跨進門裡，木頭地板在腳下發出很輕的一聲，我沒有回頭看那條黃色的線。裡面有人抬起頭，說了聲歡迎光臨。</p>
 
 </div>
+
+<div class="chapter-japanese">
+<p class="chapter-japanese-title">本章日文</p>
+<p><span class="jp">上高地（かみこうち）</span><span class="jp-note">松本市西部、清流梓川上游的山岳名勝，海拔約一千五百公尺，屬中部山岳國立公園的一部分。名稱原本寫作「神垣內」，源自穗高見命降臨之地，後來「上高地」的寫法成為通例。私家車不能進入，遊客必須在澤渡停車場轉乘接駁巴士。</span></p>
+<p><span class="jp">沢渡（さわんど／さわんどう）</span><span class="jp-note">松本市安曇一帶的地名，澤渡停車場與澤渡溫泉都在此。同名的群馬縣「沢渡（さわたり）溫泉」是另一處，所以長野縣這邊常寫成平假名以作區別。是前往上高地的必經轉乘點。</span></p>
+<p><span class="jp">白樺湖（しらかばこ）</span><span class="jp-note">茅野市與立科町交界的湖泊，位於蓼科高原，湖面海拔約一千二百五十公尺。名稱來自湖畔成片的白樺林，風吹時葉背反光成銀白色，是這一帶的代表性景觀。</span></p>
+<p><span class="jp">清流の里 沢渡（せいりゅうの里 さわんど）</span><span class="jp-note">澤渡的聚落名，字面意思是「清流之里」。舊木屋沿路排開，多為蕎麥麵店與手作雜貨小店，正文裡陽葵追蹤的部落客文章提到的那間麵店就在這一帶。</span></p>
+<p><span class="jp">百蔵（ひゃくぞう）</span><span class="jp-note">澤渡的蕎麥麵店名，讀作ひゃくぞう。表上的備註寫著昭和三十年開業、第三代接手，老闆每日清晨四點起床手打蕎麥麵，只做中午、賣完即止，也不接受預約。店址在聚落裡的老字號「山水楼（さんすいろ，字面是山水樓）」對面，是全書「計畫」第一次派上用場的具體地點。</span></p>
+<p><span class="jp">国道18号（こくどう18ごう）</span><span class="jp-note">日本一般國道編號十八號，由湘南的沼津經過御殿場、諏訪、諏訪湖一帶，再經白樺湖、輕井澤往北。正文裡兩人就是走國道十八號轉國道一百五十八號往澤渡。</span></p>
+<p><span class="jp">King Gnu《白日》</span><span class="jp-note">日本四人搖滾樂隊 King Gnu 的代表曲，二〇一九年發行，收錄在專輯《Sympa》，當年紅白歌唱大賽首次登場的那首歌。歌名「白日」指的是白晝的光，陽葵在車上跟著哼唱，跑到一半忘了詞。</span></p>
+</div>
+
+
 
 <script>
 /* ==== 章節導航：鍵盤左右 / 手機滑動 ==== */
@@ -239,9 +315,15 @@ h1 { font-size: 28px; text-align: center; letter-spacing: 0.05em; margin-bottom:
   if (!btn) return;
   function buildText() {
     var h = document.querySelector('h1');
+    var preview = document.querySelector('.chapter-preview');
     var body = document.querySelector('.chapter-body');
+    var jp = document.querySelector('.chapter-japanese');
     var title = h ? h.innerText.trim() : '';
-    var content = body ? body.innerText.trim() : '';
+    var blocks = [];
+    if (preview) blocks.push(preview.innerText.trim());
+    if (body) blocks.push(body.innerText.trim());
+    if (jp) blocks.push(jp.innerText.trim());
+    var content = blocks.filter(function (x) { return x; }).join('\n\n');
     return title ? title + '\n\n' + content : content;
   }
   function fallback(text) {

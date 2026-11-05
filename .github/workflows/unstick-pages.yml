@@ -1,10 +1,12 @@
 name: Unstick GitHub Pages deployment
 
-# 只喺本 workflow 檔案被改動時觸發 —— 避免每次 push 都重複執行。
-# 用途：解除卡喺 in_progress 嘅 github-pages deployment。
-# 症狀：之後所有部署都回 400
+# 解除卡喺 in_progress 嘅 github-pages deployment。
+# 症狀：之後所有 pages 部署都回 400
 #   "Deployment request failed ... due to in progress deployment.
 #    Please cancel <sha> first or wait for it to complete."
+#
+# 注意：必須先 POST status=inactive 釋放環境鎖，再 DELETE 部署記錄；
+# 反序（先 DELETE）會令 POST 回 404，等於冇解除到。
 on:
   push:
     paths:
@@ -14,7 +16,7 @@ on:
 permissions:
   actions: read
   deployments: write
-  contents: read
+  contents: write
   pages: write
 
 jobs:
@@ -22,26 +24,29 @@ jobs:
     name: Cancel stuck deployments
     runs-on: ubuntu-latest
     steps:
-      - name: Diagnose and cancel stuck github-pages deployments
+      - name: Unstick and report
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
+          BRANCH: ci/pages-deploy-status
         run: |
           set -uo pipefail
+          OUT=$(mktemp)
           api() {
-            curl -sS -o /tmp/body -w '%{http_code}' "$@" \
+            local code
+            code=$(curl -sS -o /tmp/body -w '%{http_code}' "$@" \
               -H "Authorization: Bearer $GH_TOKEN" \
               -H "Accept: application/vnd.github+json" \
-              -H "X-GitHub-Api-Version: 2022-11-28"
+              -H "X-GitHub-Api-Version: 2022-11-28")
+            echo "http $code" >> "$OUT"
+            head -c 600 /tmp/body >> "$OUT"
+            echo >> "$OUT"
+            echo "$code"
           }
 
-          echo "### token perms"
-          api "https://api.github.com/repos/$REPO" > /tmp/code
-          cat /tmp/code; echo; cat /tmp/body | head -c 400; echo
+          echo "### list deployments" >> "$OUT"
+          api "https://api.github.com/repos/$REPO/deployments?per_page=100" >> "$OUT"
 
-          echo "### list github-pages deployments"
-          api "https://api.github.com/repos/$REPO/deployments?per_page=50" > /tmp/code
-          cat /tmp/code; echo
           python3 - <<'PY' > /tmp/ids
           import json
           try:
@@ -54,19 +59,36 @@ jobs:
               if d.get('environment') == 'github-pages':
                   print(d['id'])
           PY
-          echo "deployment ids:"; cat /tmp/ids
+          echo "### ids" >> "$OUT"; cat /tmp/ids >> "$OUT"
 
           for id in $(cat /tmp/ids); do
-            echo "### DELETE deployment $id"
-            api -X DELETE "https://api.github.com/repos/$REPO/deployments/$id" > /tmp/code
-            echo -n "http "; cat /tmp/code; echo; head -c 400 /tmp/body; echo
-
-            echo "### POST status inactive on $id"
+            echo "### POST inactive $id" >> "$OUT"
             api -X POST "https://api.github.com/repos/$REPO/deployments/$id/statuses" \
-              -d '{"state":"inactive","description":"auto-cancelled by unstick workflow"}' > /tmp/code
-            echo -n "http "; cat /tmp/code; echo; head -c 400 /tmp/body; echo
+              -d '{"state":"inactive","description":"auto-cancelled by unstick workflow"}' >> "$OUT"
+            echo "### DELETE $id" >> "$OUT"
+            api -X DELETE "https://api.github.com/repos/$REPO/deployments/$id" >> "$OUT"
           done
 
-          echo "### try building pages directly"
-          api -X POST "https://api.github.com/repos/$REPO/pages/builds" > /tmp/code
-          echo -n "http "; cat /tmp/code; echo; head -c 400 /tmp/body; echo
+          echo "### POST pages/builds" >> "$OUT"
+          api -X POST "https://api.github.com/repos/$REPO/pages/builds" >> "$OUT"
+
+          {
+            echo "# Pages deploy status"
+            echo
+            echo "generated: $(date -u +%FT%TZ)"
+            echo
+            echo '```'
+            cat "$OUT"
+            echo '```'
+          } > /tmp/pages-deploy-status.md
+
+          # 推去獨立 branch，避免觸發 pages 重新部署造成迴圈
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin "$BRANCH" || true
+          git checkout -B "$BRANCH"
+          mkdir -p ci
+          cp /tmp/pages-deploy-status.md ci/pages-deploy-status.md
+          git add ci/pages-deploy-status.md
+          git commit -m "ci: 更新 pages 部署狀態報告" || true
+          git push origin "HEAD:refs/heads/$BRANCH" || true

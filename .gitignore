@@ -1,0 +1,15 @@
+# 本 repo 只放網站內容（HTML）。
+# 內部工作文件與工具腳本一律留喺本機 ~/novels/，唔好 commit 上來。
+
+# 內部工作文件（角色資料、大綱、進度、goal 指令、SESSION_HANDOFF）
+docs/
+**/docs/
+
+# 工具腳本（審核、驗證、注入）
+*.py
+**/tools/
+**/_work/
+
+# 本機環境
+.DS_Store
+*.swp

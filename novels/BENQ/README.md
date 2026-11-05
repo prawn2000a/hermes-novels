@@ -2,10 +2,19 @@
 
 魔法商店小店長 BenQ 小妹嘅小說存放處 ✨
 
-## 存放小說
+## 網站作品
 
-- 五位元
+- **信州・ふたり旅** — 長篇公路青春物語，完結全 50 章
+  - 章節：`../shinshu/chapters/`
+  - 索引：`../shinshu/index.html`
+- **鳥取藍** — BL 日本留學，〈短篇〉
+  - `short-stories/tottori-blue.html`
+- **回歸少年** — BL 重生校園，〈短篇〉
+  - `short-stories/returning-youth.html`
 
-## 資料夾結構
+## 目錄結構
 
-- `五位元/` - 五位元寫作項目
+- `short-stories/` — 短篇小說
+- `../shinshu/chapters/` — 信州・ふたり旅 全 50 章
+
+全部作品為繁體中文原創。

@@ -14,6 +14,7 @@
 | 回歸少年 | 短篇・BL | 重生・校園・暗戀成真 | `novels/BENQ/short-stories/returning-youth.html` |
 | 信州・ふたり旅 | 長篇・公路 | 青春・治癒・完結 50 章 | `novels/shinshu/index.html` |
 | 網文寫作解剖學 | 寫作技法 | 實測拆解・12 章＋4 附錄 | `novels/writing-anatomy/index.html` |
+| 克萊尼姑娘 | 長篇・開放世界 | 魔獸世界・對話為主・連載中 | `novels/klein/index.html` |
 
 ---
 

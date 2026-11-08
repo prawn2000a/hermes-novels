@@ -5,19 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>《修道院的米洛》第 6 章　第 6 章：來來去去</title>
 <style>
-body{font-family:"Noto Serif TC","Cormorant Garamond",serif;max-width:720px;margin:40px auto;padding:0 20px;background:#faf8f5;color:#2c2a26;line-height:2;font-size:18px;}
-h1{font-size:32px;text-align:center;letter-spacing:0.05em;margin-bottom:40px;color:#6b5b4a;border-bottom:1px solid #d4c5b0;padding-bottom:20px;}
-h2{font-size:24px;text-align:center;margin-top:40px;color:#6b5b4a;}
-p{margin:0 0 1.5em 0;text-indent:2em;}
-.benq-link{position:fixed;top:12px;right:14px;z-index:1000;font-size:12px;color:#6b5b4a;text-decoration:none;background:rgba(250,248,245,0.92);border:1px solid #d4c5b0;border-radius:6px;padding:5px 11px;}
-.copy-btn{display:inline-block;padding:4px 10px;background:#6b5b4a;color:#fff;border:none;border-radius:3px;font-size:12px;cursor:pointer;margin-bottom:16px;}
-.copy-btn.copied{background:#4a7a52;}
+body {font-family:"Cormorant Garamond","Noto Serif TC",serif;max-width:720px;margin:40px auto;padding:0 20px;background:#faf8f5;color:#2c2a26;line-height:2;font-size:18px;}
+h1 {font-size:28px;text-align:center;letter-spacing:0.05em;margin-bottom:40px;color:#6b5b4a;border-bottom:1px solid #d4c5b0;padding-bottom:20px;}
+.chapter-body p {margin:0 0 1.5em 0;text-indent:2em;}
+.copy-btn {display:inline-block;padding:4px 10px;background:#6b5b4a;color:#fff;border:none;border-radius:3px;font-size:12px;cursor:pointer;margin-bottom:16px;}
+.copy-btn:hover {background:#4a3d2f;}
+.copy-btn.copied {background:#4a7a52;}
+.benq-link {position:fixed;top:12px;right:14px;z-index:1000;font-family:"Noto Sans TC",sans-serif;font-size:12px;color:#6b5b4a;text-decoration:none;background:rgba(250,248,245,.92);border:1px solid #d4c5b0;border-radius:6px;padding:5px 11px;}
+.nav-hint {position:fixed;right:14px;bottom:14px;z-index:999;font-family:"Noto Sans TC",sans-serif;font-size:11px;color:#8a7a68;background:rgba(250,248,245,.9);border:1px solid #d4c5b0;border-radius:6px;padding:7px 10px;}
 </style>
 </head>
 <body>
-<a class="benq-link" href="../../index.html">← 回到 BENQ亭</a>
+<a class="benq-link" href="../../index.html">← 回到BenQ亭</a>
 <button class="copy-btn" id="copyBtn" type="button">複製本章</button>
-<h1>《修道院的米洛》</h1>
+<h1>《修道院的米洛》第 6 章　第 6 章：來來去去</h1>
 <div class="chapter-body">
 <h2>第 6 章：來來去去</h2>
 <p>
@@ -180,22 +181,23 @@ p{margin:0 0 1.5em 0;text-indent:2em;}
 「你還在這裡。」
 </p>
 </div>
+<div class="nav-hint">左右鍵翻頁</div>
 <script>
-document.getElementById('copyBtn').addEventListener('click',function(){
+document.getElementById('copyBtn').addEventListener('click',function(){{
   var txt = document.querySelector('.chapter-body').innerText;
-  navigator.clipboard.writeText(txt).then(()=>{this.textContent='已複製';this.classList.add('copied');setTimeout(()=>{this.textContent='複製本章';this.classList.remove('copied');},1500);});
-});
-(function(){
+  navigator.clipboard.writeText(txt).then(()=>{{this.textContent='已複製';this.classList.add('copied');setTimeout(()=>{{this.textContent='複製本章';this.classList.remove('copied');}},1500);}});
+}});
+(function(){{
   var path = location.pathname;
   var m = path.match(/(chapter-(\d+)\.html)/);
   if(!m) return;
   var num = parseInt(m[1].replace('chapter-','').replace('.html',''),10);
-  document.addEventListener('keydown',function(e){
+  document.addEventListener('keydown',function(e){{
     if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return;
-    if(e.key==='ArrowLeft'){location.href = path.replace(/chapter-\d+\.html/, 'chapter-'+String(Math.max(1,num-1)).padStart(3,'0')+'.html');}
-    if(e.key==='ArrowRight'){location.href = path.replace(/chapter-\d+\.html/, 'chapter-'+String(num+1).padStart(3,'0')+'.html');}
-  });
-})();
+    if(e.key==='ArrowLeft') location.href = path.replace(/chapter-\d+\.html/, 'chapter-'+String(Math.max(1,num-1)).padStart(3,'0')+'.html');
+    if(e.key==='ArrowRight') location.href = path.replace(/chapter-\d+\.html/, 'chapter-'+String(num+1).padStart(3,'0')+'.html');
+  }});
+}})();
 </script>
 </body>
 </html>

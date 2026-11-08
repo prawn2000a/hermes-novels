@@ -9,11 +9,14 @@ body{font-family:"Noto Serif TC","Cormorant Garamond",serif;max-width:720px;marg
 h1{font-size:32px;text-align:center;letter-spacing:0.05em;margin-bottom:40px;color:#6b5b4a;border-bottom:1px solid #d4c5b0;padding-bottom:20px;}
 h2{font-size:24px;text-align:center;margin-top:40px;color:#6b5b4a;}
 p{margin:0 0 1.5em 0;text-indent:2em;}
-a.benq{position:fixed;top:12px;right:14px;font-size:12px;color:#6b5b4a;text-decoration:none;}
+.benq-link{position:fixed;top:12px;right:14px;z-index:1000;font-size:12px;color:#6b5b4a;text-decoration:none;background:rgba(250,248,245,0.92);border:1px solid #d4c5b0;border-radius:6px;padding:5px 11px;}
+.copy-btn{display:inline-block;padding:4px 10px;background:#6b5b4a;color:#fff;border:none;border-radius:3px;font-size:12px;cursor:pointer;margin-bottom:16px;}
+.copy-btn.copied{background:#4a7a52;}
 </style>
 </head>
 <body>
-<a class="benq" href="../../index.html">← BENQ亭</a>
+<a class="benq-link" href="../../index.html">← 回到 BENQ亭</a>
+<button class="copy-btn" id="copyBtn" type="button">複製本章</button>
 <h1>《修道院的米洛》</h1>
 <div class="chapter-body">
 <h2>第 1 章：修道院的孩子</h2>
@@ -243,5 +246,23 @@ a.benq{position:fixed;top:12px;right:14px;font-size:12px;color:#6b5b4a;text-deco
 米洛也回去睡。臨睡前他有種說不出的預感：明天那句話會很難說——但他不打算不說。
 </p>
 </div>
+<script>
+document.getElementById('copyBtn').addEventListener('click',function(){
+  var txt = document.querySelector('.chapter-body').innerText;
+  navigator.clipboard.writeText(txt).then(()=>{this.textContent='已複製';this.classList.add('copied');setTimeout(()=>{this.textContent='複製本章';this.classList.remove('copied');},1500);});
+});
+/* 簡易左右鍵翻頁：上一章/下一章假設檔名連續 */
+(function(){
+  var path = location.pathname;
+  var m = path.match(/(chapter-(\d+)\.html)/);
+  if(!m) return;
+  var num = parseInt(m[1].replace('chapter-','').replace('.html',''),10);
+  document.addEventListener('keydown',function(e){
+    if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return;
+    if(e.key==='ArrowLeft'){location.href = path.replace(/chapter-\d+\.html/, 'chapter-'+String(Math.max(1,num-1)).padStart(3,'0')+'.html');}
+    if(e.key==='ArrowRight'){location.href = path.replace(/chapter-\d+\.html/, 'chapter-'+String(num+1).padStart(3,'0')+'.html');}
+  });
+})();
+</script>
 </body>
 </html>

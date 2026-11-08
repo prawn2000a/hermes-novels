@@ -12,7 +12,12 @@ h1 {font-size:28px;text-align:center;letter-spacing:0.05em;margin-bottom:40px;co
 .copy-btn:hover {background:#4a3d2f;}
 .copy-btn.copied {background:#4a7a52;}
 .benq-link {position:fixed;top:12px;right:14px;z-index:1000;font-family:"Noto Sans TC",sans-serif;font-size:12px;color:#6b5b4a;text-decoration:none;background:rgba(250,248,245,.92);border:1px solid #d4c5b0;border-radius:6px;padding:5px 11px;}
-.nav-hint {position:fixed;right:14px;bottom:14px;z-index:999;font-family:"Noto Sans TC",sans-serif;font-size:11px;color:#8a7a68;background:rgba(250,248,245,.9);border:1px solid #d4c5b0;border-radius:6px;padding:7px 10px;}
+.nav-hint {position:fixed;right:14px;bottom:14px;z-index:999;font-family:"Noto Sans TC",sans-serif;font-size:11px;line-height:1.5;color:#8a7a68;background:rgba(250,248,245,.9);border:1px solid #d4c5b0;border-radius:6px;padding:7px 10px;text-align:right;user-select:none;-webkit-user-select:none;transition:opacity .35s ease;}
+.nav-hint.is-faded {opacity:.28;}
+.nav-hint b {color:#6b5b4a;font-weight:600;}
+.nav-hint .nav-keys {display:block;margin-top:2px;}
+@media (max-width:640px) {.nav-hint {right:10px;bottom:10px;font-size:10px;padding:6px 8px;}}
+@media print {.nav-hint,.benq-link,.copy-btn {display:none;}}
 </style>
 </head>
 <body>
@@ -418,23 +423,113 @@ h1 {font-size:28px;text-align:center;letter-spacing:0.05em;margin-bottom:40px;co
 像是近了一點。
 </p>
 </div>
-<div class="nav-hint">左右鍵翻頁</div>
+<div class="nav-hint"></div>
 <script>
-document.getElementById('copyBtn').addEventListener('click',function(){{
-  var txt = document.querySelector('.chapter-body').innerText;
-  navigator.clipboard.writeText(txt).then(()=>{{this.textContent='已複製';this.classList.add('copied');setTimeout(()=>{{this.textContent='複製本章';this.classList.remove('copied');}},1500);}});
-}});
-(function(){{
-  var path = location.pathname;
-  var m = path.match(/(chapter-(\d+)\.html)/);
-  if(!m) return;
-  var num = parseInt(m[1].replace('chapter-','').replace('.html',''),10);
-  document.addEventListener('keydown',function(e){{
-    if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA') return;
-    if(e.key==='ArrowLeft') location.href = path.replace(/chapter-\d+\.html/, 'chapter-'+String(Math.max(1,num-1)).padStart(3,'0')+'.html');
-    if(e.key==='ArrowRight') location.href = path.replace(/chapter-\d+\.html/, 'chapter-'+String(num+1).padStart(3,'0')+'.html');
-  }});
-}})();
+/* 複製章名與正文；Clipboard API 不可用時回退到 execCommand。 */
+(function () {
+  var btn = document.getElementById('copyBtn');
+  if (!btn) return;
+  function buildText() {
+    var title = document.querySelector('h1');
+    var body = document.querySelector('.chapter-body');
+    var parts = [];
+    if (title) parts.push(title.innerText.trim());
+    if (body) parts.push(body.innerText.trim());
+    return parts.filter(Boolean).join('\n\n');
+  }
+  function fallback(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+  btn.addEventListener('click', function () {
+    var text = buildText();
+    var original = '複製本章';
+    function done() {
+      btn.textContent = '已複製 ✓';
+      btn.classList.add('copied');
+      setTimeout(function () { btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+    }
+    function fail() {
+      btn.textContent = '複製失敗';
+      setTimeout(function () { btn.textContent = original; }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done).catch(function () {
+        if (fallback(text)) done(); else fail();
+      });
+    } else if (fallback(text)) done(); else fail();
+  });
+})();
+
+/* 鍵盤左右鍵 + 手機左右滑動：右滑上一章、左滑下一章。 */
+(function () {
+  var TOTAL = 30;
+  var match = location.pathname.match(/chapter-(\d{3})\.html$/);
+  if (!match) return;
+  var cur = parseInt(match[1], 10);
+  var prev = cur > 1 ? cur - 1 : null;
+  var next = cur < TOTAL ? cur + 1 : null;
+  var base = location.pathname.replace(/[^/]*$/, '');
+  function href(n) {
+    return n === null ? null : base + 'chapter-' + String(n).padStart(3, '0') + '.html';
+  }
+  function go(n) {
+    var target = href(n);
+    if (target) location.href = target;
+  }
+  function hasSelection() {
+    var sel = window.getSelection && window.getSelection();
+    return !!(sel && sel.toString && sel.toString().length > 0);
+  }
+  function isInteractive(el) {
+    return el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.isContentEditable);
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey || isInteractive(e.target) || hasSelection()) return;
+    if (e.key === 'ArrowLeft' && prev !== null) { e.preventDefault(); go(prev); }
+    else if (e.key === 'ArrowRight' && next !== null) { e.preventDefault(); go(next); }
+  });
+  var x0 = null, y0 = null, t0 = 0, tracking = false;
+  document.addEventListener('touchstart', function (e) {
+    if (e.touches.length !== 1 || isInteractive(e.target)) { tracking = false; return; }
+    x0 = e.touches[0].clientX;
+    y0 = e.touches[0].clientY;
+    t0 = Date.now();
+    tracking = true;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (!tracking) return;
+    tracking = false;
+    var touch = e.changedTouches[0];
+    if (!touch || hasSelection()) return;
+    var dx = touch.clientX - x0;
+    var dy = touch.clientY - y0;
+    if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.8 || Date.now() - t0 > 800) return;
+    if (dx > 0) go(prev); else go(next);
+  }, { passive: true });
+  document.addEventListener('touchcancel', function () { tracking = false; }, { passive: true });
+  var parts = [];
+  if (prev !== null) parts.push('<span class="nav-keys"><b>←</b> 上一章</span>');
+  if (next !== null) parts.push('<span class="nav-keys"><b>→</b> 下一章</span>');
+  parts.push('<span class="nav-keys">手指右滑／左滑</span>');
+  var el = document.querySelector('.nav-hint');
+  if (!el) { el = document.createElement('div'); el.className = 'nav-hint'; document.body.appendChild(el); }
+  el.innerHTML = '第 ' + cur + ' / ' + TOTAL + ' 章<br>' + parts.join('');
+  var faded = false;
+  function fade() { if (!faded) { faded = true; el.classList.add('is-faded'); } }
+  setTimeout(fade, 4000);
+  el.addEventListener('mouseenter', function () { faded = false; el.classList.remove('is-faded'); });
+  el.addEventListener('mouseleave', fade);
+})();
 </script>
 </body>
 </html>

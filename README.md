@@ -15,6 +15,7 @@
 | 信州・ふたり旅 | 長篇・公路 | 青春・治癒・完結 50 章 | `novels/shinshu/index.html` |
 | 網文寫作解剖學 | 寫作技法 | 實測拆解・12 章＋4 附錄 | `novels/writing-anatomy/index.html` |
 | 克萊尼姑娘 | 長篇・開放世界 | 魔獸世界・對話為主・連載中 | `novels/klein/index.html` |
+| 星艦之夜・小說美術館 | 科幻群像・太空 | 二十四篇返航故事 | `novels/starship-night-gallery/index.html` |
 
 ---
 
